@@ -23,7 +23,7 @@ app.config(["$routeProvider", function ($routeProvider) {
         controllerAs: 'bookCtrl'
     })
     .when("/authors/:id", {
-        templateUrl: 'views/authorsEdit.html',
+        templateUrl: 'views/authorsEdit2.html',
         controller: 'authorsEditController',
         controllerAs: 'authEditCtrl'
     })
@@ -31,17 +31,17 @@ app.config(["$routeProvider", function ($routeProvider) {
 
 //DIRECTIVES
 
-app.directive('searchAuthors', ["$location", function($location) {
+app.directive('searchAuthors', ["$timeout","$location", function($timeout,$location) {
   return {
     restrict: 'E',
     templateUrl: 'templates/searchauthors.html',
     scope: {
         authors: "="
     },
-    link: function (scope) {
+    link: function (scope,el,attrs) {
         scope.go = function ( path ) {
-        $location.path( path );
-    };
+            $location.path( path );
+        };
     }
   };
 }]);
@@ -52,6 +52,29 @@ app.directive('searchBooks', function() {
     templateUrl: 'templates/searchbooks.html',
     scope: {
         books: "="
+    },
+    link: function() {
+
+        //$('.tooltip').tooltip(options)
+    }
+  };
+});
+
+app.directive('entityControls', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/entityControls.html',
+    scope: {
+        editAction: "&",
+        deleteAction: "&",
+        entityName: "@",
+        entityId: "@"
+
+    },
+    link: function() {
+
+        //console.log(entityId, entityName);
+        //$('.tooltip').tooltip(options)
     }
   };
 });
@@ -70,11 +93,10 @@ app.controller("mainController", ["$scope", function ($scope) {
 app.controller("authorsController", ["$scope","$http","$location", function ($scope,$http,$location) {
     
     "use strict";
-    $scope.authors = {};
+    $scope.authors = [];
     $http.get('/api/authors').success(function(data){
             $scope.authors = data;
     });
-    
       
 
 
@@ -83,6 +105,7 @@ app.controller("authorsController", ["$scope","$http","$location", function ($sc
 app.controller("booksController", ["$scope","$http", function ($scope,$http) {
     
    "use strict";
+    $scope.books = [];
     $http.get('/api/books').success(function(data){
         $scope.books = data;
     });
