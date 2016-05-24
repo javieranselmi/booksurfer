@@ -1,0 +1,5 @@
+- ABM Autores
+    - Search Autores (PERMITE DELETE) --> /authors/search
+    - ALTA + MODIFICACION (1 Screen)  --> /authors/:id ó /authors/new
+- ABM Libros
+- ABM Usuarios
