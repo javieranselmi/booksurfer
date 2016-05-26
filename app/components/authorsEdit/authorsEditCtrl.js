@@ -23,8 +23,8 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
    		$scope.toggleEdit();
    	};
 
-   	$scope.guardarCambios {
-   		
+   	$scope.guardarCambios = function() {
+
    	}
 
    $http({
