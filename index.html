@@ -14,10 +14,10 @@
     <title>BookStore 2</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/application.css" >
-    <link rel="stylesheet" href="./css/search.css" >
-    <link rel="stylesheet" href="./css/card.css" >
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/application.css" >
+    <link rel="stylesheet" href="./assets/css/search.css" >
+    <link rel="stylesheet" href="./assets/css/card.css" >
 
 </head>
 
@@ -54,13 +54,28 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/jquery.min.js"><\/script>')</script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-mocks.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/e2e.js"></script>
+
+    <!-- App inits -->
+    <script src="./app/app.module.js"></script>
+    <script src="./app/app.route.js"></script>
+    <!-- Directives -->
+    <script src="./app/components/authorsSearch/authorsSearchDir.js"></script>
+    <script src="./app/components/booksSearch/booksSearchDir.js"></script>
+    <script src="./app/shared/entityControls/entityControlsDir.js"></script>
+    <!-- Services -->
+    <script src="./app/shared/countrySelect/countrySelectSvc.js"></script>
+    <!-- Controllers -->
+    <script src="./app/components/home/homeCtrl.js"></script>
+    <script src="./app/components/authorsEdit/authorsEditCtrl.js"></script>
+    <script src="./app/components/authorsSearch/authorsSearchCtrl.js"></script>
+    <script src="./app/components/booksSearch/booksSearchCtrl.js"></script>
+    <!-- Other Libraries -->
+    <script src="./app/appDev.e2e.js"></script>
 
     
 </body>
