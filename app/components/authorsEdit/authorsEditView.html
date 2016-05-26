@@ -1,4 +1,5 @@
     <div class="row">
+        <div class="authorEditPanel" ng-show="definedEntity">
         <form role="form" class="well">
             <div id="author-name-display" class="col-lg-12 well">
                     <img class="author-edit-photo pull-left" ng-src="{{ author.imageUrl }}" alt="No autor">
@@ -8,34 +9,39 @@
                 <div class="form-group">
                     <label for="InputName">Nombre(s) del autor</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="InputName" id="InputName" placeholder="ej.  Germán, María del Pilar" required ng-model="author.firstName">
+                        <input type="text" class="form-control" name="InputName" id="InputName" placeholder="ej.  Germán, María del Pilar" required ng-model="author.firstName" ng-disabled="!editableEntity"/>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="InputName">Apellido(s) del autor</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="InputName" id="InputName" placeholder="ej. Gonzalez, Aguirre" required ng-model="author.lastName">
+                        <input type="text" class="form-control" name="InputName" id="InputName" placeholder="ej. Gonzalez, Aguirre" required ng-model="author.lastName" ng-disabled="!editableEntity">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="InputName">Nacionalidad del autor</label>
                     <div class="input-group selectpicker-input-group">
-                        <select data-style="btn-primary" name="singleSelect" ng-model="author.nationality" ng-options="item for item in countries" class="selectpicker">
+                        <select data-style="btn-primary" name="singleSelect" ng-model="author.nationality" ng-options="item for item in countries" class="selectpicker" ng-disabled="!editableEntity">
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                 <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-danger">
-                        <input type="checkbox" autocomplete="off"> Modificar
+                      <label class="btn btn-danger" ng-click="toggleEdit()">
+                        <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
+                        <input type="checkbox" autocomplete="off"> {{editMessage}}
                       </label>
                 </div>
-                <input type="submit" class="btn btn-primary disabled" value="Guardar cambios">
-                <input type="submit" class="btn btn-info disabled" value="Restaurar">
+                <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-disabled="!editableEntity">
+                <input type="submit" class="btn btn-info" value="Restaurar" ng-disabled="!editableEntity" ng-click="restoreEntity()">
                 </div>
-                
             </div>
         </form>
+        </div>
+        <div class="authorEditPanel" ng-hide="definedEntity">
+            <h1>Oops!</h1>
+            <h3>No hay autor con el id {{author.id}}</h3>
+        </div>
     </div>
