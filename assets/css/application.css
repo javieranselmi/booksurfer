@@ -62,3 +62,7 @@ body {
 .selectpicker-input-group {
     width: 100%;
   }
+
+.edit-validation-alert {
+  display:block;
+}
