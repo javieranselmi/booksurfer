@@ -25,6 +25,6 @@ appDev.run(function($httpBackend) {
   $httpBackend.whenGET('/api/authors').respond(authors);
   $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
   $httpBackend.whenGET('/api/books').respond(books);
-  $httpBackend.whenGET(new RegExp('views\/.*')).passThrough();
-  $httpBackend.whenGET(new RegExp('templates\/.*')).passThrough();
+  $httpBackend.whenGET(new RegExp('app/*')).passThrough();
+  
 });

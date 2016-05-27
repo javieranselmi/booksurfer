@@ -9,19 +9,13 @@
 </div>
 
 <!--Results area -->
-<div class="media search-result shadow" ng-repeat="author in authors | filter:search">
+<div class="media search-result well" ng-repeat="author in authors | filter:search">
     <a class="pull-left" href="#">
         <img class="media-object author-photo" ng-src="{{ author.imageUrl }}" alt="img">
     </a>
     <div class="media-body">
         <h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4>
     </div>
-<div class="btn-group" role="group" aria-label="...">
-        <button ng-click="go('/authors/' + author.id )" type="button" class="btn btn-primary">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        </button>
-        <button type="button" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-    </div>
+<entity-controls edit-action="go(place)" delete-action="" entity-name="authors" entity-id=" {{ author.id}}"></entity-controls>
+
 </div>
