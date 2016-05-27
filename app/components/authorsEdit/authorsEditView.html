@@ -16,7 +16,8 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                 
                     </div>
-                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uFirstName.$error.required">El autor debe tener nombre.</div>
+                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uFirstName.$error.required">El autor debe tener nombre.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="InputName">Apellido(s) del autor</label>
@@ -34,13 +35,34 @@
                     </div>
                 </div>
                 <div class="form-group">
-                
                 <button class="btn btn-danger" ng-click="toggleEdit()" ng-show="!editableEntity">
                     <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
                     Editar
                 </button>
                 <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="!editableEntity" data-toggle="modal" data-target="#editConfirmationModal">
                 <input class="btn btn-info" value="Restaurar" ng-disabled="!editableEntity" ng-click="restoreEntity()">
+                </div>
+                <div id="author-books-list">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Nombre del libro</th>
+                        <th>Editorial</th>
+                        <th>Año</th>
+                        <th>Ejemplares disp.</th>
+                        <th>Ejemplares tot.</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="book in author.books">
+                        <td><a href="#"> {{ book.name }}</a></td>
+                        <td>{{ book.editorial }}</td>
+                        <td>{{ book.year }}</td>
+                        <td>{{ book.copiesAvailable }}</td>
+                        <td>{{ book.copiesTotal }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
             </div>
         </form>
@@ -70,3 +92,4 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+</div>
