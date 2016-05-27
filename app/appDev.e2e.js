@@ -13,7 +13,7 @@ appDev.run(function($httpBackend) {
     
     var authors = [
          {id:'1',  firstName: 'Juan', lastName: 'Tomate', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'8',  firstName: 'Omar', lastName: 'Chocolate', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
+         {id:'8',  firstName: 'Omar', lastName: 'Chocolate', imageUrl: "http://facialexercisesguide.com/wp-images/man-face.jpg", nationality: "Argentina", books: books},
          {id:'72', firstName: 'Pepe', lastName: 'Doriano Finfinelo', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
          {id:'83', firstName: 'Jose', lastName: 'Himmelfreudpointer', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
          {id:'22', firstName: 'Luis', lastName: 'Ramadan', imageUrl: imageUrlForAll, nationality: "Argentina", books: books}
@@ -25,9 +25,12 @@ appDev.run(function($httpBackend) {
     
   // returns the current list of phones
   $httpBackend.whenGET('/api/authors').respond(authors);
-  $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
+    
   $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
   $httpBackend.whenPOST('/api/authors/1').respond(message);
+    
+  $httpBackend.whenGET('/api/authors/8').respond(authors[1]);
+  $httpBackend.whenPOST('/api/authors/8').respond(message);
   $httpBackend.whenGET('/api/books').respond(books);
   $httpBackend.whenGET(new RegExp('app/*')).passThrough();
   

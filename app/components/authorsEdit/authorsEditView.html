@@ -39,7 +39,7 @@
                     <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
                     Editar
                 </button>
-                <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="!editableEntity" data-toggle="modal" data-target="#editConfirmationModal">
+                <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="!editableEntity || form.$invalid" data-toggle="modal" data-target="#editConfirmationModal">
                 <input class="btn btn-info" value="Restaurar" ng-disabled="!editableEntity" ng-click="restoreEntity()">
                 </div>
                 <div id="author-books-list">

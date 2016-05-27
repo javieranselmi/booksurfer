@@ -21,7 +21,6 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
         };
     });
     $scope.restoreEntity = function() {
-        console.log($scope.originalAuthor);
         $scope.author = jQuery.extend(true, {}, $scope.originalAuthor);
         $scope.toggleEdit();
     };
