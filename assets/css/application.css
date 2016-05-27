@@ -66,3 +66,42 @@ body {
 .edit-validation-alert {
   display:block;
 }
+
+#modeMessage {
+    width: 100%;
+    padding: 5px;
+    margin: 20px 0px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+    
+.btn-static {
+  background-color: #f0ad4e;
+  border: 1px solid #eea236;
+  cursor: default;
+  display:block;
+  margin: 20px 0px;
+}
+.btn-static:active {
+  -moz-box-shadow:    inset 0 0 0px #f0ad4e;
+  -webkit-box-shadow: inset 0 0 0px #f0ad4e;
+  box-shadow:         inset 0 0 0px #f0ad4e;
+}

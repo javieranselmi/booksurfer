@@ -4,7 +4,10 @@
             <div id="author-name-display" class="col-lg-12 well">
                     <img class="author-edit-photo pull-left" ng-src="{{ author.imageUrl }}" alt="No autor">
                     <h2>{{ (author.firstName + " " +author.lastName) || "No se halló el autor"}}</h2>
-                    <h4>{{ author.nationality || "Nacionalidad desconocida" }}</h4> 
+                    <h4>{{ author.nationality || "Nacionalidad desconocida" }}</h4>
+            </div>
+            <div id="modeMessage" class="col-lg-12" ng-class="{ 'bg-success': !editableEntity, 'bg-danger': editableEntity }">
+                <h4>{{ modeMessage }}</h4>
             </div>
                 <div class="form-group">
                     <label for="InputName">Nombre(s) del autor</label>
@@ -31,14 +34,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-danger" ng-click="toggleEdit()">
-                        <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
-                        <input type="checkbox" autocomplete="off"> {{editMessage}}
-                      </label>
-                </div>
-                <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-disabled="!editableEntity">
-                <input type="submit" class="btn btn-info" value="Restaurar" ng-disabled="!editableEntity" ng-click="restoreEntity()">
+                
+                <button class="btn btn-danger" ng-click="toggleEdit()" ng-show="!editableEntity">
+                    <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
+                    Editar
+                </button>
+                <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="!editableEntity" data-toggle="modal" data-target="#editConfirmationModal">
+                <input class="btn btn-info" value="Restaurar" ng-disabled="!editableEntity" ng-click="restoreEntity()">
                 </div>
             </div>
         </form>
@@ -48,3 +50,23 @@
             <h3>No hay autor con el id {{author.id}}</h3>
         </div>
     </div>
+
+<div id="editConfirmationModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="btn btn-static" ng-show="saveStatus === 'unset'">
+              <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> {{ "Guardando" }}
+          </div>
+          <div class="btn btn-static" ng-show="saveStatus === 'success'">
+              <span class="glyphicon glyphicon-ok"></span> {{ "Todo listo! Se ha guardado exitosamente!" }}
+          </div>
+          <div class="btn btn-static" ng-show="saveStatus === 'error'">
+              <span class="glyphicon glyphicon-remove"></span> {{ "Ha habido un error en el servidor. Prueba de nuevo o solicita soporte técnico." }}
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

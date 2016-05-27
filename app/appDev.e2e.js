@@ -21,9 +21,13 @@ appDev.run(function($httpBackend) {
     
     var regex = new RegExp('/authors/([0-9]+)');
     
+    var message = {notice: "Object was saved successfully"};
+    
   // returns the current list of phones
   $httpBackend.whenGET('/api/authors').respond(authors);
   $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
+  $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
+  $httpBackend.whenPOST('/api/authors/1').respond(message);
   $httpBackend.whenGET('/api/books').respond(books);
   $httpBackend.whenGET(new RegExp('app/*')).passThrough();
   
