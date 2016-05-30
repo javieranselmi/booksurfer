@@ -7,14 +7,15 @@ app.directive('entityControls', function() {
     scope: {
         editAction: "&",
         deleteAction: "&",
+        entity: "=",
         entityName: "@",
-        entityId: "@"
+        deleteStatus: "="
 
     },
-    link: function() {
-
-        //console.log(entityId, entityName);
-        //$('.tooltip').tooltip(options)
+    link: function(scope) {
+        
     }
   };
 });
+
+
