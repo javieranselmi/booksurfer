@@ -20,6 +20,11 @@ app.config(["$routeProvider", function ($routeProvider) {
         controller: 'booksSearchController',
         controllerAs: 'bookCtrl'
     })
+    .when("/authors/new", {
+        templateUrl: 'app/components/authorsNew/authorsNewView.html',
+        controller: 'authorsNewController',
+        controllerAs: 'authNewCtrl'
+    })
     .when("/authors/:id", {
         templateUrl: 'app/components/authorsEdit/authorsEditView.html',
         controller: 'authorsEditController',

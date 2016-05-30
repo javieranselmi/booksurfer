@@ -1,5 +1,10 @@
-- ABM Autores (95%)
-    - Poder modificar el link de la foto.
+- Application wide
+    - Faltarían los breadcrums
+
+- ABM Autores (100%)
+    - Tabs + focus en edit, new y busqueda.
+    - Titulos de libros te lleven a el libro en cuestión.
+    - ¿Esta seguro de eliminar?
     
 - ABM Libros (5%)
     - Hacer la pantalla de edicion.

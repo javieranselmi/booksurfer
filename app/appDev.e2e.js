@@ -23,9 +23,11 @@ appDev.run(function($httpBackend) {
     
     var messagePost = {notice: "Object was saved successfully"};
     var messageDelete = {notice: "Object was deleted successfully"};
+    var messageNew = {notice: "Object was created successfully"};
     
   // returns the current list of phones
   $httpBackend.whenGET('/api/authors').respond(authors);
+  $httpBackend.whenPOST('/api/authors').respond(messageNew);
     
   $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
   $httpBackend.whenPOST('/api/authors/1').respond(messagePost);
