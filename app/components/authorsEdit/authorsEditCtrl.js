@@ -2,6 +2,7 @@
 
 app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeout","$location","countrySelect", function ($scope,$http,$routeParams,$timeout,$location,countrySelect) {
     
+    
     $scope.author = {}; //Se inicializa un autor vacío
     $scope.author.id = $routeParams.id;
     $scope.definedEntity = false; //Inicialmente, no hay entidad. Este propiedad se va a true cuano se halla autor.
@@ -59,6 +60,7 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
        			 $scope.author = response.data;
        			 $scope.originalAuthor = jQuery.extend(true, {}, response.data) //Crea copia de objeto
        			 $scope.definedEntity = true;
+                 $scope.displayUrl = $scope.author.imageUrl;
     		}, 0);
 	}, function errorCallback(err) {
 	  });
