@@ -1,10 +1,10 @@
 //CONTROLLERS
 
-app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeout","$location","countrySelect", function ($scope,$http,$routeParams,$timeout,$location,countrySelect) {
+app.controller("booksEditController", ["$scope","$http","$routeParams","$timeout","$location","countrySelect", function ($scope,$http,$routeParams,$timeout,$location,countrySelect) {
     
     
-    $scope.author = {}; //Se inicializa un autor vacío
-    $scope.author.id = $routeParams.id;
+    $scope.book = {}; //Se inicializa un autor vacío
+    $scope.book.id = $routeParams.id;
     $scope.definedEntity = false; //Inicialmente, no hay entidad. Este propiedad se va a true cuano se halla autor.
     $scope.editableEntity = ($routeParams.editmode === "edit") ? true : false;
     $scope.saveStatus = "unset";
@@ -22,16 +22,16 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
         };
     });
     $scope.restoreEntity = function() {
-        $scope.author = jQuery.extend(true, {}, $scope.originalAuthor);
+        $scope.book = jQuery.extend(true, {}, $scope.originalBook);
         $scope.toggleEdit();
     };
 
    	$scope.guardarCambios = function() {
         $scope.saveStatus="unset";
-        $http.post('/api/authors/'+ $scope.author.id, $scope.author).then( function(response) {
+        $http.post('/api/books/'+ $scope.book.id, $scope.book).then( function(response) {
             //Success callback
             $scope.saveStatus="success";
-            $scope.originalAuthor = $scope.author;
+            $scope.originalBook = $scope.book;
             $scope.restoreEntity();
             
         }, function(err) {
@@ -41,10 +41,10 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
    	}
     
     $scope.deleteEntity = function() {
-        $http.delete("/api/authors/"+ $scope.author.id).then(function() {
+        $http.delete("/api/books/"+ $scope.book.id).then(function() {
                 $scope.saveStatus = "success";
                 $('#editConfirmationModal').on('hidden.bs.modal', function () {
-                  $scope.$apply(function(){$location.path("/authors/search")});
+                  $scope.$apply(function(){$location.path("/books/search")});
                 });  
             
             },function(){
@@ -54,13 +54,13 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
 
    $http({
 	  method: 'GET',
-	  url: '/api/authors/' + $scope.author.id
+	  url: '/api/books/' + $scope.book.id
 	}).then(function(response) {
 		    $timeout(function () {
-       			 $scope.author = response.data;
-       			 $scope.originalAuthor = jQuery.extend(true, {}, response.data) //Crea copia de objeto
+       			 $scope.book = response.data;
+       			 $scope.originalBook = jQuery.extend(true, {}, response.data) //Crea copia de objeto
        			 $scope.definedEntity = true;
-                 $scope.displayUrl = $scope.author.imageUrl;
+                 $scope.displayUrl = $scope.book.imageUrl;
     		}, 0);
 	}, function errorCallback(err) {
 	  });

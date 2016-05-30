@@ -9,7 +9,7 @@ app.directive('searchAuthors', ["$timeout","$location","$http", function($timeou
     },
     link: function (scope,el,attrs) {
         scope.deleteStatus = "unset";
-        scope.go = function ( path ) {
+        scope.edit = function ( path ) {
             $location.path( path );
         };
         scope.delete = function ( author ) {

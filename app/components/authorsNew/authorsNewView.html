@@ -1,0 +1,52 @@
+    <div class="row">
+        <div class="authorEditPanel">
+        <form name="form" role="form" class="well" novalidate>
+            <div id="author-name-display" class="col-lg-12 well">
+                    <img class="author-edit-photo pull-left" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="No autor"/>
+                    <h2>{{ (author.firstName + " " +author.lastName)}}</h2>
+                    <h4>{{ author.nationality }}</h4>
+            </div>
+            <div id="modeMessage" class="col-lg-12 bg-danger">
+                <h4>Modo de creación</h4>
+            </div>
+                <div class="form-group">
+                    <label for="InputName">Nombre(s) del autor</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="uFirstName" id="firstNameInput" placeholder="ej.  Germán, María del Pilar" required ng-model="author.firstName" autofocus/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                
+                    </div>
+                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uFirstName.$error.required  && !form.uFirstName.$pristine ">El autor debe tener nombre.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputName">Apellido(s) del autor</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="uLastName" id="lastNameInput" placeholder="ej. Gonzalez, Aguirre" required ng-model="author.lastName">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    </div>
+                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uLastName.$error.required && !form.uLastName.$pristine">El autor debe tener apellido.</div>
+                </div>
+                <div class="form-group">
+                    <label for="InputName">Nacionalidad del autor</label>
+                    <div class="input-group selectpicker-input-group">
+                        <select data-style="btn-primary" name="singleSelect" ng-model="author.nationality" ng-options="item for item in countries" class="selectpicker" required>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputName">Url de la foto del autor</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="uImageUrl" id="imageUrlInput" placeholder="ej.  http://carlyle.com/picture.jpg" ng-model="author.imageUrl"/>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-camera"></span></span>
+                
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="form.$invalid" data-toggle="modal" data-target="#editConfirmationModal"/>
+                </div>
+        </form>
+        </div>
+    </div>
+
+<modal save-status="saveStatus"></modal>
