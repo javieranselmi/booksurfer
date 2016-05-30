@@ -1,6 +1,6 @@
 //CONTROLLERS
 
-app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeout","countrySelect", function ($scope,$http,$routeParams,$timeout,countrySelect) {
+app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeout","$location","countrySelect", function ($scope,$http,$routeParams,$timeout,$location,countrySelect) {
     
     $scope.author = {}; //Se inicializa un autor vacío
     $scope.author.id = $routeParams.id;
@@ -38,6 +38,18 @@ app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeo
             $scope.saveStatus="error";
         });
    	}
+    
+    $scope.deleteEntity = function() {
+        $http.delete("/api/authors/"+ $scope.author.id).then(function() {
+                $scope.saveStatus = "success";
+                $('#editConfirmationModal').on('hidden.bs.modal', function () {
+                  $scope.$apply(function(){$location.path("/authors/search")});
+                });  
+            
+            },function(){
+                $scope.saveStatus = "error";
+            });
+    };
 
    $http({
 	  method: 'GET',

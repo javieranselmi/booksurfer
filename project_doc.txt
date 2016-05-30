@@ -1,7 +1,4 @@
-- ABM Autores (85%)
-    - Falta funcionalidad delete (en pagina de edicion Y en pagina de busqueda)
-    - Hacer que el edit entre en la pantalla edit ya en el modo edición.
-    - Agregar link en el autor para ir directamente a ver al autor mismo.
+- ABM Autores (95%)
     - Poder modificar el link de la foto.
     
 - ABM Libros (5%)

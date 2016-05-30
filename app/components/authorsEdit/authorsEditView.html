@@ -35,12 +35,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <button class="btn btn-danger" ng-click="toggleEdit()" ng-show="!editableEntity">
-                    <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
-                    Editar
-                </button>
-                <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="!editableEntity || form.$invalid" data-toggle="modal" data-target="#editConfirmationModal">
-                <input class="btn btn-info" value="Restaurar" ng-disabled="!editableEntity" ng-click="restoreEntity()">
+                    <button class="btn btn-warning" ng-click="toggleEdit()" ng-show="!editableEntity">
+                        <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
+                        Editar
+                    </button>
+                    <input type="submit" class="btn btn-primary" value="Guardar cambios" ng-click="guardarCambios()" ng-disabled="!editableEntity || form.$invalid" data-toggle="modal" data-target="#editConfirmationModal">
+                    <button class="btn btn-info" ng-disabled="!editableEntity" ng-click="restoreEntity()">Restaurar</button>
+                    <button class="btn btn-danger" ng-click="deleteEntity()" data-toggle="modal" data-target="#editConfirmationModal">Eliminar</button>
                 </div>
                 <div id="author-books-list">
                   <table class="table table-hover">
