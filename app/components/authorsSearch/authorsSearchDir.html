@@ -16,6 +16,7 @@
     <div class="media-body">
         <h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4>
     </div>
-<entity-controls edit-action="go(place)" delete-action="" entity-name="authors" entity-id=" {{ author.id}}"></entity-controls>
+<entity-controls edit-action="go(place)" delete-action="delete(author)" entity="author" entity-name="authors" delete-status="deleteStatus"></entity-controls>
 
 </div>
+
