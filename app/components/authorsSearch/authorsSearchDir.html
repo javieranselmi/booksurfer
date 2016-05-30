@@ -14,9 +14,9 @@
         <img class="media-object author-photo" ng-src="{{ author.imageUrl }}" alt="img">
     </a>
     <div class="media-body">
-        <h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4>
+        <a ng-href="#/authors/{{author.id}}"><h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4></a>
     </div>
-<entity-controls edit-action="go(place)" delete-action="delete(author)" entity="author" entity-name="authors" delete-status="deleteStatus"></entity-controls>
+<entity-controls edit-action="edit(place)" delete-action="delete(author)" entity="author" entity-name="authors" delete-status="deleteStatus"></entity-controls>
 
 </div>
 

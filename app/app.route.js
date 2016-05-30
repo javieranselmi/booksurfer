@@ -25,4 +25,9 @@ app.config(["$routeProvider", function ($routeProvider) {
         controller: 'authorsEditController',
         controllerAs: 'authEditCtrl'
     })
+    .when("/authors/:id/:editmode", {
+        templateUrl: 'app/components/authorsEdit/authorsEditView.html',
+        controller: 'authorsEditController',
+        controllerAs: 'authEditCtrl'
+    })
 }]);

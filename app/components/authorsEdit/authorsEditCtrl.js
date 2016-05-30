@@ -3,9 +3,9 @@
 app.controller("authorsEditController", ["$scope","$http","$routeParams","$timeout","countrySelect", function ($scope,$http,$routeParams,$timeout,countrySelect) {
     
     $scope.author = {}; //Se inicializa un autor vacío
-    $scope.author.id = $routeParams.id;  //Se captura el nombre del autor
+    $scope.author.id = $routeParams.id;
     $scope.definedEntity = false; //Inicialmente, no hay entidad. Este propiedad se va a true cuano se halla autor.
-    $scope.editableEntity = false;
+    $scope.editableEntity = ($routeParams.editmode === "edit") ? true : false;
     $scope.saveStatus = "unset";
     
     $scope.toggleEdit = function() {
