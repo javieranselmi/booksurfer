@@ -43,14 +43,49 @@
                 
                     </div>
                 </div>
-                <div class="form-group form-inline">
-                    <label for="exampleInputName2">Autores</label>
-                    <span class="badge" ng-repeat={{ author in book.authors }}"> {{ }}</span>
-                    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-                    <label for="exampleInputEmail2">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-                  </div>
-                <div class="form-group">
+            </form>
+                <div class="row well">
+                    <div class="col-md-4 book-authors-display">
+                    <label class="book-authors-label">Autores</label>
+                    <span class="badge" ng-repeat="author in book.authors"> {{ author.firstName }} {{ author.lastName }}
+                        <span class="glyphicon glyphicon-remove pull-right" ng-click="detachAuthorFromBook(author)" ng-show="editableEntity"></span>
+                    </span>
+                    </div>
+           
+                    <div class="col-md-8">
+                       <label class="book-authors-label">Agregar autores - Busca un autor o crea uno nuevo</label>
+                       <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="authorAdd" id="addAuthor" placeholder="Busca un autor existente..." ng-disabled="!editableEntity"/>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                            </div>
+                        </div>
+                        <button type="submit" ng-click="toggleCreateAuthor()" class="btn btn-primary">... o crea un autor nuevo</button>
+                        <form class="form-inline well" ng-show="createAuthor">
+                            <div class="form-group">
+                                <label for="firstNameInput">Nombre(s)</label>
+                                <input type="text" class="form-control" id="firstNameInput" placeholder="ej. Julio">
+                             </div>
+                              <div class="form-group">
+                                <label for="lastNameInput">Apellido(s)</label>
+                                <input type="text" class="form-control" id="lastNameInput" placeholder="ej. Cortázar">
+                              </div>
+                            <div class="form-group">
+                                <label for="InputName">Nacionalidad</label>
+                                <select name="singleSelect" ng-model="author.nationality" ng-options="item for item in countries" class="selectpicker" ng-disabled="!editableEntity">
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageUrlInput">Url imagen</label>
+                                <input type="url" class="form-control" id="imageUrlInput" placeholder="ej. http://carlyle.com/pic.jpg">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Crear autor y agregar al libro</button>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class=row>
+                <div class="form-group edit-options-btn-grp">
                     <button class="btn btn-warning" ng-click="toggleEdit()" ng-show="!editableEntity">
                         <span class="glyphicon" ng-class="{ 'glyphicon-edit': editableEntity, 'glyphicon-lock': !editableEntity }"></span>
                         Editar
@@ -59,35 +94,14 @@
                     <button class="btn btn-info" ng-disabled="!editableEntity" ng-click="restoreEntity()">Restaurar</button>
                     <button class="btn btn-danger" ng-click="deleteEntity()" data-toggle="modal" data-target="#editConfirmationModal">Eliminar</button>
                 </div>
-                <div id="author-books-list">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Nombre del libro</th>
-                        <th>Editorial</th>
-                        <th>Año</th>
-                        <th>Ejemplares disp.</th>
-                        <th>Ejemplares tot.</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="book in author.books">
-                        <td><a href="#"> {{ book.name }}</a></td>
-                        <td>{{ book.editorial }}</td>
-                        <td>{{ book.year }}</td>
-                        <td>{{ book.copiesAvailable }}</td>
-                        <td>{{ book.copiesTotal }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
                 </div>
-            </div>
-        </form>
+            
+      
+        </div>
         </div>
         <div class="authorEditPanel" ng-hide="definedEntity">
             <h1>Oops!</h1>
             <h3>No hay autor con el id {{author.id}}</h3>
         </div>
-    </div>
 
 <modal save-status="saveStatus"></modal>

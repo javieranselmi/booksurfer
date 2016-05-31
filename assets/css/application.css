@@ -46,8 +46,7 @@ body {
 }
 
 .selectpicker {
-    display: block;
-    width: 100%;
+    width: auto;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -91,7 +90,7 @@ body {
 @keyframes spin {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
-}
+    }
     
 .btn-static {
   background-color: #f0ad4e;
@@ -112,4 +111,17 @@ body {
     
 .entity-options-row > a {
         float: left;
+}
+    
+.book-authors-label {
+     display: block;   
+}
+
+.book-authors-display > .badge {
+     display: block; 
+     margin: 2px 0px;
+}
+
+.edit-options-btn-grp {
+    margin: 20px 0px;
 }

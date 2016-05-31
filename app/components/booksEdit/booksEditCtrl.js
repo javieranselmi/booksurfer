@@ -8,6 +8,10 @@ app.controller("booksEditController", ["$scope","$http","$routeParams","$timeout
     $scope.definedEntity = false; //Inicialmente, no hay entidad. Este propiedad se va a true cuano se halla autor.
     $scope.editableEntity = ($routeParams.editmode === "edit") ? true : false;
     $scope.saveStatus = "unset";
+    $scope.createAuthor = false;
+    $scope.toggleCreateAuthor = function() {
+        $scope.createAuthor = !$scope.createAuthor
+    }
     
     $scope.toggleEdit = function() {
         $scope.editableEntity = !$scope.editableEntity;
@@ -52,6 +56,11 @@ app.controller("booksEditController", ["$scope","$http","$routeParams","$timeout
             });
     };
 
+   $scope.detachAuthorFromBook = function(authorToRemove) {
+       $scope.book.authors = $scope.book.authors.filter(function( auth ) {
+         return auth.id !== authorToRemove.id;
+       });
+   }
    $http({
 	  method: 'GET',
 	  url: '/api/books/' + $scope.book.id
@@ -64,7 +73,5 @@ app.controller("booksEditController", ["$scope","$http","$routeParams","$timeout
     		}, 0);
 	}, function errorCallback(err) {
 	  });
-  
    $scope.countries = countrySelect();
-   
 }]);

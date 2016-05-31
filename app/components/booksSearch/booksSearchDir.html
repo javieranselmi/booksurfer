@@ -14,7 +14,7 @@
         <img class="media-object author-photo" ng-src="{{ book.imageUrl }}" alt="img">
     </a>
     <div class="media-body">
-        <h4 class="media-heading">{{ book.title }}</h4>
+        <a ng-href="#/books/{{book.id}}"><h4 class="media-heading">{{ book.title }}</h4></a>
     </div>
     <div class="btn-group" role="group" aria-label="...">
         <button type="button" class="btn btn-success">
