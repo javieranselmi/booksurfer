@@ -1,10 +1,33 @@
-//ROUTE CONFIGURATION
+//Routes
+(function() {
+    var moduleName = 'authors-abm';
 
-app.config(["$routeProvider", function ($routeProvider) {
-    
-    "use strict";
-    $routeProvider
-    
+    config.$inject = ['$stateProvider'];
+
+    function config($stateProvider) {
+        $stateProvider.state('authors', {
+            url: '/authors',
+            // controller: 'QuestionnaireController',
+            template: '<ui-view></ui-view>',
+            abstract: true
+        });
+        
+        $stateProvider.state('authors.search', {
+            url: '/search',
+            templateUrl: 'app/components/authors-abm/templates/authors-abm.search.view.html',
+            controller: 'authorsSearchController'
+        });
+        
+        $stateProvider.state('authors.new', {
+            url: '/:id?edit',
+            templateUrl: 'app/components/authors-abm/templates/authors-abm.new.view.html',
+            controller: 'authorsNewController',
+        });
+    }
+    angular.module(moduleName).config(config);
+})();
+
+/*
     .when("/", {
         templateUrl: 'app/components/home/homeView.html',
         controller: 'homeController'
@@ -38,3 +61,4 @@ app.config(["$routeProvider", function ($routeProvider) {
         controller: 'authorsEditController'
     })
 }]);
+*/

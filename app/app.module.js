@@ -1,1 +1,1 @@
-var app = angular.module("bookstore", ["ngRoute"]);
+angular.module("bookstore", ["ui.router","authors-abm"]);

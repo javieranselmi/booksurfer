@@ -7,7 +7,9 @@
                     <h4>{{ author.nationality || "Nacionalidad desconocida" }}</h4>
             </div>
             <div id="modeMessage" class="col-lg-12" ng-class="{ 'bg-success': !editableEntity, 'bg-danger': editableEntity }">
-                <h4>{{ modeMessage }}</h4>
+                <h4 ng-if="mode === 'edit'">Modo de edición</h4>
+                <h4 ng-if="mode === 'create'">Modo de creación</h4>
+                <h4 ng-if="mode === 'view'">Modo de view</h4>
             </div>
                 <div class="form-group">
                     <label for="InputName">Nombre(s) del autor</label>

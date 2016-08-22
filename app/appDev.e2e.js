@@ -38,9 +38,17 @@ appDev.run(function($httpBackend) {
     
   // returns the current list of phones
   $httpBackend.whenGET('/api/authors').respond(authors);
-  $httpBackend.whenPOST('/api/authors').respond(messageNew);
+  $httpBackend.whenPOST('/api/authors').respond(function(method, url, data) {
+    var author = angular.fromJson(data);
+    author.id = angular.isDefined(author.id)? author.id : "2016";
+    console.log("BACKEND Returning ", author);
+    return [200, author, {}];
+  });
+
+  $httpBackend.whenGET('/api/authors/1').respond(function() {
+      return [200, authors[0], {}];
+  });
     
-  $httpBackend.whenGET('/api/authors/1').respond(authors[0]);
   $httpBackend.whenPOST('/api/authors/1').respond(messagePost);
   $httpBackend.whenDELETE('/api/authors/1').respond(messageDelete);
     

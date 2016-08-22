@@ -1,0 +1,1 @@
+angular.module("authors-abm", ["ui.router","entity-manager"]);

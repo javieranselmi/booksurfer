@@ -1,7 +1,10 @@
-app.controller("homeController", ["$scope", function ($scope) {
+(function() {
+    var moduleName     = 'bookstore',
+        controllerName = 'homeController';
+    controller.$inject = ['$scope'];
     
-    "use strict";
-    $scope.user = "Javier";
-    
-}]);
-
+    function controller($scope) {
+        $scope.user = "Javier";
+    }
+    angular.module(moduleName).controller(controllerName, controller);
+})();
