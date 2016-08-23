@@ -46,11 +46,35 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
                     <input type="submit" class="btn btn-success" value="Guardar cambios" ng-click="saveAuthor()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
-                    <input type="submit" class="btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
-                    <input type="submit" class="btn btn-danger" value="Eliminar autor" ng-click="deleteAuthor()" ng-show="mode.status !=='view'"/>
+                    <input type="submit" class="btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="form.$invalid" ng-show="mode.status ==='edit'"/>
+                    <input type="submit" class="btn btn-danger" value="Eliminar autor" ng-click="deleteAuthor()" ng-show="mode.status ==='edit'"/>
                 </div>
         </form>
         </div>
+                        
+            <div id="author-books-list" class="well" ng-if="mode.status !== 'create'">
+                  <h3>Libros de su autoría</h3>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="authors-book-header">Nombre del libro</th>
+                        <th class="authors-book-header">Editorial</th>
+                        <th class="authors-book-header">Año</th>
+                        <th class="authors-book-header">Ejemplares disp.</th>
+                        <th class="authors-book-header">Ejemplares tot.</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="book in author.books">
+                        <td><a href="#"> {{ book.title }}</a></td>
+                        <td>{{ book.editorial }}</td>
+                        <td>{{ book.publishYear }}</td>
+                        <td>{{ book.copiesAvailable }}</td>
+                        <td>{{ book.copiesTotal }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
     </div>
 
 <modal save-status="saveStatus"></modal>
