@@ -46,6 +46,10 @@
             });
         };
         
+        entityService.deleteEntity = function(id) {
+            return entityService.entity.$delete({id: id});
+        };
+        
         entityService.initializeEntity = function(entityName, id, editMode) {
             entityService.Entity = new $resource('/api/' + entityName + '/:id');
             if (isNaN(id)) {

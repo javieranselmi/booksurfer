@@ -1,1 +1,1 @@
-angular.module("authors-abm", ["ui.router","entity-manager"]);
+angular.module("authors-abm", ["ui.router","entity-manager","ui.bootstrap"]);
