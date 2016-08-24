@@ -18,15 +18,6 @@
             controller: 'authorsSearchController'
         });
         
-        $stateProvider.state('authors.abm', {
-            url: '/:id',
-            templateUrl: 'app/components/authors-abm/templates/authors-abm.new.view.html',
-            controller: 'authorsNewController',
-            params: {
-                edit: false
-            },
-        });
-        
         $stateProvider.state("authors.deletedModal", {
             url: "/deleted",
             onEnter: ['$modal', function ($modal) {
@@ -37,6 +28,17 @@
                 });
             }]
         });
+        
+        $stateProvider.state('authors.abm', {
+            url: '/:id',
+            templateUrl: 'app/components/authors-abm/templates/authors-abm.abm.view.html',
+            controller: 'authorsAbmController',
+            params: {
+                edit: false
+            },
+        });
+        
+
 
 
     }

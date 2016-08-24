@@ -1,12 +1,13 @@
 //CONTROLLERS
 (function() {
     var moduleName     = 'authors-abm',
-        controllerName = 'authorsNewController';
+        controllerName = 'authorsAbmController';
         controller.$inject = ['$scope','countries','entityAbm','$stateParams','$state'];
 
     function controller($scope,countries,entityAbm,$stateParams, $state) {
         
         var entity = 'authors';
+        $scope.defaultImg = 'https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png';
         
         entityAbm.initializeEntity(entity, $stateParams.id, $stateParams.edit);
         

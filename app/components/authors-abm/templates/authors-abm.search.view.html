@@ -9,7 +9,7 @@
     <div class="row">
 
         <div class="input-group" id="search">
-            <input type="text" class="form-control" ng-model="search" placeholder="Busca autores por nombre y/o apellido" autofocus/>
+            <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Busca autores por nombre y/o apellido" autofocus/>
             <div class="input-group-btn">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -18,7 +18,7 @@
         </div>
 
         <!--Results area -->
-        <div class="media search-result well" ng-repeat="author in authors | filter:search">
+        <div class="media search-result well" ng-repeat="author in authors | search:searchCriteria">
             <a class="pull-left" href="#">
                 <img class="media-object author-photo" ng-src="{{ author.imageUrl }}" alt="img">
             </a>
