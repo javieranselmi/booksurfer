@@ -1,0 +1,27 @@
+.book-photo
+{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+/*Edit pages*/
+
+.book-edit-photo {
+    height: 100%;
+}
+
+#book-name-display {
+  height:100px;
+  padding:0px;
+  background-color:#eee;
+}
+
+.book-books-label {
+     display: block;   
+}
+
+.book-books-display > .badge {
+     display: block; 
+     margin: 2px 0px;
+}

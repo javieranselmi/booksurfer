@@ -19,34 +19,12 @@ body {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 
 }
-.author-photo
-{
-    width:50px;
-    height:50px;
-    border-radius: 50%;
-}
 .search-group {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     margin-top:200px;
     display:block;   
-}
-
-/*Edit pages*/
-
-.author-edit-photo {
-    height: 100%;
-}
-
-.authors-book-header {
-     text-align: center;   
-}
-
-#author-name-display {
-  height:100px;
-  padding:0px;
-  background-color:#eee;
 }
 
 .selectpicker {
@@ -115,15 +93,6 @@ body {
     
 .entity-options-row > a {
         float: left;
-}
-    
-.book-authors-label {
-     display: block;   
-}
-
-.book-authors-display > .badge {
-     display: block; 
-     margin: 2px 0px;
 }
 
 .edit-options-btn-grp {

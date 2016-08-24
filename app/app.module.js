@@ -1,1 +1,1 @@
-angular.module("bookstore", ["ui.router","authors-abm"]);
+angular.module("bookstore", ["ui.router","authors-abm","books-abm"]);

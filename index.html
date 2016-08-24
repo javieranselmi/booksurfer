@@ -10,7 +10,9 @@
     <title>BookSurfer</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/application.css" >
+    <link rel="stylesheet" href="./assets/css/application.common.css" >
+    <link rel="stylesheet" href="./assets/css/application.authors-abm.css" >
+    <link rel="stylesheet" href="./assets/css/application.books-abm.css" >
     <link rel="stylesheet" href="./assets/css/search.css" >
     <link rel="stylesheet" href="./assets/css/card.css" >
 </head>
@@ -29,7 +31,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a ui-sref="home">Home</a></li>
-            <li class="active"><a ui-sref="authors.search" href="javascript:void(0);">Search Authors</a></li>
+            <li class="active"><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
+            <li class="active"><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -49,29 +52,44 @@
     <script src="./app/components/entity-manager/services/entity-manager.entity-abm.service.js"></script>
     <script src="./app/components/entity-manager/services/entity-manager.entity-search.service.js"></script>
     
-    <!-- authors-abm module inits -->
+    <!-- -------------  AUTHORS --------------- -->
+    
+    <!-- Authors-abm module inits -->
     <script src="./app/components/authors-abm/authors-abm.module.js"></script>
     <script src="./app/components/authors-abm/authors-abm.routing.js"></script>
-    
-    <!-- App inits -->
-    <script src="./app/app.module.js"></script>
-    <script src="./app/app.routing.js"></script>
-    
-    <!-- Directives -->
-<!--    <script src="./app/components/authors-abm/directives/search/authors-abm.search.directive.js"></script>-->
-<!--    <script src="./app/shared/entityControls/entityControlsDir.js"></script>-->
+
     <!-- Services -->
     <script src="./app/components/authors-abm/services/authors-abm.countries.js"></script>
-    <script src="./app/components/authors-abm/filters/authors-abm.search.filter.js"></script>
-<!--    <script src="./app/shared/modal/modal.js"></script>-->
-    <!-- Controllers -->
     
-    <script src="./app/components/home/homeCtrl.js"></script>
+    <!-- Filters -->
+    <script src="./app/components/authors-abm/filters/authors-abm.search.filter.js"></script>
+    <!-- Controllers -->
     <script src="./app/components/authors-abm/controllers/authors-abm.abm.controller.js"></script>
     <script src="./app/components/authors-abm/controllers/authors-abm.search.controller.js"></script>
-    <script src="./app/components/authors-abm/controllers/authors.abm.deleted.modal.controller.js"></script>
+    <script src="./app/components/authors-abm/controllers/authors-abm.deleted.modal.controller.js"></script>
+    
+     <!-- -------------  BOOKS ---------------- -->
+    
+    <!-- Books-abm module inits -->
+    <script src="./app/components/books-abm/books-abm.module.js"></script>
+    <script src="./app/components/books-abm/books-abm.routing.js"></script>
 
+    <!-- Services -->
+    <script src="./app/components/books-abm/services/books-abm.countries.js"></script>
+    
+    <!-- Filters -->
+    <script src="./app/components/books-abm/filters/books-abm.search.filter.js"></script>
+    <!-- Controllers -->
+    <script src="./app/components/books-abm/controllers/books-abm.abm.controller.js"></script>
+    <script src="./app/components/books-abm/controllers/books-abm.search.controller.js"></script>
+    <script src="./app/components/books-abm/controllers/books-abm.deleted.modal.controller.js"></script>
 
+    
+    <!-- App inits -->
+   
+    <script src="./app/app.module.js"></script>
+    <script src="./app/app.routing.js"></script>
+     <script src="./app/components/home/homeCtrl.js"></script>
     <!-- Other Libraries -->
     <script src="./app/appDev.e2e.js"></script>
 </body>

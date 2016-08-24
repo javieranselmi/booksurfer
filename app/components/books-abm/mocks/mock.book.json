@@ -1,0 +1,10 @@
+{
+    id: '3',
+    title: "Esperando la carroza",
+    publisher: "Planeta",
+    imageUrl: "http://findicons.com/files/icons/2198/dark_glass/128/contents.png",
+    publishYear: "2001",
+    editorial: "Maquiavelo Portillo",
+    copiesAvailable: "518",
+    copiesTotal: "1000"
+}
