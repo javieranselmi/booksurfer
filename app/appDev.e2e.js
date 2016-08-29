@@ -44,6 +44,12 @@ appDev.run(function($httpBackend) {
     console.log("BACKEND Returning ", author);
     return [200, author, {}];
   });
+  $httpBackend.whenPOST('/api/books').respond(function(method, url, data) {
+    var book = angular.fromJson(data);
+    book.id = angular.isDefined(book.id)? book.id : "2016";
+    console.log("BACKEND Returning ", book);
+    return [200, book, {}];
+  });
 
   $httpBackend.whenGET('/api/authors/1').respond(function() {
       return [200, authors[0], {}];

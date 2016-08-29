@@ -20,7 +20,7 @@
         <!--Results area -->
         <div class="media search-result well" ng-repeat="author in authors | search:searchCriteria">
             <a class="pull-left" href="#">
-                <img class="media-object author-photo" ng-src="{{ author.imageUrl }}" alt="img">
+                <img class="media-object author-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
             </a>
             <div class="media-body">
                 <a ng-href="#/authors/{{author.id}}"><h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4></a>
