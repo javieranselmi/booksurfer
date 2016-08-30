@@ -26,9 +26,9 @@ appDev.run(function($httpBackend) {
     entities.authors = [
          {id:'1',  firstName: 'Juan', lastName: 'Tomate',  nationality: "Argentina"},
          {id:'2',  firstName: 'Omar', lastName: 'Chocolate', nationality: "Argentina"},
-         {id:'3', firstName: 'Pepe', lastName: 'Doriano Finfinelo',  nationality: "Argentina"},
-         {id:'4', firstName: 'Jose', lastName: 'Himmelfreudpointer',  nationality: "Argentina"},
-         {id:'5', firstName: 'Luis', lastName: 'Ramadan',  nationality: "Argentina"}
+         {id:'3',  firstName: 'Pepe', lastName: 'Doriano Finfinelo',  nationality: "Argentina"},
+         {id:'4',  firstName: 'Jose', lastName: 'Himmelfreudpointer',  nationality: "Argentina"},
+         {id:'5',  firstName: 'Luis', lastName: 'Ramadan',  nationality: "Argentina"}
     ];
     
     entities.books = [

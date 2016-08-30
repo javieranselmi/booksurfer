@@ -114,42 +114,49 @@
                     <span class="glyphicon glyphicon-remove" ng-click="detachAuthorFromBook(author)"></span>
                 </span>
         </div>
-        <div class="col-md-12 clearfix">
-            <div class="col-md-6 clearfix">
-                <div class="input-group">
-                    <input type="text" class="form-control" name="authorAdd" id="addAuthor" placeholder="Agrega un autor existente..."/>
-                    <div class="input-group-btn">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        <div class="subentity-edit-controls" ng-if="mode.status !=='view'">
+            <div class="col-md-12 clearfix">
+                <div class="col-md-6 clearfix">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="authorAdd" id="addAuthor" placeholder="Agrega un autor existente..."/>
+                        <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 clearfix">
-                <button type="button" class="btn btn-block btn-primary">... o crea un autor nuevo</button>
-            </div>
-            <div class="col-md-12 section-label">
-                    <text-field input-name="firstName"
-                                input-id="firstName"
-                                label="Nombre"
-                                glyphicon="user"
-                                ng-model="newAuthor.firstName"
-                                is-required="true">
-                    </text-field>
-                    <text-field input-name="lastName"
-                                input-id="lastName"
-                                label="Apellido"
-                                glyphicon="user"
-                                ng-model="newAuthor.lastName"
-                                is-required="true">
-                    </text-field>
-                    <text-field input-name="nationality"
-                                input-id="nationality"
-                                label="Nacionalidad"
-                                glyphicon="user"
-                                ng-model="newAuthor.nationality"
-                                is-required="true">
-                    </text-field>
+                <div class="col-md-6 clearfix">
+                    <button type="button" class="btn btn-block btn-primary">... o crea un autor nuevo</button>
+                </div>
+                <div class="col-md-12 section-label">
+                        <text-field input-name="authorFirstName"
+                                    input-id="authorFirstName"
+                                    label="Nombre"
+                                    glyphicon="user"
+                                    ng-model="newAuthor.firstName"
+                                    is-required="true">
+                        </text-field>
+                        <text-field input-name="authorLastName"
+                                    input-id="authorLastName"
+                                    label="Apellido"
+                                    glyphicon="user"
+                                    ng-model="newAuthor.lastName"
+                                    is-required="true">
+                        </text-field>
+                        <text-field input-name="authorNationality"
+                                    input-id="authorNationality"
+                                    label="Nacionalidad"
+                                    glyphicon="user"
+                                    ng-model="newAuthor.nationality"
+                                    is-required="true">
+                        </text-field>
+                </div>
+                <div class="col-md-12">
+                    <div class="entity-actions-btn-group clearfix">
+                      <input type="submit" class="entity-action btn btn-primary" value="Crear autor y asociar a este libro" ng-click="addAuthor()"/>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

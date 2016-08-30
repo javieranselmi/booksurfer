@@ -27,6 +27,9 @@
             $scope.book = entityAbm.entity;
         };
         
+        $scope.newAuthor = {};
+        
+        
         
     };    
     angular.module(moduleName).controller(controllerName, controller);
