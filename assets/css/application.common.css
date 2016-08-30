@@ -99,7 +99,20 @@ body {
 .subentities-list-header {
      text-align: center;   
 }
+    
+.subentity-label {
+    display:block;
+}
 
+.subentity-capsule {
+   margin: 5px;
+    float:left;
+}
+    
+.subentities-display-row {
+    margin-bottom: 10px;
+}
+    
 .entity-edit-photo {
     height: 100%;
 }

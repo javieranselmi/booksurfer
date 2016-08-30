@@ -104,7 +104,7 @@ appDev.run(function($httpBackend) {
         } 
     ];
     
-    addRelationship(entities, 'author', 'book');
+    addRelationship(entities, 'book', 'author');
     
     var messagePost = {notice: "Object was saved successfully"};
     var messageDelete = {notice: "Object was deleted successfully"};

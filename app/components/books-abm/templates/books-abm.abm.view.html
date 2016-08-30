@@ -103,7 +103,56 @@
         </form>
 </div>
                         
+<div class="subentity-edit-panel well clearfix">
+    <div class="col-md-12 clearfix">
+            <label class="subentity-label">Autores</label>
+    </div>
+    <div class="col-md-12 clearfix subentities-display-row">
+            <span ng-show="book.authors === undefined || book.authors.lenght === 0">Aún no hay autores asociados.</span>
+            <span class="label label-primary subentity-capsule" ng-repeat="author in book.authors">{{ author.firstName }} {{ author.lastName }}&nbsp
+                <span class="glyphicon glyphicon-remove" ng-click="detachAuthorFromBook(author)"></span>
+            </span>
+    </div>
+    <div class="col-md-12 clearfix">
+        <div class="col-md-6 clearfix">
+            <div class="input-group">
+                <input type="text" class="form-control" name="authorAdd" id="addAuthor" placeholder="Agrega un autor existente..."/>
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 clearfix">
+            <button type="button" class="btn btn-block btn-primary">... o crea un autor nuevo</button>
+        </div>
+        <div class="col-md-12 section-label">
+                <text-field input-name="firstName"
+                            input-id="firstName"
+                            label="Nombre"
+                            glyphicon="user"
+                            ng-model="newAuthor.firstName"
+                            is-required="true">
+                </text-field>
+                <text-field input-name="lastName"
+                            input-id="lastName"
+                            label="Apellido"
+                            glyphicon="user"
+                            ng-model="newAuthor.lastName"
+                            is-required="true">
+                </text-field>
+                <text-field input-name="nationality"
+                            input-id="nationality"
+                            label="Nacionalidad"
+                            glyphicon="user"
+                            ng-model="newAuthor.nationality"
+                            is-required="true">
+                </text-field>
+        </div>
+    </div>
 
+</div>
 <modal save-status="saveStatus"></modal>
 
 
