@@ -1,8 +1,8 @@
 <div class="row entity-options-row">
-    <a href="#books/new">
+    <a href="#members/new">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
-             Nuevo Libro
+             Nuevo Autor
         </button>
     </a>
 </div>
@@ -18,16 +18,15 @@
         </div>
 
         <!--Results area -->
-        <div class="media search-result well" ng-repeat="book in books | search:searchCriteria">
+        <div class="media search-result well" ng-repeat="member in members | search:searchCriteria">
             <a class="pull-left" href="#">
-                <img class="media-object avatar-photo" ng-src="{{ book.imageUrl }}" alt="img">
+                <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
             </a>
             <div class="media-body">
-                <a ng-href="#/books/{{book.id}}"><h4 class="media-heading">{{ book.title }}</h4></a>
-                <p> ID: <b>{{ book.id }}</b> - Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.publishYear }}</b></p>
-                <p><span class="label label-primary">{{book.copiesAvailable}}</span> de <span class="label label-danger">{{book.copiesTotal}}</span> ejemplares disponibles.</p>
+                <a ng-href="#/members/{{member.id}}"><h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4></a>
+                <p> ID: {{ member.id }} - Nacionalidad: {{ member.nationality }}</p>
             </div>
-        <entity-controls edit-action="edit(place)" delete-action="delete(book)" entity="book" entity-name="books" delete-status="deleteStatus"></entity-controls>
+        <entity-controls edit-action="edit(place)" delete-action="delete(member)" entity="member" entity-name="members" delete-status="deleteStatus"></entity-controls>
 
         </div>
      </div>

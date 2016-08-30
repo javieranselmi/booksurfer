@@ -17,7 +17,18 @@ body {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.entity-actions-btn-group {
+    margin-top: 20px;
+}
 
+.entity-action {
+    float: right;
+    margin: 0px 0px 10px 10px;    
+}
+
+.section-label {
+    margin: 15px 0 15px 0;
 }
 .search-group {
     width: 500px;
@@ -46,6 +57,10 @@ body {
 
 .edit-validation-alert {
   display:block;
+  padding:4px;
+  background-color: transparent;
+  border: none;
+  text-align: right;
 }
 
 #mode-message {
@@ -73,6 +88,28 @@ body {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
+
+.avatar-photo
+{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+.subentities-list-header {
+     text-align: center;   
+}
+
+.entity-edit-photo {
+    height: 100%;
+}
+    
+#entity-name-display {
+  height:100px;
+  padding:0px;
+  background-color:#eee;
+}
+
 
 .btn-static {
   background-color: #f0ad4e;

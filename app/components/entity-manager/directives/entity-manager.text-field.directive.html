@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-3">
+            <label for="{{ inputName }}">{{ label }}</label>  
+    </div>
+    <div class="col-md-9">
+        <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   name="{{ inputName }}"
+                   id="{{ inputId }}"
+                   placeholder="{{ placeholder }}"
+                   ng-required=" {{ isRequired }}" 
+                   ng-model="model" 
+                   ng-disabled="disabled">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-{{ glyphicon }}"></span></span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div>
+            <div class="edit-validation-alert alert alert-danger" ng-show="form[inputName].$error.required">Este campo no puede estar vacío.</div>
+            <!--<div class="edit-validation-alert alert alert-danger" ng-transclude></div>-->
+        </div>
+    </div>
+</div>

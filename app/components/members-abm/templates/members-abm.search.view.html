@@ -2,7 +2,7 @@
     <a href="#members/new">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
-             Nuevo Autor
+             Nuevo Socio
         </button>
     </a>
 </div>
@@ -20,7 +20,7 @@
         <!--Results area -->
         <div class="media search-result well" ng-repeat="member in members | search:searchCriteria">
             <a class="pull-left" href="#">
-                <img class="media-object member-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
+                <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
             </a>
             <div class="media-body">
                 <a ng-href="#/members/{{member.id}}"><h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4></a>

@@ -1,0 +1,1 @@
+angular.module("members-abm", ["ui.router","entity-manager","ui.bootstrap"]);
