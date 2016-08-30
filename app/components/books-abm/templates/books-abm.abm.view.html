@@ -1,3 +1,114 @@
+<div class="entity-edit-panel">
+        <form name="form" role="form" class="well" novalidate>
+            
+                <div id="entity-name-display" class="col-lg-12 well">
+                        <img class="entity-edit-photo pull-left" ng-src="{{ defaultImg }}" alt="No se ha hallado la imagen"/>
+                        <h2>{{ book.title }}</h2>
+                        <h4>Editorial: {{ book.publisher }}, {{ book.editionYear }}</h4>
+                </div>
+                <div id="mode-message" class="col-md-12" ng-class="{ 'bg-primary': mode.status ==='view', 'bg-danger': mode.status ==='edit' }">
+                    <h4 ng-if="mode.status === 'edit'">Modo de edición</h4>
+                    <h4 ng-if="mode.status === 'create'">Modo de creación</h4>
+                    <h4 ng-if="mode.status === 'view'">Modo de sólo lectura</h4>
+                </div>
+            
+                <div class="col-md-12 section-label">
+                    <label>Datos del libro</label>
+                </div>
+                <text-field input-name="title"
+                            input-id="title"
+                            placeholder="ej. Harry Potter y la pierda filosofal"
+                            label="Título del libro"
+                            glyphicon="user"
+                            ng-model="book.title"
+                            is-required="true"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <text-field input-name="publisher"
+                            input-id="publisher"
+                            placeholder="ej. Planeta"
+                            label="Editorial"
+                            glyphicon="credit-card"
+                            ng-model="book.publisher"
+                            is-required="true"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <text-field input-name="ISBN"
+                            input-id="ISBN"
+                            placeholder="ej. 1204423095839482930"
+                            label="ISBN"
+                            glyphicon="credit-card"
+                            ng-model="book.ISBN"
+                            is-required="false"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <text-field input-name="price"
+                            input-id="price"
+                            placeholder="ej. 302"
+                            label="Precio en dólares (U$S)"
+                            glyphicon="credit-card"
+                            ng-model="book.price"
+                            is-required="false"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <div class="col-md-12 section-label">
+                    <label>Datos de la edición</label>
+                </div>
+                <text-field input-name="editionCountry"
+                            input-id="editionCountry"
+                            placeholder="ej. Argentina"
+                            label="País de edición"
+                            glyphicon="user"
+                            ng-model="book.editionCountry"
+                            is-required="true"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <text-field input-name="editionYear"
+                            input-id="editionYear"
+                            placeholder="ej. 1920"
+                            label="Año de edición"
+                            glyphicon="user"
+                            ng-model="book.editionYear"
+                            is-required="true"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <div class="col-md-12 section-label">
+                    <label>Datos requeridos por la biblioteca</label>
+                </div>
+                <text-field input-name="libraryNumber"
+                            input-id="libraryNumber"
+                            placeholder="ej. 5212"
+                            label="# identificación en la biblioteca"
+                            glyphicon="user"
+                            ng-model="book.libraryNumber"
+                            is-required="true"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+                <text-field input-name="reputationValue"
+                            input-id="reputationValue"
+                            placeholder="ej. 4"
+                            label="Reputación requerida"
+                            glyphicon="thumbs-up"
+                            ng-model="book.reputationValue"
+                            is-required="true"
+                            disabled=" mode.status === 'view' ">
+                </text-field>
+
+                <div class="entity-actions-btn-group clearfix">
+                    <input type="submit" class="entity-action btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
+                    <input type="submit" class="entity-action btn btn-success" value="Guardar cambios" ng-click="saveBook()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
+                    <input type="submit" class="entity-action btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="form.$invalid" ng-show="mode.status ==='edit'"/>
+                    <input type="submit" class="entity-action btn btn-danger" value="Eliminar autor" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>
+                </div>
+        </form>
+</div>
+                        
+
+<modal save-status="saveStatus"></modal>
+
+
+
+<!--
     <div class="row">
         <div class="bookEditPanel">
         <form name="form" role="form" class="well" novalidate>
@@ -53,3 +164,4 @@
     </div>
 
 <modal save-status="saveStatus"></modal>
+-->

@@ -14,9 +14,9 @@
         $scope.mode = entityAbm.mode;
         $scope.countries = countries();
         $scope.book = entityAbm.entity;
-        $scope.savebook = entityAbm.saveEntity;
+        $scope.saveBook = entityAbm.saveEntity;
         $scope.goToEdit = entityAbm.setEditMode;
-        $scope.deletebook = function() {
+        $scope.deleteBook = function() {
             entityAbm.deleteEntity($scope.book.id).then(function(response){
                 console.log(response.notice); //TEMP
                 $state.go('books.deletedModal');

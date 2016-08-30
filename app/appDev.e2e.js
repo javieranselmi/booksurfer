@@ -32,11 +32,45 @@ appDev.run(function($httpBackend) {
     ];
     
     entities.books = [
-        {id:'1', title: "Harry Potter y la orden del fenix", publisher: "Planeta", publishYear:"1928", editorial:"Planeta", copiesAvailable:"1", copiesTotal:"4"},
-        {id:'2', title: "Martin y el palmito cosmico", publisher: "Planeta", publishYear:"1918", editorial:"Pollito", copiesAvailable:"0", copiesTotal:"10"},
-        {id:'3', title: "Esperando la carroza", publisher: "Planeta", publishYear:"2001", editorial:"Maquiavelo Portillo", copiesAvailable:"518", copiesTotal:"1000"},
-        {id:'4', title: "Sentado en el mar", publisher: "Planeta", publishYear:"2016", editorial:"Chocolate", copiesAvailable:"0", copiesTotal:"0"},
-        {id:'5', title: "Mientras busco en las trifulcas", publisher: "Planeta", publishYear:"1990", editorial:"Tortuga mutante", copiesAvailable:"3", copiesTotal:"10"}
+        {
+            "id": "1",
+            "title": "Pergamino precolombino",
+            "publisher": "Smithsonian Historical Publishings",
+            "editionYear": "1203",
+            "editionCountry": "India",
+            "libraryNumber": "5",
+            "ISBN": "1204423095839482930",
+            "price": "14000.00",
+            "reputationValue": "8",
+            "samplesAvailable": "1",
+            "samplesTotal": "1"
+        },
+        {
+            "id": "2",
+            "title": "El psicoanalista",
+            "publisher": "Emecé",
+            "editionYear": "2009",
+            "editionCountry": "España",
+            "libraryNumber": "412",
+            "ISBN": "1204423032839482930",
+            "price": "130.00",
+            "reputationValue": "1",
+            "samplesAvailable": "0",
+            "samplesTotal": "8"
+        },
+        {
+            "id": "3",
+            "title": "Martín y la pantalla",
+            "publisher": "Niñolibros",
+            "editionYear": "1984",
+            "editionCountry": "Argentina",
+            "libraryNumber": "523",
+            "ISBN": "1204423093267432930",
+            "price": "300.00",
+            "reputationValue": "1",
+            "samplesAvailable": "1",
+            "samplesTotal": "4"
+        }
     ];
     
     entities.members = [
@@ -113,3 +147,11 @@ appDev.run(function($httpBackend) {
   $httpBackend.whenGET(new RegExp('app/*')).passThrough();
   
 });
+
+/*
+        {id:'1', title: "Harry Potter y la orden del fenix", publisher: "Planeta", publishYear:"1928", editorial:"Planeta", copiesAvailable:"1", copiesTotal:"4"},
+        {id:'2', title: "Martin y el palmito cosmico", publisher: "Planeta", publishYear:"1918", editorial:"Pollito", copiesAvailable:"0", copiesTotal:"10"},
+        {id:'3', title: "Esperando la carroza", publisher: "Planeta", publishYear:"2001", editorial:"Maquiavelo Portillo", copiesAvailable:"518", copiesTotal:"1000"},
+        {id:'4', title: "Sentado en el mar", publisher: "Planeta", publishYear:"2016", editorial:"Chocolate", copiesAvailable:"0", copiesTotal:"0"},
+        {id:'5', title: "Mientras busco en las trifulcas", publisher: "Planeta", publishYear:"1990", editorial:"Tortuga mutante", copiesAvailable:"3", copiesTotal:"10"}
+*/

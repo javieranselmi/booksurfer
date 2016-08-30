@@ -20,12 +20,12 @@
         <!--Results area -->
         <div class="media search-result well" ng-repeat="book in books | search:searchCriteria">
             <a class="pull-left" href="#">
-                <img class="media-object avatar-photo" ng-src="{{ book.imageUrl }}" alt="img">
+                <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
             </a>
             <div class="media-body">
                 <a ng-href="#/books/{{book.id}}"><h4 class="media-heading">{{ book.title }}</h4></a>
-                <p> ID: <b>{{ book.id }}</b> - Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.publishYear }}</b></p>
-                <p><span class="label label-primary">{{book.copiesAvailable}}</span> de <span class="label label-danger">{{book.copiesTotal}}</span> ejemplares disponibles.</p>
+                <p> ID: <b>{{ book.id }}</b> - Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.editionYear }}</b></p>
+                <p><span class="label label-primary">{{book.samplesAvailable}}</span> de <span class="label label-danger">{{book.samplesAvailable}}</span> ejemplares disponibles.</p>
             </div>
         <entity-controls edit-action="edit(place)" delete-action="delete(book)" entity="book" entity-name="books" delete-status="deleteStatus"></entity-controls>
 
