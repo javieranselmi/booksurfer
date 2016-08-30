@@ -1,0 +1,32 @@
+<div class="row entity-options-row">
+    <a href="#members/new">
+        <button class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>
+             Nuevo Autor
+        </button>
+    </a>
+</div>
+    <div class="row">
+
+        <div class="input-group" id="search">
+            <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Busca autores por nombre y/o apellido" autofocus/>
+            <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+
+        <!--Results area -->
+        <div class="media search-result well" ng-repeat="member in members | search:searchCriteria">
+            <a class="pull-left" href="#">
+                <img class="media-object member-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
+            </a>
+            <div class="media-body">
+                <a ng-href="#/members/{{member.id}}"><h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4></a>
+                <p> ID: {{ member.id }} - Nacionalidad: {{ member.nationality }}</p>
+            </div>
+        <entity-controls edit-action="edit(place)" delete-action="delete(member)" entity="member" entity-name="members" delete-status="deleteStatus"></entity-controls>
+
+        </div>
+     </div>

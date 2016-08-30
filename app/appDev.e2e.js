@@ -1,74 +1,115 @@
 var appDev = angular.module('bookstoreE2E', ['bookstore', 'ngMockE2E']);
 
 appDev.run(function($httpBackend) {
-    var imageUrlForAll = 'https://media.creativemornings.com/uploads/user/avatar/49419/Bechtel_Profile_Square.jpg';
     
-    var authorsForBooks = [ //Esta version de los autores no incluye los libros, para poder ser incluidos en el libro
-         {id:'1',  firstName: 'Juan', lastName: 'Tomate', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'8',  firstName: 'Omar', lastName: 'Chocolate', imageUrl: "http://facialexercisesguide.com/wp-images/man-face.jpg", nationality: "Argentina", books: books},
-         {id:'72', firstName: 'Pepe', lastName: 'Doriano Finfinelo', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'83', firstName: 'Jose', lastName: 'Himmelfreudpointer', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'22', firstName: 'Luis', lastName: 'Ramadan', imageUrl: imageUrlForAll, nationality: "Argentina", books: books}
+    
+    var removeProperty = function(entityVector, entityName, propertyName) {
+        var entityNamePlural =  entityName + 's';
+        angular.forEach(entityVector[entityNamePlural], function(entity) {
+              delete entity[propertyName];
+        });
+    };
+    
+    var addRelationship = function(entityVector, parentEntityName, childEntityName) {
+        var parentEntityNamePlural =  parentEntityName + 's';
+        var childEntityName = childEntityName + 's';
+        
+        angular.forEach(entityVector[parentEntityNamePlural], function(entity) {
+              entity[childEntityName] = entityVector[childEntityName];
+        });
+    }
+    
+    //Entity mocking
+    
+    var entities = [];
+    
+    entities.authors = [
+         {id:'1',  firstName: 'Juan', lastName: 'Tomate',  nationality: "Argentina"},
+         {id:'2',  firstName: 'Omar', lastName: 'Chocolate', nationality: "Argentina"},
+         {id:'3', firstName: 'Pepe', lastName: 'Doriano Finfinelo',  nationality: "Argentina"},
+         {id:'4', firstName: 'Jose', lastName: 'Himmelfreudpointer',  nationality: "Argentina"},
+         {id:'5', firstName: 'Luis', lastName: 'Ramadan',  nationality: "Argentina"}
     ];
     
-    //Mocking first 5 authors
-      var books = [
-        {id:'1', title: "Harry Potter y la orden del fenix", publisher: "Planeta", imageUrl: "http://findicons.com/files/icons/2198/dark_glass/128/contents.png", publishYear:"1928", editorial:"Planeta", copiesAvailable:"1", copiesTotal:"4", authors: [authorsForBooks[0],authorsForBooks[1]]},
-        {id:'2', title: "Martin y el palmito cosmico", publisher: "Planeta", imageUrl: "http://findicons.com/files/icons/2198/dark_glass/128/contents.png", publishYear:"1918", editorial:"Pollito", copiesAvailable:"0", copiesTotal:"10", authors: [authorsForBooks[3]]},
-        {id:'3', title: "Esperando la carroza", publisher: "Planeta", imageUrl: "http://findicons.com/files/icons/2198/dark_glass/128/contents.png", publishYear:"2001", editorial:"Maquiavelo Portillo", copiesAvailable:"518", copiesTotal:"1000"},
-        {id:'4', title: "Sentado en el mar", publisher: "Planeta", imageUrl: "http://findicons.com/files/icons/2198/dark_glass/128/contents.png", publishYear:"2016", editorial:"Chocolate", copiesAvailable:"0", copiesTotal:"0"},
-        {id:'5', title: "Mientras busco en las trifulcas", publisher: "Planeta", imageUrl: "http://findicons.com/files/icons/2198/dark_glass/128/contents.png", publishYear:"1990", editorial:"Tortuga mutante", copiesAvailable:"3", copiesTotal:"10"}
+    entities.books = [
+        {id:'1', title: "Harry Potter y la orden del fenix", publisher: "Planeta", publishYear:"1928", editorial:"Planeta", copiesAvailable:"1", copiesTotal:"4"},
+        {id:'2', title: "Martin y el palmito cosmico", publisher: "Planeta", publishYear:"1918", editorial:"Pollito", copiesAvailable:"0", copiesTotal:"10"},
+        {id:'3', title: "Esperando la carroza", publisher: "Planeta", publishYear:"2001", editorial:"Maquiavelo Portillo", copiesAvailable:"518", copiesTotal:"1000"},
+        {id:'4', title: "Sentado en el mar", publisher: "Planeta", publishYear:"2016", editorial:"Chocolate", copiesAvailable:"0", copiesTotal:"0"},
+        {id:'5', title: "Mientras busco en las trifulcas", publisher: "Planeta", publishYear:"1990", editorial:"Tortuga mutante", copiesAvailable:"3", copiesTotal:"10"}
     ];
     
-    var authors = [
-         {id:'1',  firstName: 'Juan', lastName: 'Tomate', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'8',  firstName: 'Omar', lastName: 'Chocolate', imageUrl: "http://facialexercisesguide.com/wp-images/man-face.jpg", nationality: "Argentina", books: books},
-         {id:'72', firstName: 'Pepe', lastName: 'Doriano Finfinelo', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'83', firstName: 'Jose', lastName: 'Himmelfreudpointer', imageUrl: imageUrlForAll, nationality: "Argentina", books: books},
-         {id:'22', firstName: 'Luis', lastName: 'Ramadan', imageUrl: imageUrlForAll, nationality: "Argentina", books: books}
+    entities.members = [
+        {
+            "id":"1",
+            "firstName": "Juan", 
+            "lastName": "Tomate", 
+            "DNI": "35656544",
+            "CUIL": "20-35336537-2",
+            "phone": "47666193",
+            "email": "juantomate@gmail.com",
+            "zip": "1023",
+            "city": "Río Cuarto",
+            "state": "cordoba",
+            "enabled": true,
+            "reputation": 2
+        },
+        {
+            "id":"4",
+            "firstName": "Martín", 
+            "lastName": "Homóplato", 
+            "DNI": "35626544",
+            "CUIL": "20-33236537-2",
+            "phone": "47636193",
+            "email": "mat123@gmail.com",
+            "zip": "1532",
+            "city": "Tandil",
+            "state": "Buenos Aires",
+            "enabled": true,
+            "reputation": 6
+        } 
     ];
     
-
-    
-    var regex = new RegExp('/authors/([0-9]+)');
+    addRelationship(entities, 'author', 'book');
     
     var messagePost = {notice: "Object was saved successfully"};
     var messageDelete = {notice: "Object was deleted successfully"};
     var messageNew = {notice: "Object was created successfully"};
     
-  // returns the current list of phones
-  $httpBackend.whenGET('/api/authors').respond(authors);
-  $httpBackend.whenPOST('/api/authors').respond(function(method, url, data) {
-    var author = angular.fromJson(data);
-    author.id = angular.isDefined(author.id)? author.id : "2016";
-    console.log("BACKEND Returning ", author);
-    return [200, author, {}];
-  });
-  $httpBackend.whenPOST('/api/books').respond(function(method, url, data) {
-    var book = angular.fromJson(data);
-    book.id = angular.isDefined(book.id)? book.id : "2016";
-    console.log("BACKEND Returning ", book);
-    return [200, book, {}];
-  });
 
-  $httpBackend.whenGET('/api/authors/1').respond(function() {
-      return [200, authors[0], {}];
-  });
+    var entityNames = ['author','member','book'];
+    angular.forEach(entityNames, function(entityName) {
+        
+        var entityNamePlural = entityName + 's';
+        var apiUrl = '/api/' + entityNamePlural;
+        var regex = new RegExp('/' + entityNamePlural + '/([0-9]+)');
+        
+        //GET to /entitys/
+        $httpBackend.whenGET(apiUrl).respond(entities[entityNamePlural]);
+        
+        //POST to /entitys/
+        $httpBackend.whenPOST(apiUrl).respond(function(method, url, data) {
+            var entity = angular.fromJson(data);
+            entity.id = angular.isDefined(entity.id)? entity.id : "2016";
+            console.log("Posted entity to " + apiUrl + " . Success, returning entity with ID " +  entity.id, entity);
+            return [200, entity, {}];
+        });
+        
+        //GET to /entitys/1
+        $httpBackend.whenGET(apiUrl + '/1').respond(function() {
+            console.log("GET to " + apiUrl + "/1. Success, returning entity with ID " +  entities[entityNamePlural][0].id, entities[entityNamePlural][0]);
+            return [200, entities[entityNamePlural][0], {}];
+        });
+        
+        //POST to /entitys/1
+        $httpBackend.whenPOST(apiUrl + '/1').respond(messagePost);
+        
+        //DELETE to /entitys/1
+        $httpBackend.whenDELETE(apiUrl + '/1').respond(messageDelete);
+        
+    });
     
-  $httpBackend.whenPOST('/api/authors/1').respond(messagePost);
-  $httpBackend.whenDELETE('/api/authors/1').respond(messageDelete);
-    
-  $httpBackend.whenGET('/api/authors/8').respond(authors[1]);
-  $httpBackend.whenPOST('/api/authors/8').respond(messagePost);
-  $httpBackend.whenDELETE('/api/authors/8').respond(messageDelete);
-    
-  $httpBackend.whenGET('/api/books').respond(books);
-  $httpBackend.whenPOST('/api/authors').respond(messageNew);
-    
-  $httpBackend.whenGET('/api/books/1').respond(books[0]); 
-  $httpBackend.whenPOST('/api/books/1').respond(messagePost); 
-  $httpBackend.whenDELETE('/api/books/1').respond(messageDelete); 
-    
+
   $httpBackend.whenGET(new RegExp('app/*')).passThrough();
   
 });
