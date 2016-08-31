@@ -9,11 +9,8 @@
         entitySearch.results = {};
         entitySearch.url = "";
         
-        entitySearch.initializeEntity = function(entityName) {
+        entitySearch.getAllEntities = function(entityName) { 
             entitySearch.url = '/api/' + entityName;
-        };
-        
-        entitySearch.getAllEntities = function() { 
             return $http.get(entitySearch.url);
         };
         

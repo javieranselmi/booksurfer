@@ -4,11 +4,10 @@
   "description": "Library management software",
   "main": "index.html",
   "dependencies": {
-    "bower": "^1.7.9",
-    "karma": "^0.13.22",
-    "karma-jasmine": "^0.1.0"
+    "bower": "^1.7.9"
   },
   "devDependencies": {
+    "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^0.1.6"
   },

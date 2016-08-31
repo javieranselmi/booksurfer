@@ -109,6 +109,11 @@ body {
     float:left;
 }
     
+.subentity-capsule-icon {
+    pointer-events: auto;
+    cursor: pointer;
+}
+    
 .subentities-display-row {
     margin-bottom: 10px;
 }

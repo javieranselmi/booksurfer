@@ -5,9 +5,7 @@
     
     function controller($scope,entitySearch,countrySelect,searchFilter) {
         $scope.members = [];
-        entitySearch.initializeEntity("members");
-        
-        entitySearch.getAllEntities().then(function(result){
+        entitySearch.getAllEntities('members').then(function(result){
             $scope.members = result.data;
         });
     };    

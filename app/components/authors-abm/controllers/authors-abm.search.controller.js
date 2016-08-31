@@ -5,9 +5,8 @@
     
     function controller($scope,entitySearch,countrySelect,searchFilter) {
         $scope.authors = [];
-        entitySearch.initializeEntity("authors");
         
-        entitySearch.getAllEntities().then(function(result){
+        entitySearch.getAllEntities('authors').then(function(result){
             $scope.authors = result.data;
         });
     };    
