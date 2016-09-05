@@ -108,13 +108,13 @@ appDev.run(function($httpBackend) {
             "id": "1",
             "barCode":"123123123123123",
             "acquisitionDate": "21-08-2014",
-            "unsuscribeDate": "28-08-2016"
+            "withdrawDate": "28-08-2016"
         },
         {
             "id": "2",
             "barCode":"145215346234242",
             "acquisitionDate": "22-01-2011",
-            "unsuscribeDate": null
+            "withdrawDate": null
         }];
     
     addRelationship(entities, 'book', 'author');

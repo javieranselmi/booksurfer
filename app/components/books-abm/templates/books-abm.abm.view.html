@@ -76,15 +76,6 @@
                     <div class="col-md-12 section-label">
                         <label>Datos requeridos por la biblioteca</label>
                     </div>
-                    <text-field input-name="libraryNumber"
-                                input-id="libraryNumber"
-                                placeholder="ej. 5212"
-                                label="# identificación en la biblioteca"
-                                glyphicon="user"
-                                ng-model="book.libraryNumber"
-                                is-required="true"
-                                disabled=" mode.status === 'view' ">
-                    </text-field>
                     <text-field input-name="reputationValue"
                                 input-id="reputationValue"
                                 placeholder="ej. 4"
@@ -170,89 +161,84 @@
             </div>
         </div>
     </div>
-    <div id="subentities-list" class="well">
+    <div id="subentities-list" class="well clearfix">
         <div class="col-md-12 clearfix">
            <label class="subentity-label">Ejemplares</label>
         </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="subentities-list-header">ID</th>
-            <th class="subentities-list-header">Código de barras</th>
-            <th class="subentities-list-header">Fecha de alta</th>
-            <th class="subentities-list-header">Fecha de baja</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="sample in book.samples">
-            <td><a href="#"> {{ sample.id }}</a></td>
-            <td>{{ sample.barCode }}</td>
-            <td>{{ sample.acquisitionDate }}</td>
-            <td>{{ sample.unsuscribeDate }}</td>
-          </tr>
-        </tbody>
-      </table>
+        <div id="subentities-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="subentities-list-header">ID</th>
+                <th class="subentities-list-header">Código de barras</th>
+                <th class="subentities-list-header">F. Alta</th>
+                <th class="subentities-list-header">F. Baja</th>
+                <th class="subentities-list-header" ng-hide="(mode.status ==='view')">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="sample in book.samples">
+                <td><a href="#"> {{ sample.id }}</a></td>
+                <td>{{ sample.barCode }}</td>
+                <td>{{ sample.acquisitionDate }}</td>
+                <td>{{ sample.withdrawDate }}</td>
+                <td ng-hide="(mode.status ==='view')">
+                    <div class="btn-group">
+                      <button type="button" ng-click="editSample(sample)" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+                      <button type="button" ng-click="deleteSample('samples', sample)" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix">
+              <button type="button" ng-hide="(mode.status ==='view')" ng-click="prepareNewSample()" class="btn btn-success pull-left"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo ejemplar</button>
+          </div>
+        </div>
+      <div uib-collapse="!mustShowSampleForm">
+    <div class="col-md-12 clearfix">
+       <label class="subentity-label">Alta/Edición de ejemplares</label>
+    </div>
+                    <div class="col-md-12 section-label">
+                            <text-field input-name="sampleId"
+                                        input-id="sampleId"
+                                        label="ID"
+                                        glyphicon="user"
+                                        ng-model="newSample.id"
+                                        is-required="false"
+                                        is-disabled="true">
+                            </text-field>
+                            <text-field input-name="sampleBarCode"
+                                        input-id="sampleBarCode"
+                                        label="Codigo de barras"
+                                        glyphicon="barcode"
+                                        ng-model="newSample.barCode"
+                                        is-required="true">
+                            </text-field>
+                            <text-field input-name="acquisitionDate"
+                                        input-id="acquisitionDate"
+                                        label="Fecha de adquisición"
+                                        glyphicon="calendar"
+                                        ng-model="newSample.acquisitionDate"
+                                        is-required="false">
+                            </text-field>
+                            <text-field input-name="withdrawDate"
+                                        input-id="withdrawDate"
+                                        label="Fecha de baja"
+                                        glyphicon="calendar"
+                                        ng-model="newSample.withdrawDate"
+                                        is-required="false">
+                            </text-field>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="entity-actions-btn-group clearfix">
+                          <input type="submit" class="entity-action btn btn-success" value="Crear ejemplar" ng-click="createSample('samples', newSample)" ng-show="creatingSample"/>
+                          <input type="submit" class="entity-action btn btn-success" value="Guardar cambios en ejemplar" ng-click="saveEditedSample('samples', newSample)" ng-show="editingSample"/>
+                        </div>
+                    </div>
+                </div>  
+        
     </div>
     
 </form>
 <modal save-status="saveStatus"></modal>
-
-
-
-<!--
-    <div class="row">
-        <div class="bookEditPanel">
-        <form name="form" role="form" class="well" novalidate>
-            <div id="entity-name-display" class="col-lg-12 well">
-                    <img class="entity-edit-photo pull-left" ng-src="{{ book.imageUrl || defaultImg }}" alt="No se ha hallado la imagen"/>
-                    <h2>{{ book.title }}</h2>
-                    <h4>Editorial {{ book.publisher }}</h4>
-            </div>
-            <div id="mode-message" class="col-lg-12" ng-class="{ 'bg-primary': mode.status ==='view', 'bg-danger': mode.status ==='edit' }">
-                <h4 ng-if="mode.status === 'edit'">Modo de edición</h4>
-                <h4 ng-if="mode.status === 'create'">Modo de creación</h4>
-                <h4 ng-if="mode.status === 'view'">Modo de sólo lectura</h4>
-            </div>
-                <div class="form-group">
-                    <label for="InputName">Título del libro</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="uTitle" id="titleInput" placeholder="Ej. El Psicoanalista" required ng-model="book.title" autofocus ng-disabled="mode.status ==='view'"/>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                    </div>
-                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uTitle.$error.required  && !form.uTitle.$pristine ">El libro debe tener un título.
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="InputName">Editorial</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="uEditorial" id="editorialInput" placeholder="ej. Penguin" ng-model="book.editorial" ng-disabled="mode.status ==='view'">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="InputName">Año de publicación (YYYY) </label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="uPublishYear" id="publishYearInput" placeholder="ej. 1982" ng-model="book.publishYear" ng-disabled="mode.status ==='view'">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="InputName">Url de la foto del libro</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="uImageUrl" id="imageUrlInput" placeholder="ej.  http://carlyle.com/picture.jpg" ng-model="book.imageUrl" ng-disabled="mode.status ==='view'"/>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-camera"></span></span>
-                
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
-                    <input type="submit" class="btn btn-success" value="Guardar cambios" ng-click="savebook()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
-                    <input type="submit" class="btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="form.$invalid" ng-show="mode.status ==='edit'"/>
-                    <input type="submit" class="btn btn-danger" value="Eliminar autor" ng-click="deletebook()" ng-show="mode.status ==='edit'"/>
-                </div>
-        </form>
-        </div>
-    </div>
-
-<modal save-status="saveStatus"></modal>
--->

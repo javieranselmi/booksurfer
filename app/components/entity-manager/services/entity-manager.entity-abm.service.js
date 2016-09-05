@@ -64,8 +64,7 @@
             entityService.entity[key] = filteredArray;
         };
         
-
-        
+    
         entityService.getEntity = function(id, editMode) {
             entityService.entity = new entityService.Entity();
             entityService.entity.$get({id: id}, function(data){

@@ -17,7 +17,7 @@
                 label: '@',
                 glyphicon: '@',
                 isRequired: '=',
-                disabled: '=',
+                isDisabled: '=',
                 formObject: '=',
                 fieldText: '=ngModel'
             },
