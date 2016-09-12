@@ -29,15 +29,42 @@
             }]
         });
         
-        $stateProvider.state('books.abm', {
+        /*$stateProvider.state('books.abm', {
             url: '/:id',
             templateUrl: 'app/components/books-abm/templates/books-abm.abm.view.html',
             controller: 'booksAbmController',
             params: {
                 edit: false
             },
+        });*/
+        
+        $stateProvider.state('books.abm', {     
+            url: '/:id',
+            templateUrl: 'app/components/books-abm/templates/books-abm.abm.view.html',
+            controller: 'booksAbmController',
         });
         
+        /*$stateProvider.state('books.abm.views', {
+
+            views: {
+                'header': {
+                    controller: 'bookAbmHeaderController',
+                    templateUrl: 'app/components/books-abm/templates/books-abm.abm.header.view.html'
+                },
+                'book': {
+                    controller: 'bookAbmBookController',
+                    templateUrl: 'app/components/books-abm/templates/books-abm.abm.book.view.html'
+                },
+                'author': {
+                    controller: 'bookAbmAuthorController',
+                    templateUrl: 'app/components/books-abm/templates/books-abm.abm.author.view.html'
+                },
+                'sample': {
+                    controller: 'bookAbmSampleController',
+                    templateUrl: 'app/components/books-abm/templates/books-abm.abm.sample.view.html'
+                }
+            }
+        });*/       
 
 
 

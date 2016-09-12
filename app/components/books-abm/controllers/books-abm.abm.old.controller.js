@@ -2,18 +2,18 @@
 (function() {
     var moduleName     = 'books-abm',
         controllerName = 'booksAbmController';
-        controller.$inject = ['$scope','entityAbm','entitySearch','$stateParams'];
+        controller.$inject = ['$scope','countries','entityAbm','$stateParams','$state','entitySearch'];
 
-    function controller($scope,entityAbm,entitySearch,$stateParams) {
+    function controller($scope,countries,entityAbm,$stateParams, $state, entitySearch) {
+        
         var entity = 'books';
-        entityAbm.initializeEntity(entity, $stateParams.id, $stateParams.edit);  
-
+        $scope.defaultImg = 'https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png';
+        
+        entityAbm.initializeEntity(entity, $stateParams.id, $stateParams.edit);
         
         $scope.mode = entityAbm.mode;
+        //$scope.countries = countries();
         $scope.book = entityAbm.entity;
-        
-        console.log(entityAbm.entity);
-        
         $scope.saveBook = entityAbm.saveEntity;
         $scope.goToEdit = entityAbm.setEditMode;
         $scope.deleteBook = function() {
@@ -51,7 +51,7 @@
             console.log($scope.allAuthors)
         });
         
-              $scope.mustShowSampleForm = false;
+        $scope.mustShowSampleForm = false;
         $scope.editingSample = false;
         $scope.creatingSample = false;
         

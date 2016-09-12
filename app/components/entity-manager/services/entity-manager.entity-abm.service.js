@@ -91,6 +91,8 @@
             };
         };
         
+        entityService.initialized = false;
+        
         return entityService;
         
     }     

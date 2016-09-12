@@ -1,0 +1,17 @@
+<div id="entity-name-display" class="col-lg-12 well">
+        <img class="entity-edit-photo pull-left" ng-src="{{ defaultImg }}" alt="No se ha hallado la imagen"/>
+        <h2>{{ book.title }}</h2>
+        <h4>Editorial: {{ book.publisher }}, {{ book.editionYear }}</h4>
+</div>
+<div id="mode-message" class="col-md-12" ng-class="{ 'bg-primary': mode.status ==='view', 'bg-danger': mode.status ==='edit' }">
+    <h4 ng-if="mode.status === 'edit'">Modo de edición</h4>
+    <h4 ng-if="mode.status === 'create'">Modo de creación</h4>
+    <h4 ng-if="mode.status === 'view'">Modo de sólo lectura</h4>
+</div>
+
+<div class="entity-actions-btn-group clearfix">
+    <input type="submit" class="entity-action btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
+    <input type="submit" class="entity-action btn btn-success" value="Guardar cambios" ng-click="saveBook()" ng-disabled="bookAbmForm.$invalid" ng-show="mode.status !=='view'"/>
+    <input type="submit" class="entity-action btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="bookAbmForm.$invalid" ng-show="mode.status ==='edit'"/>
+    <input type="submit" class="entity-action btn btn-danger" value="Eliminar autor" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>
+</div>

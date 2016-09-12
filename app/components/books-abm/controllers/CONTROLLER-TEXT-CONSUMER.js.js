@@ -2,18 +2,16 @@
 (function() {
     var moduleName     = 'books-abm',
         controllerName = 'booksAbmController';
-        controller.$inject = ['$scope','entityAbm','entitySearch','$stateParams'];
+        controller.$inject = ['$scope','countries','entityAbm','$stateParams','$state','entitySearch'];
 
-    function controller($scope,entityAbm,entitySearch,$stateParams) {
-        var entity = 'books';
-        entityAbm.initializeEntity(entity, $stateParams.id, $stateParams.edit);  
+    function controller($scope,countries,entityAbm,$stateParams, $state, entitySearch) {
+        
+        
+        //$scope.countries = countries();
+        
 
         
-        $scope.mode = entityAbm.mode;
         $scope.book = entityAbm.entity;
-        
-        console.log(entityAbm.entity);
-        
         $scope.saveBook = entityAbm.saveEntity;
         $scope.goToEdit = entityAbm.setEditMode;
         $scope.deleteBook = function() {
@@ -51,7 +49,7 @@
             console.log($scope.allAuthors)
         });
         
-              $scope.mustShowSampleForm = false;
+        $scope.mustShowSampleForm = false;
         $scope.editingSample = false;
         $scope.creatingSample = false;
         

@@ -1,0 +1,68 @@
+<div class="subentity-edit-panel well clearfix">
+    <div class="col-md-12 clearfix">
+            <label class="subentity-label">Autores</label>
+    </div>
+    <div class="col-md-12 clearfix subentities-display-row">
+            <span ng-show="book.authors === undefined || book.authors.lenght === 0">Aún no hay autores asociados.</span>
+            <span class="label label-primary subentity-capsule" ng-repeat="author in book.authors">{{ author.firstName }} {{ author.lastName }}&nbsp
+                <span class="glyphicon glyphicon-remove subentity-capsule-icon" ng-click="deleteAuthor('authors', author)" ng-hide="(mode.status ==='view')"></span>
+            </span>
+    </div>
+    <div class="subentity-edit-controls" ng-show="mode.status !=='view'">
+        <div class="col-md-12 clearfix">
+            <div class="col-md-6 clearfix">
+                <div class="input-group">
+                        <select class="form-control"
+                          ng-options="(author.firstName + ' '+ author.lastName+' - '+author.nationality) for author in allAuthors"
+                          ng-model="existingAuthor">
+                            <option value=''>Elige un autor de la lista...</option>
+                        </select>
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-success" ng-click="addExistingAuthor('authors', existingAuthor)" ng-disabled="!existingAuthor">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 clearfix">
+                <button type="button" class="btn btn-block btn-primary" ng-model="mustShowNewAuthor" uib-btn-checkbox btn-checkbox-true="false" btn-checkbox-false="true">
+                    ... o crea un nuevo autor
+                </button>
+            </div>
+            <div uib-collapse="mustShowNewAuthor">
+                <div class="col-md-12 section-label">
+                    <form name="bookAbmAuthorsForm">
+                        <text-field input-name="authorFirstName"
+                                    input-id="authorFirstName"
+                                    label="Nombre"
+                                    glyphicon="user"
+                                    ng-model="newAuthor.firstName"
+                                    is-required="true">
+                        </text-field>
+                        <text-field input-name="authorLastName"
+                                    input-id="authorLastName"
+                                    label="Apellido"
+                                    glyphicon="user"
+                                    ng-model="newAuthor.lastName"
+                                    is-required="true">
+                        </text-field>
+                        <text-field input-name="authorNationality"
+                                    input-id="authorNationality"
+                                    label="Nacionalidad"
+                                    glyphicon="user"
+                                    ng-model="newAuthor.nationality"
+                                    is-required="true">
+                        </text-field>
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <div class="entity-actions-btn-group clearfix">
+                      <input type="submit" class="entity-action btn btn-primary" value="Crear autor y asociar a este libro" ng-click="addNewAuthor('authors', newAuthor)"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
