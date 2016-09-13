@@ -1,1 +1,116 @@
-<h1>WITHDRAW VIEW</h1>
+<div id="entity-name-display" class="col-lg-12 well">
+    <h2>Prestar un ejemplar</h2>
+    <p>Prestar un ejemplar de 
+        <span>{{ book.title }}</span>
+        al socio 
+        <span> {{ member.firstName + ' ' + member.lastName }}</span>
+    </p>
+</div>
+<div class="row well">
+    <form>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h4>Ejemplar</h4>
+                <text-field input-name="sampleId"
+                            input-id="sampleId"
+                            label="ID"
+                            glyphicon="user"
+                            ng-model="newSample.id"
+                            is-required="false"
+                            is-disabled="true">
+                </text-field>
+                <text-field input-name="sampleBarCode"
+                            input-id="sampleBarCode"
+                            label="Codigo de barras"
+                            glyphicon="barcode"
+                            ng-model="newSample.barCode"
+                            is-required="true">
+                </text-field>
+                <text-field input-name="acquisitionDate"
+                            input-id="acquisitionDate"
+                            label="Fecha de adquisición"
+                            glyphicon="calendar"
+                            ng-model="newSample.acquisitionDate"
+                            is-required="false">
+                </text-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h4>Socio</h4>
+                    <text-field input-name="firstName"
+                                input-id="firstName"
+                                placeholder="ej. Juan"
+                                label="Nombre(s)"
+                                glyphicon="user"
+                                ng-model="member.firstName"
+                                is-required="true"
+                                disabled=" mode.status === 'view' ">
+                    </text-field>
+                    <text-field input-name="lastName"
+                                input-id="lastName"
+                                placeholder="ej. Gonzalez"
+                                label="Apelido(s)"
+                                glyphicon="user"
+                                ng-model="member.lastName"
+                                is-required="true"
+                                disabled=" mode.status === 'view' ">
+                    </text-field>
+                    <text-field input-name="DNI"
+                                input-id="DNI"
+                                placeholder="ej. 35656537"
+                                label="DNI"
+                                glyphicon="credit-card"
+                                ng-model="member.DNI"
+                                is-required="true"
+                                disabled=" mode.status === 'view' ">
+                    </text-field>
+                    <text-field input-name="CUIL"
+                                input-id="CUIL"
+                                placeholder="ej. 20-35656537-2"
+                                label="CUIL"
+                                glyphicon="credit-card"
+                                ng-model="member.CUIL"
+                                is-required="false"
+                                disabled=" mode.status === 'view' ">
+                    </text-field>
+                    <text-field input-name="email"
+                                input-id="email"
+                                placeholder="ej. juangonzalez@utn.com"
+                                label="Correo electrónico"
+                                glyphicon="envelope"
+                                ng-model="member.email"
+                                is-required="false"
+                                disabled=" mode.status === 'view' ">
+                    </text-field>
+                    <text-field input-name="phone"
+                                input-id="phone"
+                                placeholder="ej. 47012312"
+                                label="Teléfono"
+                                glyphicon="phone"
+                                ng-model="member.phone"
+                                is-required="false"
+                                disabled=" mode.status === 'view' ">
+                    </text-field>
+            </div>
+        </div>
+         <div class="col-md-12">
+             <h4>Datos del préstamo</h4>
+             <text-field    input-name="withdrawDate"
+                            input-id="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha del préstamo"
+                            glyphicon="book"
+                            ng-model="loan.withdrawDate"
+                            is-required="true">
+            </text-field>
+            <text-field    input-name="agreedReturnDate"
+                            input-id="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha pactada de devolución"
+                            glyphicon="book"
+                            ng-model="loan.agreedReturnDate"
+                            is-required="true">
+            </text-field>
+
+        </div>
+    </form>                
+</div>
