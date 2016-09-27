@@ -9,34 +9,33 @@
 <div class="row well">
     <form>
         <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <h4>Ejemplar</h4>
-                <text-field input-name="sampleId"
-                            input-id="sampleId"
-                            label="ID"
-                            glyphicon="user"
-                            ng-model="newSample.id"
-                            is-required="false"
-                            is-disabled="true">
-                </text-field>
-                <text-field input-name="sampleBarCode"
-                            input-id="sampleBarCode"
-                            label="Codigo de barras"
-                            glyphicon="barcode"
-                            ng-model="newSample.barCode"
-                            is-required="true">
-                </text-field>
-                <text-field input-name="acquisitionDate"
-                            input-id="acquisitionDate"
-                            label="Fecha de adquisición"
-                            glyphicon="calendar"
-                            ng-model="newSample.acquisitionDate"
-                            is-required="false">
-                </text-field>
+            <div class="col-md-12">
+                <h4>Ejemplar a prestar</h4>
+                    <div class="media search-result well">
+                        <a class="pull-left" href="#">
+                            <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
+                        </a>
+                        <div class="media-body">
+                            <a ng-href="#/books/{{book.id}}"><h4 class="media-heading">{{ book.title }}</h4></a>
+                            <p> ID: <b>{{ book.id }}</b> - Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.editionYear }}</b></p>
+                            <p><span class="label label-primary">{{book.samplesAvailable}}</span> de <span class="label label-danger">{{book.samplesAvailable}}</span> ejemplares disponibles.</p>
+                        </div>
+                        <entity-controls edit-action="edit(place)" delete-action="delete(book)" entity="book" entity-name="books" delete-status="deleteStatus"></entity-controls>
+                    </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <h4>Socio</h4>
-                    <text-field input-name="firstName"
+
+            <div class="col-md-12">
+                <h4>Socio solicitante</h4>
+                <div class="media search-result well">
+                    <a class="pull-left" href="#">
+                        <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4>
+                        <p> ID: {{ member.id }} - Nacionalidad: {{ member.nationality }}</p>
+                    </div>
+                </div>
+<!--                    <text-field input-name="firstName"
                                 input-id="firstName"
                                 placeholder="ej. Juan"
                                 label="Nombre(s)"
@@ -89,7 +88,7 @@
                                 ng-model="member.phone"
                                 is-required="false"
                                 disabled=" mode.status === 'view' ">
-                    </text-field>
+                    </text-field>-->
             </div>
         </div>
          <div class="col-md-12">
