@@ -8,6 +8,17 @@ body {
   margin:0 auto;
 }
 
+.search-result.confirmed-choice {
+    background-color: #c7c7c7;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c7c7c7), to(#98b199));
+    background-image: -webkit-linear-gradient(top, #c7c7c7, #98b199);
+    background-image: -moz-linear-gradient(top, #c7c7c7, #98b199);
+    background-image: -ms-linear-gradient(top, #c7c7c7, #98b199);
+    background-image: -o-linear-gradient(top, #c7c7c7, #98b199);
+    background-image: linear-gradient(to bottom, #c7c7c7, #98b199);
+
+}
+
 .search-result.pending-choice {
     background-color: #f2f5f6;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ecdfdf), to(#d49e9e));

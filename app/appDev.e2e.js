@@ -108,13 +108,39 @@ appDev.run(function($httpBackend) {
             "id": "1",
             "barCode":"123123123123123",
             "acquisitionDate": "21-08-2014",
-            "withdrawDate": "28-08-2016"
+            "withdrawDate": "28-08-2016",
+            "book": {
+                "id": "1",
+                "title": "Pergamino precolombino",
+                "publisher": "Smithsonian Historical Publishings",
+                "editionYear": "1203",
+                "editionCountry": "India",
+                "libraryNumber": "5",
+                "ISBN": "1204423095839482930",
+                "price": "14000.00",
+                "reputationValue": "8",
+                "samplesAvailable": "1",
+                "samplesTotal": "1"
+            }
         },
         {
             "id": "2",
             "barCode":"145215346234242",
             "acquisitionDate": "22-01-2011",
-            "withdrawDate": null
+            "withdrawDate": null,
+            "book": {
+                "id": "1",
+                "title": "Pergamino precolombino",
+                "publisher": "Smithsonian Historical Publishings",
+                "editionYear": "1203",
+                "editionCountry": "India",
+                "libraryNumber": "5",
+                "ISBN": "1204423095839482930",
+                "price": "14000.00",
+                "reputationValue": "8",
+                "samplesAvailable": "1",
+                "samplesTotal": "1"
+            }
         }];
     
     addRelationship(entities, 'book', 'author');
@@ -125,7 +151,7 @@ appDev.run(function($httpBackend) {
     var messageNew = {notice: "Object was created successfully"};
     
 
-    var entityNames = ['author','member','book'];
+    var entityNames = ['author','member','book','sample'];
     angular.forEach(entityNames, function(entityName) {
         
         var entityNamePlural = entityName + 's';
@@ -133,7 +159,11 @@ appDev.run(function($httpBackend) {
         var regex = new RegExp('/' + entityNamePlural + '/([0-9]+)');
         
         //GET to /entitys/
-        $httpBackend.whenGET(apiUrl).respond(entities[entityNamePlural]);
+        $httpBackend.whenGET(apiUrl).respond(function(method,url,data) {
+            console.log("GET to" + apiUrl +". Returned ", entities[entityNamePlural]);
+            return [200, entities[entityNamePlural], {}];
+
+        });
         
         //POST to /entitys/
         $httpBackend.whenPOST(apiUrl).respond(function(method, url, data) {

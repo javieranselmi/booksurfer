@@ -13,7 +13,7 @@
         });
         
         $stateProvider.state('loan.withdraw', {
-            url: '/withdraw',
+            url: '/withdraw?sampleId&memberId',
             templateUrl: 'app/components/loan-manager/templates/loan-manager.withdraw.html',
             controller: 'loanManagerWithdrawController'
         });
