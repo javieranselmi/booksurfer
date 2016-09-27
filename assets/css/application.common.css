@@ -7,6 +7,16 @@ body {
   max-width:800px;
   margin:0 auto;
 }
+
+.search-result.pending-choice {
+    background-color: #f2f5f6;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ecdfdf), to(#d49e9e));
+    background-image: -webkit-linear-gradient(top, #ecdfdf, #d49e9e);
+    background-image: -moz-linear-gradient(top, #ecdfdf, #d49e9e);
+    background-image: -ms-linear-gradient(top, #ecdfdf, #d49e9e);
+    background-image: -o-linear-gradient(top, #ecdfdf, #d49e9e);
+    background-image: linear-gradient(to bottom, #ecdfdf, #d49e9e);
+}
 .search-result {
     background-color: #f2f5f6; background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f5f6), to(#c8d7dc));
     background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
@@ -75,20 +85,10 @@ body {
 }
 
 .glyphicon-refresh-animate {
-    -animation: spin .7s infinite linear;
+    -moz-animation: spin .7s infinite linear;
     -webkit-animation: spin2 .7s infinite linear;
 }
     
-@-webkit-keyframes spin2 {
-    from { -webkit-transform: rotate(0deg);}
-    to { -webkit-transform: rotate(360deg);}
-}
-
-@keyframes spin {
-    from { transform: scale(1) rotate(0deg);}
-    to { transform: scale(1) rotate(360deg);}
-}
-
 .avatar-photo
 {
     width:50px;
@@ -152,4 +152,15 @@ body {
 
 .edit-options-btn-grp {
     margin: 20px 0px;
+}
+
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
 }

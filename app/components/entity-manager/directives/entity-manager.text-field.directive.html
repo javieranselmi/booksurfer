@@ -15,7 +15,7 @@
             <span class="input-group-addon"><span class="glyphicon glyphicon-{{ glyphicon }}"></span></span>
         </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12" ng-hide="noValidate">
         <div>
             <div class="edit-validation-alert alert alert-danger" ng-show="form[inputName].$error.required">Este campo no puede estar vacío.</div>
             <!--<div class="edit-validation-alert alert alert-danger" ng-transclude></div>-->
