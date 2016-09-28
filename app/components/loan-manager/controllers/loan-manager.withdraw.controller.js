@@ -13,6 +13,7 @@
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
         var entity_name_books = 'books';
+        var entity_name_authors = 'authors'
 
         if (!$stateParams.memberId) {
             entitySearch.getAllEntities(entity_name_members).then(function(result){
@@ -28,6 +29,9 @@
             });
             entitySearch.getAllEntities(entity_name_books).then(function(result){
                 $scope.allBooks = result.data;
+            });
+            entitySearch.getAllEntities(entity_name_authors).then(function(result){
+                $scope.allAuthors = result.data;
             });
         } else {
             entityAbm.initializeEntity(entity_name_samples, $stateParams.sampleId);

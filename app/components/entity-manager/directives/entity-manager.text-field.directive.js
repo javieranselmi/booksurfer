@@ -36,6 +36,8 @@
                     ngModel.$setViewValue(scope.model);
                   });
                
+               
+               
             }
           };
    
