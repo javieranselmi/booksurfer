@@ -6,10 +6,6 @@
 
     function controller($scope, $stateParams, entityAbm, entitySearch) {
 
-
-        console.log("Member id: " + $stateParams.memberId);
-        console.log("Sample id: " + $stateParams.sampleId);
-
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
         var entity_name_books = 'books';
@@ -43,6 +39,14 @@
         }
         $scope.resetMember = function() {
             $scope.member = undefined;
+        }
+
+        $scope.setSample = function(sample) {
+            $scope.sample = sample;
+        }
+
+        $scope.setMember = function(member) {
+            $scope.member = member;
         }
 
 

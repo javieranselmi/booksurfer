@@ -141,6 +141,63 @@ appDev.run(function($httpBackend) {
                 "samplesAvailable": "1",
                 "samplesTotal": "1"
             }
+        },
+        {
+            "id": "3",
+            "barCode":"145445346234242",
+            "acquisitionDate": "22-01-2011",
+            "withdrawDate": null,
+            "book": {
+                "id": "2",
+                "title": "El psicoanalista",
+                "publisher": "Emecé",
+                "editionYear": "2009",
+                "editionCountry": "España",
+                "libraryNumber": "412",
+                "ISBN": "1204423032839482930",
+                "price": "130.00",
+                "reputationValue": "1",
+                "samplesAvailable": "0",
+                "samplesTotal": "8"
+            }
+        },
+        {
+            "id": "4",
+            "barCode":"145108346234242",
+            "acquisitionDate": "22-01-2011",
+            "withdrawDate": null,
+            "book": {
+                "id": "3",
+                "title": "Martín y la pantalla",
+                "publisher": "Niñolibros",
+                "editionYear": "1984",
+                "editionCountry": "Argentina",
+                "libraryNumber": "523",
+                "ISBN": "1204423093267432930",
+                "price": "300.00",
+                "reputationValue": "1",
+                "samplesAvailable": "1",
+                "samplesTotal": "4"
+            }
+        },
+        {
+            "id": "5",
+            "barCode":"111111111111111",
+            "acquisitionDate": "22-01-2011",
+            "withdrawDate": null,
+            "book": {
+                "id": "1",
+                "title": "Pergamino precolombino",
+                "publisher": "Smithsonian Historical Publishings",
+                "editionYear": "1203",
+                "editionCountry": "India",
+                "libraryNumber": "5",
+                "ISBN": "1204423095839482930",
+                "price": "14000.00",
+                "reputationValue": "8",
+                "samplesAvailable": "1",
+                "samplesTotal": "1"
+            }
         }];
     
     addRelationship(entities, 'book', 'author');

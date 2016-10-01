@@ -59,6 +59,15 @@ body {
     display:block;   
 }
 
+.subentities-picker-table {
+    max-height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.entity-select-action-list {
+    margin-top: 15px;
+}
 .selectpicker {
     width: auto;
     height: 34px;

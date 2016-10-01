@@ -8,20 +8,35 @@
 
         return function(input, searchCriteria) {
 
-            var out = [];
-            if (searchName === "" || angular.isUndefined(searchName)) {
-                return input;
-            };
 
+            if (!searchCriteria) {
+                return [];
+            }
+            var out = [];
             angular.forEach(input, function(sample) {
-                var fullName = author.firstName + ' ' + author.lastName;
-                if (fullName.toLowerCase().indexOf(searchName.toLowerCase()) !== -1) {
-                    out.push(author)                         
-                }
+
+                var matchTitle = true;
+                var matchBarCode = true;
+                var matchIsbn = true;
+
+                if (searchCriteria.title) {
+                    matchTitle = sample.book.title.toLowerCase().indexOf(searchCriteria.title.toLowerCase()) !== -1;
+                };
+
+                if (searchCriteria.barCode) {
+                    matchBarCode = sample.barCode.indexOf(searchCriteria.barCode) !== -1;
+                };
+
+                if (searchCriteria.isbn) {
+                    matchIsbn = sample.book.ISBN.toLowerCase().indexOf(searchCriteria.isbn.toLowerCase()) !== -1;
+                };
+
+                if (matchTitle && matchBarCode && matchIsbn) {
+                    out.push(sample);
+                };
             });
-            
-            
-                return out;
+
+            return out;
         }
         
      };
