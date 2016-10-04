@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="16702d81-7959-4582-b977-3dd27227b74a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/entity-manager/services/entity-manager.entity-abm.service.js" afterPath="$PROJECT_DIR$/app/components/entity-manager/services/entity-manager.entity-abm.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/entity-manager/services/entity-manager.entity-search.service.js" afterPath="$PROJECT_DIR$/app/components/entity-manager/services/entity-manager.entity-search.service.js" />
     </list>
     <ignored path="booksurfer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +59,8 @@
       <file leaf-file-name="entity-manager.entity-search.service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/components/entity-manager/services/entity-manager.entity-search.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+            <state relative-caret-position="108">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -355,7 +353,7 @@
       <workItem from="1474985609126" duration="17119000" />
       <workItem from="1475273816529" duration="1278000" />
       <workItem from="1475275116371" duration="8629000" />
-      <workItem from="1475336086532" duration="3948000" />
+      <workItem from="1475336086532" duration="3995000" />
     </task>
     <task id="LOCAL-00001" summary="Added the member &amp; sample request on the withdraw page.">
       <created>1475011416062</created>
@@ -399,11 +397,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475621380746</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added member &amp; sample pick on the withdraw page.">
+      <created>1475623076481</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1475623076481</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34062000" />
+    <option name="totallyTimeSpent" value="34109000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -748,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/entity-manager/services/entity-manager.entity-search.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        <state relative-caret-position="108">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding />
         </state>
       </provider>
