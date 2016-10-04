@@ -49,13 +49,6 @@
             $scope.member = member;
         }
 
-        $scope.submitLoan = function{
-
-        };
-
-        $scope.loanSubmittable =
-
-
 
     }
     angular.module(moduleName).controller(controllerName, controller);
