@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16702d81-7959-4582-b977-3dd27227b74a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/loan-manager/filters/loan-manager.select-member.filter.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/booksurfer_node_modules.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/booksurfer.iml" afterPath="$PROJECT_DIR$/.idea/booksurfer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/appDev.e2e.js" afterPath="$PROJECT_DIR$/app/appDev.e2e.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.withdraw.controller.js" afterPath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.withdraw.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/filters/loan-manager.select-sample.filter.js" afterPath="$PROJECT_DIR$/app/components/loan-manager/filters/loan-manager.select-sample.filter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.withdraw.html" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.withdraw.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/application.common.css" afterPath="$PROJECT_DIR$/assets/css/application.common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="booksurfer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,60 +27,7 @@
     <favorites_list name="booksurfer" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="loan-manager.withdraw.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.withdraw.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-              <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appDev.e2e.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/appDev.e2e.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2427">
-              <caret line="184" column="36" selection-start-line="184" selection-start-column="36" selection-end-line="184" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.common.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loan-manager.withdraw.controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.withdraw.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loan-manager.select-sample.filter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/loan-manager/filters/loan-manager.select-sample.filter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -129,10 +68,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
-    <option name="y" value="11" />
-    <option name="width" value="1880" />
-    <option name="height" value="1137" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -159,7 +98,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,6 +283,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -456,7 +395,8 @@
       <workItem from="1473267280010" duration="423000" />
       <workItem from="1474985609126" duration="17119000" />
       <workItem from="1475273816529" duration="1278000" />
-      <workItem from="1475275116371" duration="8520000" />
+      <workItem from="1475275116371" duration="8629000" />
+      <workItem from="1475336086532" duration="1987000" />
     </task>
     <task id="LOCAL-00001" summary="Added the member &amp; sample request on the withdraw page.">
       <created>1475011416062</created>
@@ -465,11 +405,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475011416062</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added member &amp; sample pick on the withdraw page.">
+      <created>1475288773261</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1475288773261</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30005000" />
+    <option name="totallyTimeSpent" value="32101000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -481,10 +428,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="11" width="1880" height="1137" extended-state="0" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30558538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29635417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -517,7 +464,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the member &amp; sample request on the withdraw page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the member &amp; sample request on the withdraw page." />
+    <MESSAGE value="Added member &amp; sample pick on the withdraw page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added member &amp; sample pick on the withdraw page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -528,7 +476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -699,26 +646,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.return.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.return.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/filters/loan-manager.select-sample.filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,17 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.withdraw.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,7 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2427">
           <caret line="184" column="36" selection-start-line="184" selection-start-column="36" selection-end-line="184" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -764,11 +683,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/filters/loan-manager.select-sample.filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.withdraw.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="297">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.return.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.withdraw.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="294" column="80" selection-start-line="294" selection-start-column="80" selection-end-line="294" selection-end-column="80" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

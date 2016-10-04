@@ -9,7 +9,7 @@
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
         var entity_name_books = 'books';
-        var entity_name_authors = 'authors'
+        var entity_name_authors = 'authors';
 
         if (!$stateParams.memberId) {
             entitySearch.getAllEntities(entity_name_members).then(function(result){
@@ -48,6 +48,12 @@
         $scope.setMember = function(member) {
             $scope.member = member;
         }
+
+        $scope.submitLoan = function{
+
+        };
+
+        $scope.loanSubmittable =
 
 
 
