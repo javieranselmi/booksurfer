@@ -5,7 +5,7 @@
     
     function factory($resource) {    
 
-        var endpointBase = 'localhost:5000/';
+        var endpointBase = 'http://localhost:5000/';
         var entityService = {};
         var entityName = "";
         entityService.mode = {status: ""}; //["edit","view","create"]
