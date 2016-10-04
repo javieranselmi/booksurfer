@@ -3,14 +3,15 @@
         factoryName = 'entitySearch';
     factory.$inject = ['$resource','$http'];
     
-    function factory($resource,$http) {    
-        
+    function factory($resource,$http) {
+
+        var endpointBase = 'localhost:5000/';
         var entitySearch = {};
         entitySearch.results = {};
         entitySearch.url = "";
         
         entitySearch.getAllEntities = function(entityName) { 
-            entitySearch.url = '/api/' + entityName;
+            entitySearch.url = endpointBase + entityName;
             return $http.get(entitySearch.url);
         };
         

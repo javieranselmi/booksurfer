@@ -4,7 +4,8 @@
     factory.$inject = ['$resource'];
     
     function factory($resource) {    
-        
+
+        var endpointBase = 'localhost:5000/';
         var entityService = {};
         var entityName = "";
         entityService.mode = {status: ""}; //["edit","view","create"]
@@ -83,7 +84,7 @@
         };
         
         entityService.initializeEntity = function(entityName, id, editMode) {
-            entityService.Entity = new $resource('/api/' + entityName + '/:id');
+            entityService.Entity = new $resource(endpointBase + entityName + '/:id');
             if (isNaN(id)) {
                 entityService.createEmptyEntity();
             } else {
