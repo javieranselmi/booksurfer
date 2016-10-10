@@ -206,7 +206,7 @@ appDev.run(function($httpBackend) {
     var messagePost = {notice: "Object was saved successfully"};
     var messageDelete = {notice: "Object was deleted successfully"};
     var messageNew = {notice: "Object was created successfully"};
-    
+    var messagePut = {notice: "Object was edited successfully"};
 
     var entityNames = ['author','member','book','sample'];
     angular.forEach(entityNames, function(entityName) {
@@ -235,9 +235,20 @@ appDev.run(function($httpBackend) {
             console.log("GET to " + apiUrl + "/1. Success, returning entity with ID " +  entities[entityNamePlural][0].id, entities[entityNamePlural][0]);
             return [200, entities[entityNamePlural][0], {}];
         });
-        
+
+        //PUT to /entitys/1
+        $httpBackend.whenPUT(apiUrl + '/1').respond(function(method, url, data) {
+            var entity = angular.fromJson(data);
+            console.log("PUT to " + apiUrl + "/1. Success, returning entity with ID " +  entity.id, entity);
+            return [200, entity, {}];
+        });
+
+
         //POST to /entitys/1
         $httpBackend.whenPOST(apiUrl + '/1').respond(messagePost);
+
+        //PUT to /entitys/1
+        //$httpBackend.whenPUT(apiUrl + '/1').respond(messagePut);
         
         //DELETE to /entitys/1
         $httpBackend.whenDELETE(apiUrl + '/1').respond(messageDelete);
