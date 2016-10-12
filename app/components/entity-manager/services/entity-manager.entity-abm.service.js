@@ -3,9 +3,10 @@
         factoryName = 'entityAbm';
     factory.$inject = ['$resource'];
     
-    function factory($resource) {    
+    function factory($resource) {
 
-        var endpointBase = 'http://localhost:5000/';
+        var endpointBase = 'http://192.168.0.16:5000/';
+        //var endpointBase = '/api/';
         var entityService = {};
         var entityName = "";
         entityService.mode = {status: ""}; //["edit","view","create"]
@@ -39,17 +40,19 @@
             entityService.mode.status = "create";
         };
                 
-        entityService.saveEntity = function(successCb, errorCb) {
-           entityService.entity.$save(function(){
-                entityService.setViewMode();   
-           });
+        entityService.saveEntity = function() {
+            if (entityService.mode.status === "create") {
+                return entityService.entity.$save(function(){
+                    entityService.setViewMode();
+                });
+            } else {
+                return entityService.entity.$update({id: entityService.id}, function(){
+                    entityService.setViewMode();
+                });
+            }
         };
         
-        entityService.createEmptyEntity = function(id) {
-            entityService.entity = new entityService.Entity(); //Must change
-            entityService.setCreateMode();
-        };
-        
+
         entityService.addSubentity = function(key, newEntity){
             var alreadyExists = entityService._containsObject(newEntity, entityService.entity[key]);
             if (!alreadyExists) {
@@ -68,7 +71,7 @@
     
         entityService.getEntity = function(id, editMode) {
             entityService.entity = new entityService.Entity();
-            entityService.entity.$get({id: id}, function(data){
+            entityService.entity.$get({id: id} , function(data){
                 if (editMode === "true") {
                     entityService.setEditMode();
                 } else {
@@ -78,13 +81,21 @@
                 entityService.createEmptyEntity();
             });
         };
-        
+
+        entityService.createEmptyEntity = function(id) {
+            entityService.entity = new entityService.Entity(); //Must change
+            entityService.setCreateMode();
+        };
+
         entityService.deleteEntity = function(id) {
             return entityService.entity.$delete({id: id});
         };
         
         entityService.initializeEntity = function(entityName, id, editMode) {
-            entityService.Entity = new $resource(endpointBase + entityName + '/:id');
+            entityService.id = id;
+            entityService.Entity = $resource(endpointBase + entityName + '/:id', null ,{
+                'update': { method: 'PUT' }
+            });
             if (isNaN(id)) {
                 entityService.createEmptyEntity();
             } else {
@@ -96,7 +107,8 @@
         
         return entityService;
         
-    }     
+    }
+
     
 angular.module(moduleName).factory(factoryName, factory);
-})();
+    })();

@@ -5,7 +5,8 @@
     
     function factory($resource,$http) {
 
-        var endpointBase = 'http://localhost:5000/';
+        var endpointBase = 'http://192.168.0.16:5000/';
+        //var endpointBase = '/api/';
         var entitySearch = {};
         entitySearch.results = {};
         entitySearch.url = "";

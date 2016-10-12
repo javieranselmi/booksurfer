@@ -20,8 +20,8 @@
         
         $stateProvider.state("members.deletedModal", {
             url: "/deleted",
-            onEnter: ['$modal', function ($modal) {
-                $modal.open({
+            onEnter: ['$modal', function ($uibModal) {
+                $uibModal.open({
                     templateUrl: "app/components/members-abm/templates/members-abm.deleted.modal.view.html",
                     controller: "membersDeletedModal",
                     backdrop: 'static'

@@ -2,7 +2,7 @@
 (function() {
     var moduleName     = 'authors-abm',
         controllerName = 'authorsDeletedModal';
-        controller.$inject = ['$scope','$modalStack','$state'];
+        controller.$inject = ['$scope','$uibModalStack','$state'];
 
     function controller($scope,$modalStack,$state) {
         $scope.back = function() {

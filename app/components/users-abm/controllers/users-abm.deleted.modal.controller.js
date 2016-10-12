@@ -2,11 +2,11 @@
 (function() {
     var moduleName     = 'members-abm',
         controllerName = 'membersDeletedModal';
-        controller.$inject = ['$scope','$modalStack','$state'];
+        controller.$inject = ['$scope','$uibModalStack','$state'];
 
-    function controller($scope,$modalStack,$state) {
+    function controller($scope,$uibModalStack,$state) {
         $scope.back = function() {
-            $modalStack.dismissAll();
+            $uibModalStack.dismissAll();
             $state.go('members.search');
         }
 

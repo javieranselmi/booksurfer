@@ -16,11 +16,13 @@
                 placeholder: '@',
                 label: '@',
                 glyphicon: '@',
+                inputType: '@',
                 isRequired: '=',
                 isDisabled: '=',
                 formObject: '=',
                 fieldText: '=ngModel',
                 noValidate: '='
+
             },
            templateUrl: './app/components/entity-manager/directives/entity-manager.text-field.directive.html',
            link: function(scope, element, attrs, ctrls) {
@@ -35,9 +37,7 @@
                   scope.$watch('model', function() {
                     ngModel.$setViewValue(scope.model);
                   });
-               
-               
-               
+
             }
           };
    

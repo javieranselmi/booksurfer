@@ -9,290 +9,30 @@
 <div class="row well">
     <form>
         <div class="row">
-            <div class="col-md-12">
-                <h4>Ejemplar a prestar</h4>
-                <div class="media search-result well" ng-class="{'pending-choice': !sample, 'confirmed-choice': sample}">
-                        <div class="media-body" ng-show="sample">
-                            <div class="col-md-12">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
-                                </a>
-                                <a ng-href="#/books/{{sample.book.id}}"><h4 class="media-heading">{{ sample.book.title }}</h4></a>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label>Datos del libro</label>
-                            </div>
-
-                            <div class="input-group has-success">
-                                <span class="input-group-addon">Título</span>
-                                <input type="text" class="form-control" value="{{ sample.book.title }}" ng-disabled="true">
-                            </div>
-                            <div class="input-group has-success">
-                                <span class="input-group-addon">Editorial</span>
-                                <input type="text" class="form-control" value="{{ sample.book.publisher }}" ng-disabled="true">
-                            </div>
-                            <div class="input-group has-success">
-                                <span class="input-group-addon">Año</span>
-                                <input type="text" class="form-control" value="{{ sample.book.editionYear }}" ng-disabled="true">
-                            </div>
-
-                            <label>Datos del ejemplar</label>
-                            <div class="input-group has-success">
-                                <span class="input-group-addon">ID</span>
-                                <input type="text" class="form-control" value="{{ sample.id }}" ng-disabled="true">
-                            </div>
-                            <div class="input-group has-success">
-                                <span class="input-group-addon">Código de barras</span>
-                                <input type="text" class="form-control" value="{{ sample.barCode }}" ng-disabled="true">
-                            </div>
-                            <div class="input-group has-success">
-                                <span class="input-group-addon">Fecha de alta</span>
-                                <input type="text" class="form-control" value="{{ sample.acquisitionDate }}" ng-disabled="true">
-                            </div>
-                            <div class="clearfix entity-select-action-list">
-                                <button type="button" ng-click="resetSample()" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Volver a elegir el ejemplar</button>
-                            </div>
-                        </div>
-
-                        <div class="media-body" ng-show="!sample">
-                            <div class="col-md-12">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
-                                </a>
-                                <label> Elija un ejemplar</label>
-                                <p>Sólo se muestran ejemplares disponibles.</p>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label for="title">Título</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                   class="form-control"
-                                                   name="title"
-                                                   id="title"
-                                                   placeholder="La llamada"
-                                                   ng-model="searchCriteria.title"
-                                                   uib-typeahead="book.title for book in allBooks | filter:$viewValue | limitTo:8">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label for="isbn">ISBN</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                   class="form-control"
-                                                   name="isbn"
-                                                   id="isbn"
-                                                   placeholder="1204423095839482930"
-                                                   ng-model="searchCriteria.isbn"
-                                                   uib-typeahead="book.ISBN for book in allBooks | filter:$viewValue | limitTo:8">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label for="title">C.Barras</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                   class="form-control"
-                                                   name="barcode"
-                                                   id="barcode"
-                                                   placeholder="123123123123123"
-                                                   ng-model="searchCriteria.barCode"
-                                                   uib-typeahead="sample.barCode for sample in allSamples | filter:$viewValue | limitTo:8">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 subentities-picker-table">
-                                  <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th class="subentities-list-header">ID</th>
-                                        <th class="subentities-list-header">C.Barras</th>
-                                        <th class="subentities-list-header">Alta</th>
-                                        <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr ng-repeat="sample in allSamples | selectSample:searchCriteria | limitTo:8">
-                                        <td>{{ sample.id }}</td>
-                                        <td>{{ sample.barCode }}</td>
-                                        <td>{{ sample.acquisitionDate }}</td>
-                                        <td><button type="button" ng-click="setSample(sample)" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></td>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-
-            <div class="col-md-12">
-                <h4>Socio solicitante</h4>
-                <div class="media search-result well" ng-class="{'pending-choice': !member, 'confirmed-choice': member}">
-                    <div class="media-body" ng-show="member">
-                        <div class="input-group has-success">
-                            <span class="input-group-addon">Nombre(s)</span>
-                            <input type="text" class="form-control" value="{{ ::member.firstName }}" ng-disabled="true">
-                        </div>
-                        <div class="input-group has-success">
-                            <span class="input-group-addon">Apellido</span>
-                            <input type="text" class="form-control" value="{{ ::member.lastName }}" ng-disabled="true">
-                        </div>
-                        <div class="input-group has-success">
-                            <span class="input-group-addon">DNI</span>
-                            <input type="text" class="form-control" value="{{ ::member.DNI }}" ng-disabled="true">
-                        </div>
-                        <div class="input-group has-success">
-                            <span class="input-group-addon">CUIL</span>
-                            <input type="text" class="form-control" value="{{ ::member.CUIL }}" ng-disabled="true">
-                        </div>
-                        <div class="input-group has-success">
-                            <span class="input-group-addon">Email</span>
-                            <input type="text" class="form-control" value="{{ ::member.email }}" ng-disabled="true">
-                        </div>
-                        <div class="clearfix entity-select-action-list">
-                            <button type="button" ng-click="resetMember()" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Volver a elegir el socio</button>
-                        </div>
-                    </div>
-                    <div class="media-body" ng-show="!member">
-                        <div class="col-md-12">
-                            <a class="pull-left" href="#">
-                                <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="No se ha hallado la imagen"/>
-                            </a>
-                            <label> Elija un socio</label>
-                        </div>
-                        <div class="col-md-6">
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="title">Nombre(s)</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="input-group">
-                                        <input type="text"
-                                               class="form-control"
-                                               name="fullName"
-                                               id="fullName"
-                                               placeholder="Juan Rimini"
-                                               ng-model="memberSearchCriteria.name"
-                                               uib-typeahead="(member.lastName + ', '+ member.firstName) for member in allMembers | filter:$viewValue | limitTo:8">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="title">DNI</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="input-group">
-                                        <input type="text"
-                                               class="form-control"
-                                               name="dni"
-                                               id="dni"
-                                               placeholder="35656578"
-                                               ng-model="memberSearchCriteria.DNI"
-                                               uib-typeahead="member.DNI for member in allMembers | filter:$viewValue | limitTo:8">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="title">CUIL</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="input-group">
-                                        <input type="text"
-                                               class="form-control"
-                                               name="cuil"
-                                               id="cuil"
-                                               placeholder="20-17636557-2"
-                                               ng-model="memberSearchCriteria.CUIL"
-                                               uib-typeahead="member.CUIL for member in allMembers | filter:$viewValue | limitTo:8">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="title">Telefono</label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="input-group">
-                                        <input type="text"
-                                               class="form-control"
-                                               name="phone"
-                                               id="phone"
-                                               placeholder="47033981"
-                                               ng-model="memberSearchCriteria.phone"
-                                               uib-typeahead="member.phone for member in allMembers | filter:$viewValue | limitTo:8">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 subentities-picker-table">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="subentities-list-header">ID</th>
-                                    <th class="subentities-list-header">Nombre</th>
-                                    <th class="subentities-list-header">DNI</th>
-                                    <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr ng-repeat="member in allMembers | selectMember:memberSearchCriteria | limitTo:8">
-                                    <td><a href="#"> {{ member.id }}</a></td>
-                                    <td>{{ member.firstName + ' ' + member.lastName }}</td>
-                                    <td>{{ member.DNI }}</td>
-                                    <td><button type="button" ng-click="setMember(member)" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></td>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div ng-include="'app/components/loan-manager/templates/loan-manager.member-finder.html'"></div>
+            <div ng-include="'app/components/loan-manager/templates/loan-manager.sample-finder.html'"></div>
         </div>
          <div class="col-md-12">
              <h4>Datos del préstamo</h4>
              <text-field    input-name="withdrawDate"
-                            input-id="date"
+                            input-type="date"
                             placeholder="ej. 12/08/2013"
                             label="Fecha del préstamo"
-                            glyphicon="book"
+                            glyphicon="download-alt"
                             ng-model="loan.withdrawDate"
                             is-required="true">
             </text-field>
-            <text-field    input-name="agreedReturnDate"
-                            input-id="date"
+            <text-field     input-name="agreedReturnDate"
+                            input-type="date"
                             placeholder="ej. 12/08/2013"
                             label="Fecha pactada de devolución"
-                            glyphicon="book"
+                            glyphicon="repeat"
                             ng-model="loan.agreedReturnDate"
                             is-required="true">
             </text-field>
         </div>
         <div class="clearfix entity-select-action-list">
-            <button type="button" ng-click="submitLoan()" class="btn btn-success pull-right">Prestar</button>
+            <button type="button" ng-disabled="!member || !sample" ng-click="postLoan()" class="btn btn-success pull-right">Prestar</button>
         </div>
     </form>                
 </div>

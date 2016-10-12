@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-9">
         <div class="input-group">
-            <input type="text"
+            <input type="{{ inputType }}"
                    class="form-control"
                    name="{{ inputName }}"
                    id="{{ inputId }}"
@@ -12,7 +12,6 @@
                    ng-required=" {{ isRequired }}" 
                    ng-model="model" 
                    ng-disabled="isDisabled">
-
             <span class="input-group-addon"><span class="glyphicon glyphicon-{{ glyphicon }}"></span></span>
         </div>
     </div>

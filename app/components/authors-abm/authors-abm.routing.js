@@ -20,8 +20,8 @@
         
         $stateProvider.state("authors.deletedModal", {
             url: "/deleted",
-            onEnter: ['$modal', function ($modal) {
-                $modal.open({
+            onEnter: ['$uibModal', function ($uibModal) {
+                $uibModal.open({
                     templateUrl: "app/components/authors-abm/templates/authors-abm.deleted.modal.view.html",
                     controller: "authorsDeletedModal",
                     backdrop: 'static'

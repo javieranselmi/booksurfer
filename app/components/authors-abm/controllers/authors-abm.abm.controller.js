@@ -14,11 +14,14 @@
         $scope.mode = entityAbm.mode;
         $scope.countries = countries();
         $scope.author = entityAbm.entity;
-        $scope.saveAuthor = entityAbm.saveEntity;
+        $scope.saveAuthor = function() {
+            entityAbm.saveEntity().then(function(response){
+                $state.go('authors.abm',{id: response.id});
+            });
+        }
         $scope.goToEdit = entityAbm.setEditMode;
         $scope.deleteAuthor = function() {
             entityAbm.deleteEntity($scope.author.id).then(function(response){
-                console.log(response.notice); //TEMP
                 $state.go('authors.deletedModal');
             });
         }
