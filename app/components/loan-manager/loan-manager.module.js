@@ -1,1 +1,1 @@
-angular.module("loan-manager", ["ui.router","entity-manager","ui.bootstrap"]);
+angular.module("loan-manager", ["ui.router","entity-manager","ui.bootstrap","shared"]);

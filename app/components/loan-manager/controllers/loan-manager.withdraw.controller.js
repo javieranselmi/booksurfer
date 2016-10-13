@@ -2,9 +2,9 @@
 (function() {
     var moduleName     = 'loan-manager',
         controllerName = 'loanManagerWithdrawController';
-        controller.$inject = ['$scope','$stateParams','entityAbm','entitySearch','$http'];
+        controller.$inject = ['$scope','$stateParams','entityAbm','entitySearch','$http','endpoints'];
 
-    function controller($scope, $stateParams, entityAbm, entitySearch, $http) {
+    function controller($scope, $stateParams, entityAbm, entitySearch, $http, endpoints) {
 
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
@@ -49,8 +49,6 @@
             $scope.member = member;
         }
 
-
-
         var today = new Date();
         var defaultReturnDate = new Date();
 
@@ -60,7 +58,7 @@
 
         $scope.postLoan = function() {
             console.log("Posting loan");
-            $http.post('http://192.168.0.16:5000/loans', {
+            $http.post(endpoints.POST_LOAN, {
                     memberId: $scope.member.id,
                     sampleId: $scope.sample.id,
                     withdrawDate: $scope.loan.withdrawDate,

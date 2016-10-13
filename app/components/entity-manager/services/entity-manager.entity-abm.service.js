@@ -1,12 +1,11 @@
 (function() {
     var moduleName = 'entity-manager',
         factoryName = 'entityAbm';
-    factory.$inject = ['$resource'];
+    factory.$inject = ['$resource','endpoints'];
     
-    function factory($resource) {
+    function factory($resource, endpoints) {
 
-        var endpointBase = 'http://192.168.0.16:5000/';
-        //var endpointBase = '/api/';
+        var endpointBase = endpoints.BASE;
         var entityService = {};
         var entityName = "";
         entityService.mode = {status: ""}; //["edit","view","create"]

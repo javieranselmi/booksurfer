@@ -199,6 +199,35 @@ appDev.run(function($httpBackend) {
                 "samplesTotal": "1"
             }
         }];
+
+    entities.loans = [{
+            "id": "1",
+            "comment": "Se entregó todo sucio",
+            "agreedReturnDate":  "2016-10-27",
+            "returnDate":  "2016-10-28",
+            "withdrawDate":  "2016-10-24",
+            "member": {
+                "id":"1",
+                "firstName": "Juan",
+                "lastName": "Tomate",
+                "DNI": "35656544",
+                "CUIL": "20-35336537-2",
+                "phone": "47666193",
+                "email": "juantomate@gmail.com",
+                "zip": "1023",
+                "city": "Río Cuarto",
+                "state": "cordoba",
+                "enabled": true,
+                "reputation": 2
+            }
+        },
+        {
+            "id": "2",
+            "comment": "Se entregó todo popin",
+            "agreedReturnDate":  "2016-11-24",
+            "returnDate":  "2016-12-24",
+            "withdrawDate":  "2016-10-14"
+        }];
     
     addRelationship(entities, 'book', 'author');
     addRelationship(entities, 'book', 'sample');
@@ -208,7 +237,7 @@ appDev.run(function($httpBackend) {
     var messageNew = {notice: "Object was created successfully"};
     var messagePut = {notice: "Object was edited successfully"};
 
-    var entityNames = ['author','member','book','sample'];
+    var entityNames = ['author','member','book','sample','loan'];
     angular.forEach(entityNames, function(entityName) {
         
         var entityNamePlural = entityName + 's';
@@ -254,7 +283,12 @@ appDev.run(function($httpBackend) {
         $httpBackend.whenDELETE(apiUrl + '/1').respond(messageDelete);
         
     });
-    
+
+
+    $httpBackend.whenGET('/api/samples/1/loans/').respond(function(method, url, data) {
+        console.log("GET to api/samples/1/loans. Success, returning loan array");
+        return [200, entities.loans, {}];
+    });
 
   $httpBackend.whenGET(new RegExp('app/*')).passThrough();
   

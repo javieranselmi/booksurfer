@@ -1,1 +1,1 @@
-angular.module("entity-manager", ["ngResource"]);
+angular.module("entity-manager", ["ngResource","shared"]);

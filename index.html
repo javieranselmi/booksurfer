@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="bookstore">
+<html ng-app="bookstoreE2E">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a ui-sref="home">Home</a></li>
+
             <li class="active"><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
             <li class="active"><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
             <li class="active"><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
@@ -47,6 +47,10 @@
     <script src="./app/components/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="./app/components/bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="./app/components/bower_components/angular-resource/angular-resource.js"></script>
+
+    <!-- shared module inits -->
+    <script src="./app/components/shared/shared.module.js"></script>
+    <script src="./app/components/shared/services/shared.endpoints.js"></script>
 
     <!-- entityManager module inits -->
     <script src="./app/components/entity-manager/entity-manager.module.js"></script>

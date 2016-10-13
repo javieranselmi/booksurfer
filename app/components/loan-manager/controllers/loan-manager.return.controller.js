@@ -2,23 +2,16 @@
 (function() {
     var moduleName     = 'loan-manager',
         controllerName = 'loanManagerReturnController';
-    controller.$inject = ['$scope','$stateParams','entityAbm','entitySearch','$http'];
+    controller.$inject = ['$scope','$stateParams','entityAbm','entitySearch','$http', 'endpoints'];
 
-    function controller($scope, $stateParams, entityAbm, entitySearch, $http) {
+    function controller($scope, $stateParams, entityAbm, entitySearch, $http, endpoints) {
 
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
         var entity_name_books = 'books';
         var entity_name_authors = 'authors';
+        $scope.showLoan = false;
 
-        if (!$stateParams.memberId) {
-            entitySearch.getAllEntities(entity_name_members).then(function(result){
-                $scope.allMembers = result.data;
-            });
-        } else {
-            entityAbm.initializeEntity(entity_name_members, $stateParams.memberId);
-            $scope.member = entityAbm.entity;
-        }
         if (!$stateParams.sampleId) {
             entitySearch.getAllEntities(entity_name_samples).then(function(result){
                 $scope.allSamples = result.data;
@@ -37,39 +30,40 @@
         $scope.resetSample = function() {
             $scope.sample = undefined;
         }
-        $scope.resetMember = function() {
-            $scope.member = undefined;
-        }
 
         $scope.setSample = function(sample) {
             $scope.sample = sample;
         }
 
-        $scope.setMember = function(member) {
-            $scope.member = member;
-        }
-
         $scope.getLoan = function() {
-            $http.get('http://192.168.0.16:5000/loans', {
-                    memberId: $scope.member.id,
+            var url = endpoints.GET_LOAN_BY_SAMPLE_ID.replace(':sampleId', $scope.sample.id);
+            return $http.get(url, {
                     sampleId: $scope.sample.id,
                     withdrawDate: $scope.loan.withdrawDate,
                     agreedReturnDate: $scope.loan.agreedReturnDate
                 }
             )
         }
-        $scope.loan = {};
-        $scope.$watch('sample', function() {
 
+        $scope.loan = {};
+
+        $scope.$watch('sample', function() {
+            if ($scope.sample) {
+                $scope.getLoan().then(function(result){
+                    $scope.showLoan = true;
+                    var latestLoan = result.data[0];
+                    latestLoan.withdrawDate = new Date(latestLoan.withdrawDate);
+                    latestLoan.agreedReturnDate = new Date(latestLoan.agreedReturnDate);
+                    $scope.loan = latestLoan;
+                })
+            }
         })
 
-        $scope.postLoan = function() {
-            console.log("Posting loan");
-            $http.post('http://192.168.0.16:5000/loans', {
-                    memberId: $scope.member.id,
-                    sampleId: $scope.sample.id,
-                    withdrawDate: $scope.loan.withdrawDate,
-                    agreedReturnDate: $scope.loan.agreedReturnDate
+        $scope.editLoan = function() {
+            console.log(endpoints.PUT_LOAN.replace(":id",loan.id));
+            $http.put(endpoints.PUT_LOAN.replace(":id",loan.id), {
+                    returnDate: loan.returnDate,
+                    comments: loan.comments
                 }
             )
         };

@@ -1,11 +1,11 @@
 (function() {
     var moduleName = 'entity-manager',
         factoryName = 'entitySearch';
-    factory.$inject = ['$resource','$http'];
+    factory.$inject = ['$resource','$http','endpoints'];
     
-    function factory($resource,$http) {
+    function factory($resource,$http,endpoints) {
 
-        var endpointBase = 'http://192.168.0.16:5000/';
+        var endpointBase = endpoints.BASE;
         //var endpointBase = '/api/';
         var entitySearch = {};
         entitySearch.results = {};
