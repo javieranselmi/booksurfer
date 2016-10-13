@@ -9,7 +9,7 @@
         return {
             BASE: BASE,
             POST_LOAN: BASE + 'loans/',
-            PUT_LOAN: BASE + 'loans/:id/',
+            PUT_LOAN: BASE + 'loans/:id',
             GET_LOAN: BASE + 'loans/',
             GET_LOAN_BY_SAMPLE_ID: BASE + 'samples/:sampleId/loans/'
         }

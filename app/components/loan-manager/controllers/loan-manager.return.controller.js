@@ -29,6 +29,7 @@
 
         $scope.resetSample = function() {
             $scope.sample = undefined;
+            $scope.showLoan = false;
         }
 
         $scope.setSample = function(sample) {
@@ -60,10 +61,10 @@
         })
 
         $scope.editLoan = function() {
-            console.log(endpoints.PUT_LOAN.replace(":id",loan.id));
-            $http.put(endpoints.PUT_LOAN.replace(":id",loan.id), {
-                    returnDate: loan.returnDate,
-                    comments: loan.comments
+            $http.put(endpoints.PUT_LOAN.replace(":id",$scope.loan.id), {
+                    id: $scope.loan.id,
+                    returnDate: $scope.loan.returnDate,
+                    comment: $scope.loan.comment
                 }
             )
         };
