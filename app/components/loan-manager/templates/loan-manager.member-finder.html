@@ -12,11 +12,11 @@
             </div>
             <div class="input-group has-success">
                 <span class="input-group-addon">DNI</span>
-                <input type="text" class="form-control" value="{{ ::member.DNI }}" ng-disabled="true">
+                <input type="text" class="form-control" value="{{ ::member.dni }}" ng-disabled="true">
             </div>
             <div class="input-group has-success">
                 <span class="input-group-addon">CUIL</span>
-                <input type="text" class="form-control" value="{{ ::member.CUIL }}" ng-disabled="true">
+                <input type="text" class="form-control" value="{{ ::member.cuil }}" ng-disabled="true">
             </div>
             <div class="input-group has-success">
                 <span class="input-group-addon">Email</span>
@@ -63,8 +63,8 @@
                                    name="dni"
                                    id="dni"
                                    placeholder="35656578"
-                                   ng-model="memberSearchCriteria.DNI"
-                                   uib-typeahead="member.DNI for member in allMembers | filter:$viewValue | limitTo:8">
+                                   ng-model="memberSearchCriteria.dni"
+                                   uib-typeahead="member.dni for member in allMembers | filter:$viewValue | limitTo:8">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
                         </div>
                     </div>
@@ -80,8 +80,8 @@
                                    name="cuil"
                                    id="cuil"
                                    placeholder="20-17636557-2"
-                                   ng-model="memberSearchCriteria.CUIL"
-                                   uib-typeahead="member.CUIL for member in allMembers | filter:$viewValue | limitTo:8">
+                                   ng-model="memberSearchCriteria.cuil"
+                                   uib-typeahead="member.cuil for member in allMembers | filter:$viewValue | limitTo:8">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                     <tr ng-repeat="member in allMembers | selectMember:memberSearchCriteria | limitTo:8">
                         <td><a href="#"> {{ member.id }}</a></td>
                         <td>{{ member.firstName + ' ' + member.lastName }}</td>
-                        <td>{{ member.DNI }}</td>
+                        <td>{{ member.dni }}</td>
                         <td><button type="button" ng-click="setMember(member)" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></td>
                         </td>
                     </tr>

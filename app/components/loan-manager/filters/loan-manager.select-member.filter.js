@@ -25,12 +25,12 @@
                     matchName = fullName.toLowerCase().indexOf(searchCriteria.name.toLowerCase()) !== -1;
                 };
 
-                if (searchCriteria.DNI) {
-                    matchDNI = member.DNI.indexOf(searchCriteria.DNI) !== -1;
+                if (searchCriteria.dni) {
+                    matchDNI = member.dni.indexOf(searchCriteria.dni) !== -1;
                 };
 
-                if (searchCriteria.CUIL) {
-                    matchCUIL = member.CUIL.toLowerCase().indexOf(searchCriteria.CUIL.toLowerCase()) !== -1;
+                if (searchCriteria.cuil) {
+                    matchCUIL = member.cuil.toLowerCase().indexOf(searchCriteria.cuil.toLowerCase()) !== -1;
                 };
 
                 if (searchCriteria.phone) {

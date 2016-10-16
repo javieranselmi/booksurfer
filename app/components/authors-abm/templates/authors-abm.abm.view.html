@@ -52,17 +52,13 @@
                         <th class="subentities-list-header">Nombre del libro</th>
                         <th class="subentities-list-header">Editorial</th>
                         <th class="subentities-list-header">Año</th>
-                        <th class="subentities-list-header">Ejemplares disp.</th>
-                        <th class="subentities-list-header">Ejemplares tot.</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr ng-repeat="book in author.books">
                         <td><a href="#"> {{ book.title }}</a></td>
-                        <td>{{ book.editorial }}</td>
-                        <td>{{ book.publishYear }}</td>
-                        <td>{{ book.copiesAvailable }}</td>
-                        <td>{{ book.copiesTotal }}</td>
+                        <td>{{ book.publisher }}</td>
+                        <td>{{ book.editionYear }}</td>
                       </tr>
                     </tbody>
                   </table>

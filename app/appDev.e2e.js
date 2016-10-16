@@ -289,9 +289,17 @@ appDev.run(function($httpBackend) {
         console.log("GET to api/samples/1/loans. Success, returning loan array");
         return [200, entities.loans, {}];
     });
+    $httpBackend.whenPOST(new RegExp('\/api\/books\/.*\/authors\/.*\/')).respond(function(method, url, data) {
+        console.log("POST to api/books/*/authors/*/. Success. Returning nothing.");
+        return [200, {}, {}];
+    });
+    $httpBackend.whenDELETE(new RegExp('\/api\/books\/.*\/authors\/.*\/')).respond(function(method, url, data) {
+        console.log("DELETE to api/books/*/authors/*/. Success. Returning nothing.");
+        return [200, {}, {}];
+    });
 
   $httpBackend.whenGET(new RegExp('app/*')).passThrough();
-  
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 });
 
 /*

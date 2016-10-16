@@ -28,7 +28,7 @@
                 };
 
                 if (searchCriteria.isbn) {
-                    matchIsbn = sample.book.ISBN.toLowerCase().indexOf(searchCriteria.isbn.toLowerCase()) !== -1;
+                    matchIsbn = sample.book.isbn.toLowerCase().indexOf(searchCriteria.isbn.toLowerCase()) !== -1;
                 };
 
                 if (matchTitle && matchBarCode && matchIsbn) {

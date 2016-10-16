@@ -22,12 +22,12 @@
                                 is-required="true"
                                 is-disabled=" mode.status === 'view' ">
                     </text-field>
-                    <text-field input-name="ISBN"
-                                input-id="ISBN"
+                    <text-field input-name="isbn"
+                                input-id="isbn"
                                 placeholder="ej. 1204423095839482930"
-                                label="ISBN"
+                                label="isbn"
                                 glyphicon="credit-card"
-                                ng-model="book.ISBN"
+                                ng-model="book.isbn"
                                 is-required="false"
                                 is-disabled=" mode.status === 'view' ">
                     </text-field>
@@ -73,6 +73,18 @@
                                 is-required="true"
                                 is-disabled=" mode.status === 'view' ">
                     </text-field>
-
+                    <text-field input-name="loanType"
+                                input-id="loanType"
+                                placeholder="LOCAL | REMOTE"
+                                label="Tipo de préstamo ('LOCAL'|'REMOTE')"
+                                glyphicon="thumbs-up"
+                                ng-model="book.loanType"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' ">
+                    </text-field>
+        <div class="entity-actions-btn-group clearfix">
+            <input type="submit" class="entity-action btn btn-success" value="Guardar libro" ng-click="saveBook()" ng-show="mode.status ==='create' || mode.status ==='edit'"/>
+            <input type="submit" class="entity-action btn btn-danger" value="Eliminar autor" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>
+        </div>
     </div>
 </form>

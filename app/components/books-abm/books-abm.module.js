@@ -1,1 +1,1 @@
-angular.module("books-abm", ["ui.router","entity-manager","ui.bootstrap"]);
+angular.module("books-abm", ["ui.router","entity-manager","ui.bootstrap","shared"]);
