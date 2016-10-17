@@ -5,10 +5,16 @@
     
     function controller($scope,entitySearch,countrySelect,searchFilter) {
         $scope.books = [];
-        
+        $scope.showAdvancedSearch = false;
+        $scope.searchCriteria = {};
+
         entitySearch.getAllEntities('books').then(function(result){
             $scope.books = result.data;
         });
+
+        $scope.toggleAdvancedSearch = function() {
+            $scope.showAdvancedSearch = !$scope.showAdvancedSearch
+        }
     }
     angular.module(moduleName).controller(controllerName, controller);
 })();

@@ -8,15 +8,26 @@
 </div>
 <div class="row">
     <div class="input-group" id="search">
-        <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Busca autores por nombre y/o apellido" autofocus/>
+        <input type="text" class="form-control" ng-model="searchCriteria.title" placeholder="Busca libros por título..." autofocus/>
         <div class="input-group-btn">
             <div class="btn-group" role="group">
+                <button type="button" class="btn btn-success" ng-click="toggleAdvancedSearch()" uib-tooltip="Más opciones de búsqueda"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
                 <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </div>
         </div>
     </div>
+    <uib-accordion>
+        <div uib-accordion-group class="" is-open="showAdvancedSearch">
+              <label for="searchedAuthor">Busca por autor</label>
+              <input type="text" name="searchedAuthor" class="form-control" ng-model="searchCriteria.author" placeholder="Busca libros por nombre y/o apellido del autor" autofocus/>
+              <label for="searchedGender">Busca por género</label>
+              <input type="text" name="searchedGender" class="form-control" ng-model="searchCriteria.gender" placeholder="Busca libros por su género" autofocus/>
+              <label for="searchedIsbn">Busca por ISBN</label>
+              <input type="text" name="searchedIsbn" class="form-control" ng-model="searchCriteria.isbn" placeholder="Busca libros por ISBN" autofocus/>
+        </div>
+    </uib-accordion>
     <!--Results area -->
-    <div class="media search-result well" ng-repeat="book in books | search:searchCriteria">
+    <div class="media search-result well" ng-repeat="book in books | bookSearch:searchCriteria">
         <a class="pull-left" href="#">
             <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
         </a>
