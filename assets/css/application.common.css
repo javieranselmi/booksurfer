@@ -91,6 +91,7 @@ body {
   background-color: transparent;
   border: none;
   text-align: right;
+  color: red;
 }
 
 #mode-message {

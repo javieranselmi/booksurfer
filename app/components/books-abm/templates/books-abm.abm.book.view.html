@@ -33,6 +33,7 @@
                     </text-field>
                     <text-field input-name="price"
                                 input-id="price"
+                                input-type="number"
                                 placeholder="ej. 302"
                                 label="Precio en dólares (U$S)"
                                 glyphicon="credit-card"
@@ -54,37 +55,42 @@
                     </text-field>
                     <text-field input-name="editionYear"
                                 input-id="editionYear"
+                                input-type="number"
                                 placeholder="ej. 1920"
                                 label="Año de edición"
                                 glyphicon="user"
                                 ng-model="book.editionYear"
                                 is-required="true"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max="10000"
+                                min="0">
                     </text-field>
                     <div class="col-md-12 section-label">
                         <label>Datos requeridos por la biblioteca</label>
                     </div>
                     <text-field input-name="reputationValue"
                                 input-id="reputationValue"
+                                input-type="number"
                                 placeholder="ej. 4"
                                 label="Reputación requerida"
                                 glyphicon="thumbs-up"
                                 ng-model="book.reputationValue"
                                 is-required="true"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max="10"
+                                min="0">
                     </text-field>
-                    <text-field input-name="loanType"
+                    <toggle-field input-name="loanType"
                                 input-id="loanType"
-                                placeholder="LOCAL | REMOTE"
-                                label="Tipo de préstamo ('LOCAL'|'REMOTE')"
-                                glyphicon="thumbs-up"
+                                label="Tipo de préstamo"
                                 ng-model="book.loanType"
                                 is-required="true"
-                                is-disabled=" mode.status === 'view' ">
-                    </text-field>
+                                is-disabled=" mode.status === 'view' "
+                                options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
+                    </toggle-field>
         <div class="entity-actions-btn-group clearfix">
             <input type="submit" class="entity-action btn btn-success" value="Guardar libro" ng-click="saveBook()" ng-show="mode.status ==='create' || mode.status ==='edit'"/>
-            <input type="submit" class="entity-action btn btn-danger" value="Eliminar autor" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>
+            <input type="submit" class="entity-action btn btn-danger" value="Eliminar libro" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>
         </div>
     </div>
 </form>

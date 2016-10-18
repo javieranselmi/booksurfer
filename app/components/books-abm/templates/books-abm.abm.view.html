@@ -4,10 +4,10 @@
     <uib-tab index="0" heading="Libros">
         <div ng-include="'app/components/books-abm/templates/books-abm.abm.book.view.html'"></div>
     </uib-tab>
-    <uib-tab index="1" heading="Autor(es) del libro">
+    <uib-tab index="1" heading="Autor(es) del libro" disable="(mode.status ==='create')" uib-tooltip="Guarda el libro para poder editar los autores." tooltip-enable="(mode.status ==='create')">
         <div ng-include="'app/components/books-abm/templates/books-abm.abm.author.view.html'"></div>
     </uib-tab>
-    <uib-tab index="2" heading="Ejemplares del libro">
+    <uib-tab index="2" heading="Ejemplares del libro" disable="(mode.status ==='create')" uib-tooltip="Guarda el libro para poder editar los ejemplares." tooltip-enable="(mode.status ==='create')">
         <div ng-include="'app/components/books-abm/templates/books-abm.abm.sample.view.html'"></div>
     </uib-tab>
 </uib-tabset>

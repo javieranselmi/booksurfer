@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-3">
+            <label for="{{ inputName }}">{{ label }}<span style="color:red" ng-show="::isRequired">*</span></label>  
+    </div>
+    <input type="hidden"
+                   class="form-control"
+                   name="{{ inputName }}"
+                   id="{{ inputId }}"
+                   ng-required=" {{ isRequired }}" 
+                   ng-model="model" 
+                   ng-disabled="isDisabled">
+    <div class="col-md-9 form-group">
+            <div class="btn-group pull-left">
+                        <label class="btn btn-primary" 
+                                ng-model="model" 
+                                uib-btn-radio="options[0].value"
+                                ng-disabled="isDisabled">{{options[0].text}}
+                        </label>
+                        <label class="btn btn-primary"
+                               ng-model="model" 
+                               uib-btn-radio="options[1].value"
+                               ng-disabled="isDisabled">{{options[1].text}}
+                        </label>
+            </div>       
+    </div>
+    <div class="col-md-12"ng-messages="form[inputName].$error" role="alert" ng-if="!noValidate && form.$submitted || !noValidate && form[inputName].$dirty">
+        <div class="edit-validation-alert" ng-message="required">Este campo es requerido.</div>
+    </div>
+</div>
