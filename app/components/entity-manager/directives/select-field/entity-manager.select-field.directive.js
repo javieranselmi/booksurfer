@@ -1,6 +1,6 @@
 (function() {
     var moduleName     = 'entity-manager',
-        directiveName = 'toggleField';
+        directiveName = 'selectField';
         
     function directive() {
         
@@ -13,22 +13,23 @@
             scope: {
                 inputName: '@',
                 inputId: '@',
+                placeholder: '@',
                 label: '@',
-                isDisabled: '=',
+                values: '=',
+                glyphicon: '@',
+                inputType: '@',
                 isRequired: '=',
+                isDisabled: '=',
                 formObject: '=',
                 fieldText: '=ngModel',
-                options: '=',
-                minLength:"=",
-                maxLength:"=",
-                pattern:"=",
+
             },
-           templateUrl: './app/components/entity-manager/directives/toggle-field/entity-manager.toggle-field.directive.html',
+           templateUrl: './app/components/entity-manager/directives/select-field/entity-manager.select-field.directive.html',
            link: function(scope, element, attrs, ctrls) {
 
                   scope.form = ctrls[0];
                   var ngModel = ctrls[1];
-                 
+
                   scope.$watch('fieldText', function(oldVal, newVal) {
                     scope.model = scope.fieldText;
                   });

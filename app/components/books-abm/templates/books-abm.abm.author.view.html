@@ -8,6 +8,7 @@
                 <span class="glyphicon glyphicon-remove subentity-capsule-icon" ng-click="deleteAuthor('authors', author)" ng-hide="(mode.status ==='view')"></span>
             </span>
     </div>
+    <generic-error generic-error="authorsGenericError"></generic-error>
     <div class="subentity-edit-controls" ng-show="mode.status !=='view'">
         <div class="col-md-12 clearfix">
             <div class="col-md-6 clearfix">
@@ -33,28 +34,32 @@
             </div>
             <div uib-collapse="mustShowNewAuthor">
                 <div class="col-md-12 section-label">
-                    <form name="bookAbmAuthorsForm">
+                    <form name="forms.bookAbmAuthorsForm">
                         <text-field input-name="authorFirstName"
                                     input-id="authorFirstName"
                                     label="Nombre"
                                     glyphicon="user"
                                     ng-model="newAuthor.firstName"
-                                    is-required="true">
+                                    is-required="true"
+                                    max-length="50">
                         </text-field>
                         <text-field input-name="authorLastName"
                                     input-id="authorLastName"
                                     label="Apellido"
                                     glyphicon="user"
                                     ng-model="newAuthor.lastName"
-                                    is-required="true">
+                                    is-required="true"
+                                    max-length="50">
                         </text-field>
-                        <text-field input-name="authorNationality"
+                        <select-field input-name="authorNationality"
                                     input-id="authorNationality"
                                     label="Nacionalidad"
                                     glyphicon="user"
                                     ng-model="newAuthor.nationality"
-                                    is-required="true">
-                        </text-field>
+                                    is-required="true"
+                                    max-length="50"
+                                    values="countries">
+                        </select-field>
                     </form>
                 </div>
                 <div class="col-md-12">

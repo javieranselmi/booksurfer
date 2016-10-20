@@ -14,18 +14,19 @@
                    ng-disabled="isDisabled"
                    ng-min="min"
                    ng-max="max"
-                   ng-min-length="minLength"
-                   ng-max-length="maxLength">
+                   ng-minlength="minLength"
+                   ng-maxlength="maxLength">
             <span class="input-group-addon"><span class="glyphicon glyphicon-{{ glyphicon }}"></span></span>
         </div>
     </div>
     <div class="col-md-12">
       <div class="col-md-12"ng-messages="form[inputName].$error" role="alert" ng-if="!noValidate && form.$submitted || !noValidate && form[inputName].$dirty">
         <div class="edit-validation-alert" ng-message="required">Este dato es requerido.</div>
-        <div class="edit-validation-alert" ng-message="min-length">La longitud mínima de este campo es {{::maxLength}}.</div>
-        <div class="edit-validation-alert" ng-message="max-length">La longitud máxima de este campo es {{::minLength}}.</div>
+        <div class="edit-validation-alert" ng-message="minlength">La longitud mínima de este campo es de {{::minLength}} caracteres.</div>
+        <div class="edit-validation-alert" ng-message="maxlength">La longitud máxima de este campo es de {{::maxLength}} caracteres.</div>
         <div class="edit-validation-alert" ng-message="min">Este campo debe ser mayor a {{::min}}.</div>
         <div class="edit-validation-alert" ng-message="max">Este campo debe ser menor a {{::max}}.</div>
+        <div class="edit-validation-alert" ng-message="email">Este campo debe tener formato de email.</div>
       </div>
     </div>
 </div>

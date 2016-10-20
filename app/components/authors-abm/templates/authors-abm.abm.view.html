@@ -1,6 +1,6 @@
     <div class="row">
         <div class="authorEditPanel">
-        <form name="form" role="form" class="well" novalidate>
+        <form name="forms.authorsAbmForm" role="form" class="well" novalidate>
             <div id="entity-name-display" class="col-lg-12 well">
                     <img class="entity-edit-photo pull-left" ng-src="{{ defaultImg }}" alt="No se ha hallado la imagen"/>
                     <h2>{{ (author.firstName + " " +author.lastName)}}</h2>
@@ -11,30 +11,34 @@
                 <h4 ng-if="mode.status === 'create'">Modo de creación</h4>
                 <h4 ng-if="mode.status === 'view'">Modo de sólo lectura</h4>
             </div>
-                <div class="form-group">
-                    <label for="InputName">Nombre(s) del autor</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="uFirstName" id="firstNameInput" placeholder="ej.  Germán, María del Pilar" required ng-model="author.firstName" autofocus ng-disabled="mode.status ==='view'"/>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    </div>
-                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uFirstName.$error.required  && !form.uFirstName.$pristine ">El autor debe tener nombre.
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="InputName">Apellido(s) del autor</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="uLastName" id="lastNameInput" placeholder="ej. Gonzalez, Aguirre" required ng-model="author.lastName" ng-disabled="mode.status ==='view'">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    </div>
-                    <div class="edit-validation-alert alert alert-danger" ng-show="form.uLastName.$error.required && !form.uLastName.$pristine">El autor debe tener apellido.</div>
-                </div>
-                <div class="form-group">
-                    <label for="InputName">Nacionalidad del autor</label>
-                    <div class="input-group selectpicker-input-group">
-                        <select data-style="btn-primary" name="singleSelect" ng-model="author.nationality" ng-options="item for item in countries" class="selectpicker" required ng-disabled="mode.status ==='view'">
-                        </select>
-                    </div>
-                </div>
+                <text-field input-name="authorFirstName"
+                            input-id="authorFirstName"
+                            label="Nombre"
+                            glyphicon="user"
+                            ng-model="author.firstName"
+                            is-required="true"
+                            is-disabled="mode.status === 'view'"
+                            max-length="50">
+                </text-field>
+                <text-field input-name="authorLastName"
+                            input-id="authorLastName"
+                            label="Apellido"
+                            glyphicon="user"
+                            ng-model="author.lastName"
+                            is-required="true"
+                            is-disabled="mode.status === 'view'"
+                            max-length="50">
+                </text-field>
+                <select-field input-name="authorNationality"
+                            input-id="authorNationality"
+                            label="Nacionalidad"
+                            glyphicon="plane"
+                            ng-model="author.nationality"
+                            is-required="true"
+                            is-disabled="mode.status === 'view'"
+                            max-length="50"
+                            values="countries">
+                </select-field>
                 <div class="form-group">
                     <input type="submit" class="btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
                     <input type="submit" class="btn btn-success" value="Guardar cambios" ng-click="saveAuthor()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
@@ -56,7 +60,7 @@
                     </thead>
                     <tbody>
                       <tr ng-repeat="book in author.books">
-                        <td><a href="#"> {{ book.title }}</a></td>
+                        <td><a ui-sref="books.abm({id: book.id})"> {{ book.title }}</a></td>
                         <td>{{ book.publisher }}</td>
                         <td>{{ book.editionYear }}</td>
                       </tr>

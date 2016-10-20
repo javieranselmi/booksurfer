@@ -36,12 +36,13 @@
                     <label for="comment">Comentarios</label>
                 </div>
                 <div class="col-md-9">
-                        <textarea      class="form-control"
+                        <textarea class="form-control"
+                                       style="{resize: vertical;}"
                                        rows="5"
                                        id="comment"
                                        placeholder="Inserte un comentario sobre el estado del libro al devolverlo..."
                                        ng-model="loan.comment"
-                                       is-required="true">
+                                       ng-maxlength="300">
                         </textarea>
                 </div>
             </div>

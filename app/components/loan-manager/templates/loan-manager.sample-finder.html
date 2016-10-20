@@ -1,5 +1,4 @@
 <div class="col-md-12">
-    <h4>Ejemplar a prestar</h4>
     <div class="media search-result well" ng-class="{'pending-choice': !sample, 'confirmed-choice': sample}">
         <div class="media-body" ng-show="sample">
             <div class="col-md-12">
@@ -50,14 +49,14 @@
                     <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
                 </a>
                 <label> Elija un ejemplar</label>
-                <p>Sólo se muestran ejemplares disponibles.</p>
+                <p>Sólo se muestran ejemplares en circulación. Los ejemplares en rojo no están disponibles para préstamo.</p>
             </div>
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-3">
                         <label for="title">Título</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 form-group">
                         <div class="input-group">
                             <input type="text"
                                    class="form-control"
@@ -71,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 form-group">
                         <label for="isbn">ISBN</label>
                     </div>
                     <div class="col-md-9">
@@ -82,13 +81,13 @@
                                    id="isbn"
                                    placeholder="1204423095839482930"
                                    ng-model="searchCriteria.isbn"
-                                   uib-typeahead="book.ISBN for book in allBooks | filter:$viewValue | limitTo:8">
+                                   uib-typeahead="book.isbn for book in allBooks | filter:$viewValue | limitTo:8">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 form-group">
                         <label for="title">C.Barras</label>
                     </div>
                     <div class="col-md-9">
@@ -120,7 +119,7 @@
                         <td>{{ sample.id }}</td>
                         <td>{{ sample.barCode }}</td>
                         <td>{{ sample.acquisitionDate }}</td>
-                        <td><button type="button" ng-click="setSample(sample)" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></td>
+                        <td><button type="button" ng-click="setSample(sample)" class="btn" ng-disabled="!sample.availableForLoan" ng-class="{'btn-success':sample.availableForLoan, 'btn-danger':!sample.availableForLoan}"><span class="glyphicon" aria-hidden="true" ng-class="{'glyphicon-ok':sample.availableForLoan, 'glyphicon-remove':!sample.availableForLoan}"></span></button></td>
                         </td>
                     </tr>
                     </tbody>

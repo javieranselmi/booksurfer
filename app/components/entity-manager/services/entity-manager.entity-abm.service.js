@@ -19,6 +19,16 @@
             };
         return false;
         };
+
+        entityService.containsObjectWithSameId = function(obj, list) {
+            var i;
+            for (i = 0; i < list.length; i++) {
+                if (list[i].id === obj.id) {
+                    return true;
+                };
+            };
+        return false;
+        };
         
         entityService._filterArray = function(objToBeDeleted, list) {
             var filteredList = list.filter(function(element){

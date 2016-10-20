@@ -1,4 +1,4 @@
-<form name="bookAbmForm" role="form" novalidate>
+<form name="forms.bookAbmForm" role="form" novalidate>
     <div class="well">
 
                     <div class="col-md-12 section-label">
@@ -11,7 +11,8 @@
                                 glyphicon="user"
                                 ng-model="book.title"
                                 is-required="true"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max-length="200">
                     </text-field>
                     <text-field input-name="publisher"
                                 input-id="publisher"
@@ -20,16 +21,28 @@
                                 glyphicon="credit-card"
                                 ng-model="book.publisher"
                                 is-required="true"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max-length="200">
                     </text-field>
                     <text-field input-name="isbn"
                                 input-id="isbn"
                                 placeholder="ej. 1204423095839482930"
-                                label="isbn"
+                                label="ISBN"
                                 glyphicon="credit-card"
                                 ng-model="book.isbn"
                                 is-required="false"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max-length="13">
+                    </text-field>
+                    <text-field input-name="gender"
+                                input-id="gender"
+                                placeholder="ej. Terror"
+                                label="Género"
+                                glyphicon="credit-card"
+                                ng-model="book.gender"
+                                is-required="false"
+                                is-disabled=" mode.status === 'view' "
+                                max-length="200">
                     </text-field>
                     <text-field input-name="price"
                                 input-id="price"
@@ -39,7 +52,8 @@
                                 glyphicon="credit-card"
                                 ng-model="book.price"
                                 is-required="false"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max="500000">
                     </text-field>
                     <div class="col-md-12 section-label">
                         <label>Datos de la edición</label>
@@ -51,7 +65,8 @@
                                 glyphicon="user"
                                 ng-model="book.editionCountry"
                                 is-required="true"
-                                is-disabled=" mode.status === 'view' ">
+                                is-disabled=" mode.status === 'view' "
+                                max-length="64">
                     </text-field>
                     <text-field input-name="editionYear"
                                 input-id="editionYear"
@@ -88,6 +103,7 @@
                                 is-disabled=" mode.status === 'view' "
                                 options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
                     </toggle-field>
+                    <generic-error generic-error="genericError"></generic-error>
         <div class="entity-actions-btn-group clearfix">
             <input type="submit" class="entity-action btn btn-success" value="Guardar libro" ng-click="saveBook()" ng-show="mode.status ==='create' || mode.status ==='edit'"/>
             <input type="submit" class="entity-action btn btn-danger" value="Eliminar libro" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>

@@ -7,9 +7,11 @@
         $scope.books = [];
         $scope.showAdvancedSearch = false;
         $scope.searchCriteria = {};
+        $scope.loading = true;
 
         entitySearch.getAllEntities('books').then(function(result){
             $scope.books = result.data;
+            $scope.loading = false;
         });
 
         $scope.toggleAdvancedSearch = function() {

@@ -18,7 +18,8 @@
         </div>
 
         <!--Results area -->
-        <div class="media search-result well" ng-repeat="author in authors | search:searchCriteria">
+        <img class="media-object avatar-photo" src="http://www.elnorte.com/libre/acceso/imgdiseno/loading3.gif" alt="img" ng-if="loading">
+        <div class="media search-result well" ng-repeat="author in authors | search:searchCriteria" ng-if="!loading">
             <a class="pull-left" href="#">
                 <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
             </a>

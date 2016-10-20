@@ -1,11 +1,12 @@
 <div class="member-edit-panel">
-        <form name="form" role="form" class="well" novalidate>
+        <form name="forms.membersAbmForm" role="form" class="well" novalidate>
             
                 <div id="entity-name-display" class="col-lg-12 well">
                         <img class="entity-edit-photo pull-left" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="No se ha hallado la imagen"/>
                         <h2>{{ (member.firstName + " " +member.lastName)}}</h2>
                         <h4>Socio</h4>
                 </div>
+                <input type="submit" class="entity-action btn btn-primary" value="Prestar un libro a este socio" ui-sref="loan.withdraw({memberId: member.id})" ng-if="mode.status !== 'create'"/>
                 <div id="mode-message" class="col-md-12" ng-class="{ 'bg-primary': mode.status ==='view', 'bg-danger': mode.status ==='edit' }">
                     <h4 ng-if="mode.status === 'edit'">Modo de edición</h4>
                     <h4 ng-if="mode.status === 'create'">Modo de creación</h4>
@@ -21,7 +22,8 @@
                             label="Nombre(s)"
                             glyphicon="user"
                             ng-model="member.firstName"
-                            no-validate="true">
+                            is-disabled="mode.status === 'view'"
+                            max-length="50">
                 </text-field>
                 <text-field input-name="lastName"
                             input-id="lastName"
@@ -30,34 +32,39 @@
                             glyphicon="user"
                             ng-model="member.lastName"
                             is-required="true"
-                            disabled=" mode.status === 'view' ">
+                            is-disabled=" mode.status === 'view' "
+                            max-length="50">
                     </text-field>
                 <text-field input-name="dni"
                             input-id="dni"
                             placeholder="ej. 35656537"
-                            label="dni"
+                            label="DNI"
                             glyphicon="credit-card"
                             ng-model="member.dni"
                             is-required="true"
-                            disabled=" mode.status === 'view' ">
+                            is-disabled=" mode.status === 'view' "
+                            max-length="16">
                 </text-field>
                 <text-field input-name="cuil"
                             input-id="cuil"
                             placeholder="ej. 20-35656537-2"
-                            label="cuil"
+                            label="CUIL"
                             glyphicon="credit-card"
                             ng-model="member.cuil"
                             is-required="false"
-                            disabled=" mode.status === 'view' ">
+                            is-disabled=" mode.status === 'view' "
+                            max-length="24">
                 </text-field>
                 <text-field input-name="email"
                             input-id="email"
+                            input-type="email"
                             placeholder="ej. juangonzalez@utn.com"
                             label="Correo electrónico"
                             glyphicon="envelope"
                             ng-model="member.email"
                             is-required="false"
-                            disabled=" mode.status === 'view' ">
+                            is-disabled=" mode.status === 'view' "
+                            max-length="100">
                 </text-field>
                 <text-field input-name="phone"
                             input-id="phone"
@@ -66,31 +73,45 @@
                             glyphicon="phone"
                             ng-model="member.phone"
                             is-required="false"
-                            disabled=" mode.status === 'view' ">
+                            is-disabled=" mode.status === 'view' "
+                            max-length="24">
                 </text-field>
+                <select-field input-name="nationality"
+                            input-id="nationality"
+                            placeholder="ej. Argentina"
+                            label="Nacionalidad"
+                            glyphicon="plane"
+                            ng-model="member.nationality"
+                            is-required="true"
+                            is-disabled=" mode.status === 'view' "
+                            max-length="50"
+                            values="countries">
+                </select-field>
                 <div class="col-md-12 section-label">
                     <label>Dirección</label>
                 </div>
-                <text-field input-name="state"
+                <select-field input-name="state"
                             input-id="state"
                             placeholder="ej. Córdoba"
                             label="Provincia"
                             glyphicon="road"
                             ng-model="member.state"
                             is-required="true"
-                            disabled=" mode.status === 'view' ">
-                </text-field>
-                <text-field input-name="city"
+                            is-disabled=" mode.status === 'view' "
+                            max-length="100"
+                            values="states">
+                </select-field>
+                <select-field input-name="city"
                             input-id="city"
                             placeholder="ej. Buenos Aires"
                             label="Ciudad"
                             glyphicon="equalizer"
                             ng-model="member.city"
                             is-required="false"
-                            disabled=" mode.status === 'view' ">
-                </text-field>       
-
-
+                            is-disabled=" mode.status === 'view' "
+                            max-length="100"
+                            values="cities">
+                </select-field>       
                 <text-field input-name="zipCode"
                             input-id="zipCode"
                             placeholder="ej. 1602"
@@ -98,7 +119,8 @@
                             glyphicon="inbox"
                             ng-model="member.zipCode"
                             is-required="false"
-                            disabled=" mode.status === 'view' ">
+                            is-disabled=" mode.status === 'view' "
+                            max-length="10">
                 </text-field>
                 <div class="col-md-12 section-label">
                     <label>Estatus de socio</label>
@@ -110,14 +132,23 @@
                             glyphicon="thumbs-up"
                             ng-model="member.reputation"
                             is-required="true"
-                            disabled=" mode.status === 'view' ">
-                </text-field>
-
+                            is-disabled=" mode.status === 'view' "
+                            min="1"
+                            max="10">
+                </text-field> <!--input-type="number"-->
+                <toggle-field input-name="enabled"
+                              input-id="enabled"
+                              label="Habilitado para préstamos"
+                              ng-model="member.enabled"
+                              is-required="true"
+                              is-disabled=" mode.status === 'view' "
+                              options="[{value:'True', text:'HABILITADO'},{value: 'False', text:'NO HABILITADO'}]">
+                </toggle-field>
                 <div class="entity-actions-btn-group clearfix">
                     <input type="submit" class="entity-action btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
                     <input type="submit" class="entity-action btn btn-success" value="Guardar cambios" ng-click="saveMember()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
                     <input type="submit" class="entity-action btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="form.$invalid" ng-show="mode.status ==='edit'"/>
-                    <input type="submit" class="entity-action btn btn-danger" value="Eliminar autor" ng-click="deleteMember()" ng-show="mode.status ==='edit'"/>
+                    <input type="submit" class="entity-action btn btn-danger" value="Eliminar socio" ng-click="deleteMember()" ng-show="mode.status ==='edit'"/>
                 </div>
         </form>
 </div>
