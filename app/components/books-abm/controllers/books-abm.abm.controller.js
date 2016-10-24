@@ -152,6 +152,8 @@
                     $scope.mustShowSampleForm = false;
                     $scope.editingSample = false;
                     $scope.creatingSample = false;
+                    $scope.forms.bookAbmSamplesForm.$setPristine();
+                    $scope.samplesGenericError = undefined;
                     entityAbm.initializeEntity(entity, $stateParams.id, 'true');
                     $scope.book = entityAbm.entity;
                 }, function(error) {

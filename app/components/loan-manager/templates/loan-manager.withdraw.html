@@ -7,7 +7,7 @@
     </p>
 </div>
 <div class="row well">
-    <form>
+    <form name="forms.loanForm">
         <div class="row">
             <div ng-include="'app/components/loan-manager/templates/loan-manager.member-finder.html'"></div>
             <div ng-include="'app/components/loan-manager/templates/loan-manager.sample-finder.html'"></div>
@@ -30,7 +30,15 @@
                             ng-model="loan.agreedReturnDate"
                             is-required="true">
             </text-field>
+            <toggle-field input-name="loanType"
+                        input-id="loanType"
+                        label="Tipo de préstamo"
+                        ng-model="loan.loanType"
+                        is-required="true"
+                        options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
+            </toggle-field>
         </div>
+        <generic-error generic-error="genericError"></generic-error>
         <div class="clearfix entity-select-action-list">
             <button type="button" ng-disabled="!member || !sample" ng-click="postLoan()" class="btn btn-success pull-right">Prestar</button>
         </div>

@@ -46,7 +46,7 @@
                                    id="fullName"
                                    placeholder="Juan Rimini"
                                    ng-model="memberSearchCriteria.name"
-                                   uib-typeahead="(member.lastName + ', '+ member.firstName) for member in allMembers | filter:$viewValue | limitTo:8">
+                                   uib-typeahead="(member.firstName + ' '+member.lastName) for member in allMembers | filter:$viewValue | limitTo:8">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
                         </div>
                     </div>

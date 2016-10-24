@@ -25,14 +25,14 @@
                           ng-click="editSample(sample)" 
                           class="btn btn-primary" 
                           uib-tooltip="Editar ejemplar"
-                          ng-if="sample.availableForLoan">
+                          ng-if="sample.availableForLoan === 'True'">
                           <span class="glyphicon glyphicon-pencil"></span>
                   </button>
                   <button type="button" 
                           ng-click="deleteSample('samples', sample)"
                           class="btn btn-danger" 
                           uib-tooltip="Borrar ejemplar"
-                          ng-if="sample.availableForLoan">
+                          ng-if="sample.availableForLoan === 'True'">
                           <span class="glyphicon glyphicon-remove"></span>
                   </button>
                   <button type="button" 
@@ -40,7 +40,7 @@
                           class="btn btn-success" 
                           ng-disabled="!sample.availableForLoan" 
                           uib-tooltip="Prestar"
-                          ng-if="sample.availableForLoan">
+                          ng-if="sample.availableForLoan === 'True'">
                           <span class="glyphicon glyphicon-log-out"></span>
                   </button>
                 </div>
