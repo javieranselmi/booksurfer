@@ -19,9 +19,15 @@
         });
         
         $stateProvider.state('loan.return', {
-            url: '/return',
+            url: '/return?sampleId',
             templateUrl: 'app/components/loan-manager/templates/loan-manager.return.html',
             controller: 'loanManagerReturnController'
+        });
+
+        $stateProvider.state('loan.show', {
+            url: '/:sampleId',
+            templateUrl: 'app/components/loan-manager/templates/loan-manager.show.html',
+            controller: 'loanManagerShowController'
         });
 
     }

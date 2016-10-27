@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <div class="media search-result well">
+        <div class="media-body">
+            <div>
+                <h1>Préstamo</h1>
+                <div><label>Día de retiro -&nbsp</label><span>{{ loan.withdrawDate }}</span></div>
+                <div><label>Tipo de préstamo -&nbsp</label><span>{{ loan.loanType }}</span></div>
+
+                <h1> Libro</h1>
+                <div><label>ID -&nbsp</label><span>{{ sample.book.id }}</span></div>
+                <div><label>Libro -&nbsp</label><span>{{ sample.book.title }}</span></div>
+                <div><label>Editorial -&nbsp</label><span>{{ sample.book.publisher }}</span></div>
+                <hr>
+
+                <h1>Ejemplar</h1>
+                <div><label>ID -&nbsp</label><span>{{ sample.id }}</span></div>
+                <div><label>Código de barras -&nbsp</label><span>{{ sample.barCode }}</span></div>
+                <div ng-if="sample.acquisitionDate"><label>Fecha adquisicion -&nbsp</label><span>{{ sample.acquisitionDate }}</span></div>
+
+                <h1>Socio que alquiló</h1>
+                <div><label>ID -&nbsp</label><span>{{ member.id }}</span></div>
+                <div><label>Nombre completo -&nbsp</label><span>{{ member.firstName + ' '+ member.lastName }}</span></div>
+                <div><label>DNI -&nbsp</label><span>{{ member.dni }}</span></div>
+
+                
+            </div>
+            <div class="clearfix entity-select-action-list">
+                <button type="button" ui-sref="books.abm({id: sample.book.id})" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove"></span> Volver al libro</button>
+            </div>
+        </div>
+    </div>
+</div>

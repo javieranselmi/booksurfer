@@ -20,31 +20,29 @@
             <td>{{ sample.acquisitionDate | date:'yyyy-MM-dd'}}</td>
             <td>{{ sample.discardDate | date:'yyyy-MM-dd' }}</td>
             <td ng-hide="(mode.status ==='view')">
-                <div class="btn-group">
+                <div class="btn-group" ng-if="sample.availableForLoan === 'True' && sample.discardDate !== null">
                   <button type="button" 
                           ng-click="editSample(sample)" 
                           class="btn btn-primary" 
-                          uib-tooltip="Editar ejemplar"
-                          ng-if="sample.availableForLoan === 'True'">
+                          uib-tooltip="Editar ejemplar">
                           <span class="glyphicon glyphicon-pencil"></span>
                   </button>
                   <button type="button" 
                           ng-click="deleteSample('samples', sample)"
                           class="btn btn-danger" 
-                          uib-tooltip="Borrar ejemplar"
-                          ng-if="sample.availableForLoan === 'True'">
+                          uib-tooltip="Borrar ejemplar">
                           <span class="glyphicon glyphicon-remove"></span>
                   </button>
                   <button type="button" 
                           ui-sref="loan.withdraw({sampleId: sample.id})" 
                           class="btn btn-success" 
                           ng-disabled="!sample.availableForLoan" 
-                          uib-tooltip="Prestar"
-                          ng-if="sample.availableForLoan === 'True'">
+                          uib-tooltip="Prestar">
                           <span class="glyphicon glyphicon-log-out"></span>
                   </button>
                 </div>
-                <p ng-if="!sample.availableForLoan">Ver préstamo</p>
+                <p ng-if="!(sample.availableForLoan === 'True') && sample.discardDate === null">Prestado<br><a ui-sref="loan.show({sampleId: sample.id})">Ver préstamo</a></p>
+                <p ng-if="!(sample.availableForLoan === 'True') && sample.discardDate !== null">Dado de baja</p>
             </td>
           </tr>
         </tbody>
@@ -82,7 +80,7 @@
                             label="Fecha de adquisición"
                             glyphicon="calendar"
                             ng-model="newSample.acquisitionDate"
-                            is-required="false">
+                            is-required="true">
                 </text-field>
                 <text-field input-name="discardDate"
                             input-id="discardDate"
@@ -94,8 +92,8 @@
                 </text-field>
             </form>
             <div class="clearfix">
-                <button type="button" ng-show="creatingSample" ng-click="createSample('sample', newSample)" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear ejemplar</button>
-                <button type="button" ng-show="editingSample" ng-click="saveEditedSample('sample', newSample)" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Guardar ejemplar</button>
+                <button type="button" ng-show="creatingSample" ng-click="createSample('sample', newSample)" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> Crear ejemplar</button>
+                <button type="button" ng-show="editingSample" ng-click="saveEditedSample('sample', newSample)" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span>Guardar ejemplar</button>
             </div>
         </div>
     </div>  

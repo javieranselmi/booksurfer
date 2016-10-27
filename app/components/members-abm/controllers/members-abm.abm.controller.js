@@ -2,9 +2,9 @@
 (function() {
     var moduleName     = 'members-abm',
         controllerName = 'membersAbmController';
-        controller.$inject = ['$scope','countries','entityAbm','$stateParams','$state','lists'];
+        controller.$inject = ['$scope','countries','entityAbm','$stateParams','$state','lists','$filter','endpoints','$http'];
 
-    function controller($scope,countries,entityAbm,$stateParams, $state, lists) {
+    function controller($scope,countries,entityAbm,$stateParams, $state, lists, $filter, endpoints, $http) {
         
         var entity = 'members';
         $scope.defaultImg = 'https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png';
@@ -21,6 +21,16 @@
         $scope.states = lists.states;
         $scope.cities = lists.cities;
         
+        $scope.getMemberLoans = function(memberId) {
+            var url = endpoints.GET_MEMBER_LOANS.replace(':memberId', memberId);
+                $http.get(url).then(function(result){
+                    $scope.loans = result.data;
+                })
+
+        }
+
+        $scope.getMemberLoans($stateParams.id);
+
         $scope.saveMember = function() {
             $scope.lockdown = true;
                 if($scope.forms.membersAbmForm.$valid) {

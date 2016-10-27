@@ -1,0 +1,21 @@
+<h3>Préstamos de los últimos 12 meses</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="subentities-list-header">Título del libro</th>
+      <th class="subentities-list-header">Código del ejemplar</th>
+      <th class="subentities-list-header">Socio</th>
+      <th class="subentities-list-header">Fecha de retiro</th>
+      <th class="subentities-list-header">Fecha de devolución</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="loan in loans">
+      <td>{{ loan.sample.book.title }}</td>
+      <td>{{ loan.sample.barCode }}</td>
+      <td>{{ loan.member.firstName + ' ' + loan.sample.lastName }}</td>
+      <td>{{ loan.withdrawDate }}</td>
+      <td>{{ loan.returnDate }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -2,10 +2,14 @@
 (function() {
     var moduleName     = 'loan-manager',
         controllerName = 'loanManagerWithdrawConfirmationController';
-        controller.$inject = ['$scope','$uibModalInstance'];
+        controller.$inject = ['$scope','$uibModalInstance','items'];
 
-    function controller($scope, $uibModalInstance) {
+    function controller($scope, $uibModalInstance, items) {
 
+    	  $scope.book = items.book;
+    	  $scope.loan = items.loan;
+    	  $scope.member = items.member;
+    	  $scope.sample = items.sample;
 
 		  $scope.ok = function () {
 		    $uibModalInstance.close();

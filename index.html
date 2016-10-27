@@ -15,30 +15,55 @@
     <link rel="stylesheet" href="./assets/css/card.css" >
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">BookSurfer</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
 
-            <li class="active"><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
-            <li class="active"><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
-              <li class="active"><a ui-sref="loan.withdraw" href="javascript:void(0);">Préstamo</a></li>
-              <li class="active"><a ui-sref="loan.return" href="javascript:void(0);">Devolución</a></li>
-            <li class="active"><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
     
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0);">Booksurfer</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-if="true">
+      <ul class="nav navbar-nav">
+            <li><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
+            <li><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
+            <li><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
+            <li><a ui-sref="users.search" href="javascript:void(0);">Buscar Usuarios</a></li>
+            <li><a ui-sref="publishers.search" href="javascript:void(0);">Buscar Editoriales</a></li>
+            <li><a ui-sref="loan.withdraw" href="javascript:void(0);">Préstamo</a></li>
+            <li><a ui-sref="loan.return" href="javascript:void(0);">Devolución</a></li>
+            <li><a ui-sref="login" href="javascript:void(0);">LOGIN</a></li>
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Reportes<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href="javascript:void(0);" ui-sref="reports.latestLoans">Retiros últimos 12 meses</a></li>
+                <li><a href="javascript:void(0);" ui-sref="reports.outdatedLoans">Devoluciones en mora</a></li>
+                <li><a href="javascript:void(0);" ui-sref="reports.popularBooks">Libros más retirados</a></li>
+              </ul>
+            </li>
+            <li>{{'USER:' + currentUser}}</li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+    <ul class="nav navbar-nav">
+
+            
+          </ul>
+
     <div class="main-container" ui-view></div>
 
     <script src="./app/components/bower_components/jquery/dist/jquery.min.js"></script>
@@ -48,11 +73,14 @@
     <script src="./app/components/bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="./app/components/bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="./app/components/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="./app/components/bower_components/ngstorage/ngStorage.min.js"></script>
 
     <!-- shared module inits -->
     <script src="./app/components/shared/shared.module.js"></script>
     <script src="./app/components/shared/services/shared.endpoints.js"></script>
     <script src="./app/components/shared/services/shared.lists.js"></script>
+    <script src="./app/components/shared/services/shared.login.js"></script>
+    <script src="./app/components/shared/filters/shared.start-from.filter.js"></script>
 
     <!-- entityManager module inits -->
     <script src="./app/components/entity-manager/entity-manager.module.js"></script>
@@ -62,6 +90,7 @@
     <script src="./app/components/entity-manager/directives/toggle-field/entity-manager.toggle-field.directive.js"></script>
     <script src="./app/components/entity-manager/directives/generic-error/entity-manager.generic-error.directive.js"></script>
     <script src="./app/components/entity-manager/directives/select-field/entity-manager.select-field.directive.js"></script>
+    <script src="./app/components/entity-manager/directives/checkbox-field/entity-manager.checkbox-field.directive.js"></script>
     
     <!-- -------------  AUTHORS --------------- -->
     
@@ -78,6 +107,34 @@
     <script src="./app/components/authors-abm/controllers/authors-abm.abm.controller.js"></script>
     <script src="./app/components/authors-abm/controllers/authors-abm.search.controller.js"></script>
     <script src="./app/components/authors-abm/controllers/authors-abm.deleted.modal.controller.js"></script>
+
+    <!-- -------------  USERS --------------- -->
+    
+    <!-- Authors-abm module inits -->
+    <script src="./app/components/users-abm/users-abm.module.js"></script>
+    <script src="./app/components/users-abm/users-abm.routing.js"></script>
+
+   
+    <!-- Filters -->
+    <script src="./app/components/users-abm/filters/users-abm.search.filter.js"></script>
+    <!-- Controllers -->
+    <script src="./app/components/users-abm/controllers/users-abm.abm.controller.js"></script>
+    <script src="./app/components/users-abm/controllers/users-abm.search.controller.js"></script>
+    <script src="./app/components/users-abm/controllers/users-abm.deleted.modal.controller.js"></script>
+
+    <!-- -------------  PUBLISHERS --------------- -->
+    
+    <!-- Authors-abm module inits -->
+    <script src="./app/components/publishers-abm/publishers-abm.module.js"></script>
+    <script src="./app/components/publishers-abm/publishers-abm.routing.js"></script>
+
+   
+    <!-- Filters -->
+    <script src="./app/components/publishers-abm/filters/publishers-abm.search.filter.js"></script>
+    <!-- Controllers -->
+    <script src="./app/components/publishers-abm/controllers/publishers-abm.abm.controller.js"></script>
+    <script src="./app/components/publishers-abm/controllers/publishers-abm.search.controller.js"></script>
+    <script src="./app/components/publishers-abm/controllers/publishers-abm.deleted.modal.controller.js"></script>
     
      <!-- -------------  BOOKS ---------------- -->
     
@@ -96,7 +153,7 @@
     <script src="./app/components/books-abm/controllers/books-abm.search.controller.js"></script>
     <script src="./app/components/books-abm/controllers/books-abm.deleted.modal.controller.js"></script>
     
-    <!-- -------------  memberS ---------------- -->
+    <!-- -------------  MEMBERS ---------------- -->
     
     <!-- members-abm module inits -->
     <script src="./app/components/members-abm/members-abm.module.js"></script>
@@ -112,6 +169,26 @@
     <script src="./app/components/members-abm/controllers/members-abm.search.controller.js"></script>
     <script src="./app/components/members-abm/controllers/members-abm.deleted.modal.controller.js"></script>
 
+    <!-- -------------  REPORTS ---------------- -->
+    
+    <!-- members-abm module inits -->
+    <script src="./app/components/reports/reports.module.js"></script>
+    <script src="./app/components/reports/reports.routing.js"></script>
+
+    <!-- Controllers -->
+    <script src="./app/components/reports/controllers/reports.latest-loans.controller.js"></script>
+    <script src="./app/components/reports/controllers/reports.outdated-loans.controller.js"></script>
+    <script src="./app/components/reports/controllers/reports.popular-books.controller.js"></script>
+
+    <!-- -------------  LOGIN ---------------- -->
+    
+    <!-- members-abm module inits -->
+    <script src="./app/components/login/login.module.js"></script>
+    <script src="./app/components/login/login.routing.js"></script>
+
+    <!-- Controllers -->
+    <script src="./app/components/login/controllers/login.controller.js"></script>
+
     <!-- -------------  loan manager ---------------- -->
     
     <!-- members-abm module inits -->
@@ -120,11 +197,14 @@
 
     <!-- Controllers -->
     <script src="./app/components/loan-manager/controllers/loan-manager.return.controller.js"></script>
+    <script src="./app/components/loan-manager/controllers/loan-manager.return-confirmation.controller.js"></script>
     <script src="./app/components/loan-manager/controllers/loan-manager.withdraw.controller.js"></script>
     <script src="./app/components/loan-manager/controllers/loan-manager.withdraw-confirmation.controller.js"></script>
+    <script src="./app/components/loan-manager/controllers/loan-manager.show.controller.js"></script>
 
     <!-- Filters -->
-    <script src="./app/components/loan-manager/filters/loan-manager.select-sample.filter.js"></script>
+    <script src="./app/components/loan-manager/filters/loan-manager.select-sample-return.filter.js"></script>
+    <script src="./app/components/loan-manager/filters/loan-manager.select-sample-withdraw.filter.js"></script>
     <script src="./app/components/loan-manager/filters/loan-manager.select-member.filter.js"></script>
     
     <!-- App inits -->

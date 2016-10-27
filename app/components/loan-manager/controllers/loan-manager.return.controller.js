@@ -2,15 +2,20 @@
 (function() {
     var moduleName     = 'loan-manager',
         controllerName = 'loanManagerReturnController';
-    controller.$inject = ['$scope','$stateParams','entityAbm','entitySearch','$http', 'endpoints'];
+    controller.$inject = ['$scope','$stateParams','entityAbm','entitySearch','$http', 'endpoints','$filter','$uibModal','$state'];
 
-    function controller($scope, $stateParams, entityAbm, entitySearch, $http, endpoints) {
+    function controller($scope, $stateParams, entityAbm, entitySearch, $http, endpoints, $filter, $uibModal, $state) {
 
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
         var entity_name_books = 'books';
         var entity_name_authors = 'authors';
         $scope.showLoan = false;
+        $scope.forms = {};
+        $scope.lockdown = false;
+        $scope.searchCriteria = {};
+        $scope.searchCriteria.filterSamplesNotForLoan = true;
+
 
         if (!$stateParams.sampleId) {
             entitySearch.getAllEntities(entity_name_samples).then(function(result){
@@ -46,6 +51,11 @@
             )
         }
 
+        $scope.getLoanMember = function(memberId) {
+            var url = endpoints.GET_MEMBER.replace(':memberId', memberId);
+            return $http.get(url)
+        }
+
         $scope.loan = {};
 
         $scope.$watch('sample', function() {
@@ -56,22 +66,50 @@
                     latestLoan.withdrawDate = new Date(latestLoan.withdrawDate);
                     latestLoan.agreedReturnDate = new Date(latestLoan.agreedReturnDate);
                     $scope.loan = latestLoan;
+                    $scope.getLoanMember($scope.loan.memberId).then(function(result){
+                        $scope.member = result.data;
+                    });
                 })
             }
-        })
+        });
 
-        $scope.editLoan = function() {
-            $http.put(endpoints.PUT_LOAN.replace(":id",$scope.loan.id), {
-                    id: $scope.loan.id,
-                    returnDate: $scope.loan.returnDate,
-                    comment: $scope.loan.comment
-                }
-            )
+        $scope.showSuccess = function() {
+            return modalInstance = $uibModal.open({
+              animation: false,
+              templateUrl: 'app/components/loan-manager/templates/loan-manager.return-confirmation.html',
+              controller: 'loanManagerReturnConfirmationController',
+              resolve: { 
+                items: function() {
+                    return  {
+                        member: $scope.member,
+                        loan: $scope.loan,
+                        book: $scope.book,
+                        sample: $scope.sample
+                    }
+              }
+            }
+        });
         };
 
-
-
-
+        $scope.editLoan = function() {
+            var obj = {
+                    id: $scope.loan.id,
+                    //returnDate: $filter('date')($scope.loan.returnDate, 'yyyy-MM-dd'),
+                    comment: $scope.loan.comment
+            };
+            $http.put(endpoints.PUT_LOAN.replace(":id",$scope.loan.id), obj).then(function() {
+                    $scope.genericError = undefined;
+                    $scope.lockdown = false;
+                    $scope.showSuccess().result.then(function() {
+                        $state.go('books.search');
+                    }, function() {
+                        $state.go('books.search');
+                    })
+                }, function(error){
+                    $scope.genericError = error.data.message;
+                    $scope.lockdown = false;
+                });
+        };
 
 
 

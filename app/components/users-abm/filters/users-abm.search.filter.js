@@ -1,7 +1,7 @@
 //CONTROLLERS
                                      
 (function() {
-    var moduleName     = 'members-abm',
+    var moduleName     = 'users-abm',
         filterName = 'search';
 
     function filter() {
@@ -13,10 +13,10 @@
                 return input;
             };
 
-            angular.forEach(input, function(member) {
-                var fullName = member.firstName + ' ' + member.lastName;
+            angular.forEach(input, function(users) {
+                var fullName = user.firstName + ' ' + user.lastName;
                 if (fullName.toLowerCase().indexOf(searchName.toLowerCase()) !== -1) {
-                    out.push(member)                         
+                    out.push(user)                         
                 }
             });
             

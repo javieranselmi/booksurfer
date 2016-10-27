@@ -1,38 +1,38 @@
 //Routes
 (function() {
-    var moduleName = 'members-abm';
+    var moduleName = 'users-abm';
 
     config.$inject = ['$stateProvider'];
 
     function config($stateProvider) {
-        $stateProvider.state('members', {
-            url: '/members',
+        $stateProvider.state('users', {
+            url: '/users',
             // controller: 'QuestionnaireController',
             template: '<ui-view></ui-view>',
             abstract: true
         });
         
-        $stateProvider.state('members.search', {
+        $stateProvider.state('users.search', {
             url: '/search',
-            templateUrl: 'app/components/members-abm/templates/members-abm.search.view.html',
-            controller: 'membersSearchController'
+            templateUrl: 'app/components/users-abm/templates/users-abm.search.view.html',
+            controller: 'usersSearchController'
         });
         
-        $stateProvider.state("members.deletedModal", {
+        $stateProvider.state("users.deletedModal", {
             url: "/deleted",
-            onEnter: ['$modal', function ($uibModal) {
+            onEnter: ['$uibModal', function ($uibModal) {
                 $uibModal.open({
-                    templateUrl: "app/components/members-abm/templates/members-abm.deleted.modal.view.html",
-                    controller: "membersDeletedModal",
+                    templateUrl: "app/components/users-abm/templates/users-abm.deleted.modal.view.html",
+                    controller: "usersDeletedModal",
                     backdrop: 'static'
                 });
             }]
         });
         
-        $stateProvider.state('members.abm', {
+        $stateProvider.state('users.abm', {
             url: '/:id',
-            templateUrl: 'app/components/members-abm/templates/members-abm.abm.view.html',
-            controller: 'membersAbmController',
+            templateUrl: 'app/components/users-abm/templates/users-abm.abm.view.html',
+            controller: 'usersAbmController',
             params: {
                 edit: false
             },
@@ -44,39 +44,3 @@
     }
     angular.module(moduleName).config(config);
 })();
-
-/*
-    .when("/", {
-        templateUrl: 'app/components/home/homeView.html',
-        controller: 'homeController'
-    })
-    .when("/members/search", {
-        templateUrl: 'app/components/membersSearch/membersSearchView.html',
-        controller: 'membersSearchController'
-      })
-   .when("/books/search", {
-        templateUrl: 'app/components/booksSearch/booksSearchView.html',
-        controller: 'booksSearchController'
-    })
-     .when("/books/:id", {
-        templateUrl: 'app/components/booksEdit/booksEditView.html',
-        controller: 'booksEditController'
-    })
-     .when("/books/:id/:editmode", {
-        templateUrl: 'app/components/booksEdit/booksEditView.html',
-        controller: 'booksEditController'
-    })
-    .when("/members/new", {
-        templateUrl: 'app/components/membersNew/membersNewView.html',
-        controller: 'membersNewController'
-    })
-    .when("/members/:id", {
-        templateUrl: 'app/components/membersEdit/membersEditView.html',
-        controller: 'membersEditController'
-    })
-    .when("/members/:id/:editmode", {
-        templateUrl: 'app/components/membersEdit/membersEditView.html',
-        controller: 'membersEditController'
-    })
-}]);
-*/

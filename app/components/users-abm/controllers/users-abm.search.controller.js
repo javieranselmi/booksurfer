@@ -1,14 +1,15 @@
 (function() {
-    var moduleName     = 'members-abm',
-        controllerName = 'membersSearchController';
+    var moduleName     = 'users-abm',
+        controllerName = 'usersSearchController';
     controller.$inject = ["$scope","entitySearch","countries","searchFilter"];
     
     function controller($scope,entitySearch,countrySelect,searchFilter) {
-        $scope.members = [];
-        entitySearch.initializeEntity("members");
+        $scope.users = [];
+        $scope.loading = true;
         
-        entitySearch.getAllEntities().then(function(result){
-            $scope.members = result.data;
+        entitySearch.getAllEntities('users').then(function(result){
+            $scope.users = result.data;
+            $scope.loading = false;
         });
     };    
     angular.module(moduleName).controller(controllerName, controller);

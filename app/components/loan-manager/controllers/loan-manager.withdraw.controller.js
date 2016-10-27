@@ -8,7 +8,8 @@
 
         $scope.forms = {};
         $scope.lockdown = false;
-
+        $scope.searchCriteria = {};
+        $scope.searchCriteria.filterSamplesNotForLoan = true;
 
         var entity_name_samples = 'samples';
         var entity_name_members = 'members';
@@ -65,11 +66,17 @@
               animation: false,
               templateUrl: 'app/components/loan-manager/templates/loan-manager.withdraw-confirmation.html',
               controller: 'loanManagerWithdrawConfirmationController',
-              resolve: {
-                member: $scope.member,
-                loan: $scope.loan
+              resolve: { 
+                items: function() {
+                    return  {
+                        member: $scope.member,
+                        loan: $scope.loan,
+                        book: $scope.book,
+                        sample: $scope.sample
+                    }
               }
-            });
+            }
+        });
         };
 
         $scope.postLoan = function() {

@@ -1,1 +1,1 @@
-angular.module("members-abm", ["ui.router","entity-manager","ui.bootstrap"]);
+angular.module("users-abm", ["ui.router","entity-manager","ui.bootstrap"]);

@@ -1,1 +1,1 @@
-angular.module("shared", []);
+angular.module("shared", ["ngStorage"]);

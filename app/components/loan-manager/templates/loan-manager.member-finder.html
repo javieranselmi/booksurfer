@@ -1,25 +1,11 @@
 <div class="col-md-12">
     <div class="media search-result well" ng-class="{'pending-choice': !member, 'confirmed-choice': member}">
         <div class="media-body" ng-show="member">
-            <div class="input-group has-success">
-                <span class="input-group-addon">Nombre(s)</span>
-                <input type="text" class="form-control" value="{{ ::member.firstName }}" ng-disabled="true">
-            </div>
-            <div class="input-group has-success">
-                <span class="input-group-addon">Apellido</span>
-                <input type="text" class="form-control" value="{{ ::member.lastName }}" ng-disabled="true">
-            </div>
-            <div class="input-group has-success">
-                <span class="input-group-addon">DNI</span>
-                <input type="text" class="form-control" value="{{ ::member.dni }}" ng-disabled="true">
-            </div>
-            <div class="input-group has-success">
-                <span class="input-group-addon">CUIL</span>
-                <input type="text" class="form-control" value="{{ ::member.cuil }}" ng-disabled="true">
-            </div>
-            <div class="input-group has-success">
-                <span class="input-group-addon">Email</span>
-                <input type="text" class="form-control" value="{{ ::member.email }}" ng-disabled="true">
+            <div>
+                <h1> {{member.firstName + ' ' + member.lastName}}</h1>
+                <div><label>DNI -&nbsp</label><span>{{ member.dni }}</span></div>
+                <div><label>CUIL -&nbsp</label><span>{{ member.cuil }}</span></div>
+                <div><label>EMAIL -&nbsp</label><span>{{ member.email }}</span></div>
             </div>
             <div class="clearfix entity-select-action-list">
                 <button type="button" ng-click="resetMember()" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Volver a elegir el socio</button>

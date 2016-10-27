@@ -152,6 +152,36 @@
                 </div>
         </form>
 </div>
+<div id="subentities-list" class="well">
+      <h3>Préstamos del socio</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="subentities-list-header">Libro</th>
+            <th class="subentities-list-header">Cod. Ejemplar</th>
+            <th class="subentities-list-header">Retiró</th>
+            <th class="subentities-list-header">Devolvió</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="loan in loans | limitTo:10">
+            <td><a ui-sref="books.abm({sampleId: loan.sample.book.id})"> {{ loan.sample.book.title }}</a></td>
+            <td>{{ loan.sample.barCode }}</td>
+            <td>{{ loan.withdrawDate }}</td>
+            <td ng-if="loan.returnDate">{{ loan.returnDate }}</td>
+            <td ng-if="!loan.returnDate">{{ 'PENDIENTE ' }}
+                   <button type="button" 
+                          ui-sref="loan.return({sampleId: loan.sample.id})" 
+                          class="btn btn-success" 
+                          uib-tooltip="Devolver">
+                          <span class="glyphicon glyphicon-log-in"></span>
+                  </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
                         
 
 <modal save-status="saveStatus"></modal>

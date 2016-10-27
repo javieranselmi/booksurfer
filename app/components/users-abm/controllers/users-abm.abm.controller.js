@@ -1,32 +1,51 @@
 //CONTROLLERS
 (function() {
-    var moduleName     = 'members-abm',
-        controllerName = 'membersAbmController';
-        controller.$inject = ['$scope','countries','entityAbm','$stateParams','$state'];
+    var moduleName     = 'users-abm',
+        controllerName = 'usersAbmController';
+        controller.$inject = ['$scope','entityAbm','$stateParams','$state', 'lists'];
 
-    function controller($scope,countries,entityAbm,$stateParams, $state) {
+    function controller($scope,entityAbm,$stateParams, $state, lists) {
         
-        var entity = 'members';
+        var entity = 'users';
+        entityAbm.initializeEntity(entity, $stateParams.id, $stateParams.edit);
         $scope.defaultImg = 'https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png';
         
-        entityAbm.initializeEntity(entity, $stateParams.id, $stateParams.edit);
-        
         $scope.mode = entityAbm.mode;
-        $scope.countries = countries();
-        $scope.member = entityAbm.entity;
-        $scope.saveMember = entityAbm.saveEntity;
+        $scope.user = entityAbm.entity;
+        $scope.lockdown = false;
+        $scope.forms = {};
+        
+        $scope.saveUser = function() {
+            $scope.lockdown = true;
+                if($scope.forms.usersAbmForm.$valid) {
+                    entityAbm.saveEntity().then(function(response){
+                    $state.go('users.abm',{id: response.id});
+                    $scope.genericError = undefined;
+                    $scope.lockdown = false;
+                }, function(error){
+                    $scope.genericError = error.data.message;
+                    $scope.lockdown = false;
+                }); 
+            };
+
+        }
+        $scope.countries = lists.countries;
         $scope.goToEdit = entityAbm.setEditMode;
-        $scope.deleteMember = function() {
-            entityAbm.deleteEntity($scope.member.id).then(function(response){
-                console.log(response.notice); //TEMP
-                $state.go('members.deletedModal');
+        $scope.deleteUser = function() {
+            $scope.lockdown = true;
+            entityAbm.deleteEntity($scope.user.id).then(function(response){
+                $state.go('users.deletedModal');
+                $scope.genericError = undefined;
+                $scope.lockdown = false;
+            }, function(error){
+                $scope.genericError = error.data.message;
+                $scope.lockdown = false;
             });
         }
         $scope.discardChanges = function() {
             entityAbm.initializeEntity(entity, $stateParams.id, false);
-            $scope.member = entityAbm.entity;
+            $scope.user = entityAbm.entity;
         };
-        
         
     };    
     angular.module(moduleName).controller(controllerName, controller);

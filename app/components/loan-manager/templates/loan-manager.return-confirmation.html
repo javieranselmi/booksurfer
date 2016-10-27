@@ -1,0 +1,9 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">La devolución del préstamo se ha realizado correctamente.</h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<p>Se devolvió el préstamo que fue solicitado el día {{loan.withdrawDate | date}} del ejemplar del libro {{book.title}} con el código de barras: '{{sample.barCode}}' al socio '{{member.firstName}} {{member.lastName}}', de DNI '{{member.dni}}'.</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+</div>

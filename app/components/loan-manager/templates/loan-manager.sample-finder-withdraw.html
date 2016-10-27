@@ -1,0 +1,110 @@
+<div class="col-md-12">
+    <div class="media search-result well" ng-class="{'pending-choice': !sample, 'confirmed-choice': sample}">
+        <div class="media-body" ng-show="sample">
+            <div>
+                <h1> {{ sample.book.title }}</h1>
+                <div><label>Editorial -&nbsp</label><span>{{ sample.book.publisher }}</span></div>
+                <div><label>Año de edición -&nbsp</label><span>{{ sample.book.editionYear }}</span></div>
+                <hr>
+
+                <h3>Ejemplar</h3>
+                <div><label>ID -&nbsp</label><span>{{ sample.id }}</span></div>
+                <div><label>Código de barras -&nbsp</label><span>{{ sample.barCode }}</span></div>
+                <div ng-if="sample.book.acquisitionDate"><label>Fecha adquisicion -&nbsp</label><span>{{ sample.acquisitionDate }}</span></div>
+                
+            </div>
+            <div class="clearfix entity-select-action-list">
+                <button type="button" ng-click="resetSample()" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Volver a elegir el ejemplar</button>
+            </div>
+        </div>
+
+        <div class="media-body" ng-show="!sample">
+            <div class="col-md-12">
+                <a class="pull-left" href="#">
+                    <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
+                </a>
+                <label> Elija un ejemplar</label>
+                <p>Sólo se muestran ejemplares en circulación. Los ejemplares en rojo no están disponibles para préstamo.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="title">Título</label>
+                    </div>
+                    <div class="col-md-9 form-group">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="title"
+                                   id="title"
+                                   placeholder="La llamada"
+                                   ng-model="searchCriteria.title"
+                                   uib-typeahead="book.title for book in allBooks | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="isbn">ISBN</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="isbn"
+                                   id="isbn"
+                                   placeholder="1204423095839482930"
+                                   ng-model="searchCriteria.isbn"
+                                   uib-typeahead="book.isbn for book in allBooks | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="title">C.Barras</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="barcode"
+                                   id="barcode"
+                                   placeholder="123123123123123"
+                                   ng-model="searchCriteria.barCode"
+                                   uib-typeahead="sample.barCode for sample in allSamples | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <checkbox-field input-name="filterSamplesNotForLoan"
+                        input-id="filterSamplesNotForLoan"
+                        label="Filtrar ejemplares no dispoibles"
+                        ng-model="searchCriteria.filterSamplesNotForLoan">
+                </checkbox-field>
+            </div>
+            <div class="col-md-6 subentities-picker-table">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="subentities-list-header">ID</th>
+                        <th class="subentities-list-header">C.Barras</th>
+                        <th class="subentities-list-header">Alta</th>
+                        <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="sample in allSamples | selectSampleWithdraw:searchCriteria | limitTo:8">
+                        <td>{{ sample.id }}</td>
+                        <td>{{ sample.barCode }}</td>
+                        <td>{{ sample.acquisitionDate }}</td>
+                        <td><button type="button" ng-click="setSample(sample)" class="btn" ng-disabled="!(sample.availableForLoan === 'True')" ng-class="{'btn-success':sample.availableForLoan === 'True', 'btn-danger':!(sample.availableForLoan === 'True')}"><span class="glyphicon" aria-hidden="true" ng-class="{'glyphicon-ok':sample.availableForLoan === 'True', 'glyphicon-remove':!(sample.availableForLoan === 'True')}"></span></button></td>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

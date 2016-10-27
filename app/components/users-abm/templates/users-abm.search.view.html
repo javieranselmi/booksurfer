@@ -1,15 +1,15 @@
 <div class="row entity-options-row">
-    <a href="#members/new">
+    <a href="#users/new">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
-             Nuevo Autor
+             Nuevo Usuario
         </button>
     </a>
 </div>
     <div class="row">
 
         <div class="input-group" id="search">
-            <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Busca autores por nombre y/o apellido" autofocus/>
+            <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Busca usuarios por nombre y/o apellido" autofocus/>
             <div class="input-group-btn">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -18,15 +18,16 @@
         </div>
 
         <!--Results area -->
-        <div class="media search-result well" ng-repeat="member in members | search:searchCriteria">
+        <img class="media-object avatar-photo" src="http://www.elnorte.com/libre/acceso/imgdiseno/loading3.gif" alt="img" ng-if="loading">
+        <div class="media search-result well" ng-repeat="user in users | search:searchCriteria" ng-if="!loading">
             <a class="pull-left" href="#">
                 <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
             </a>
             <div class="media-body">
-                <a ng-href="#/members/{{member.id}}"><h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4></a>
-                <p> ID: {{ member.id }} - Nacionalidad: {{ member.nationality }}</p>
+                <a ng-href="#/users/{{user.id}}"><h4 class="media-heading">{{ user.firstName }} {{ user.lastName }}</h4></a>
+                <p> ID: {{ user.id }} - Usuario: {{ user.user }}</p>
             </div>
-        <entity-controls edit-action="edit(place)" delete-action="delete(member)" entity="member" entity-name="members" delete-status="deleteStatus"></entity-controls>
+        <entity-controls edit-action="edit(place)" delete-action="delete(user)" entity="user" entity-name="users" delete-status="deleteStatus"></entity-controls>
 
         </div>
      </div>

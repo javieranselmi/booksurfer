@@ -1,0 +1,23 @@
+  <h3>Por favor loguéate para poder continuar</h3>
+<div class="well">
+
+  <form name="forms.loginForm">
+                <text-field input-name="username"
+                            input-id="username"
+                            label="Usuario"
+                            glyphicon="user"
+                            ng-model="user.username"
+                            is-required="true">
+                </text-field>
+                <text-field input-name="password"
+                            input-id="password"
+                            input-type="password"
+                            label="Contraseña"
+                            glyphicon="user"
+                            ng-model="user.password"
+                            is-required="true">
+                </text-field>
+  </form>
+  <generic-error generic-error="errors"></generic-error>
+  <button class="btn btn-block btn-primary" form="forms.loginForm" ng-click="login(user)" type="submit">Loguearse</button>
+</div>

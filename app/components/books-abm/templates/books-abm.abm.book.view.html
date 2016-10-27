@@ -58,16 +58,15 @@
                     <div class="col-md-12 section-label">
                         <label>Datos de la edición</label>
                     </div>
-                    <text-field input-name="editionCountry"
+                    <select-field input-name="editionCountry"
                                 input-id="editionCountry"
-                                placeholder="ej. Argentina"
                                 label="País de edición"
                                 glyphicon="user"
                                 ng-model="book.editionCountry"
                                 is-required="true"
                                 is-disabled=" mode.status === 'view' "
-                                max-length="64">
-                    </text-field>
+                                values="countries">
+                    </select-field>
                     <text-field input-name="editionYear"
                                 input-id="editionYear"
                                 input-type="number"

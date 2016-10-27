@@ -6,7 +6,8 @@
     function factory() {
         //BASE = '/api/' for mocks.
         //BASE = 'http://192.168.0.16:5000/'
-        var BASE = 'http://localhost:5000/';
+        //var BASE = 'http://localhost:5000/'
+        var BASE = 'http://192.168.0.16:5000/';
         return {
             BASE: BASE,
             POST_LOAN: BASE + 'loans',
@@ -18,7 +19,16 @@
             DELETE_AUTHOR: BASE + 'books/:bookId/authors/:authorId',
             CREATE_SAMPLE: BASE + 'samples',
             DELETE_SAMPLE: BASE + 'samples/:sampleId',
-            PUT_SAMPLE: BASE + 'samples/:sampleId'
+            GET_SAMPLE: BASE + 'samples/:sampleId',
+            PUT_SAMPLE: BASE + 'samples/:sampleId',
+            GET_MEMBER_LOANS: BASE + 'members/:memberId/loans',
+            GET_MEMBER: BASE + 'members/:memberId',
+            GET_SAMPLE_LOANS: BASE + 'samples/:sampleId/loans',
+            GET_BOOK: BASE + 'books/:bookId',
+            GET_LATEST_LOANS: BASE + 'reports/latest-loans',
+            GET_OUTDATED_LOANS: BASE + 'reports/outdated-loans',
+            GET_POPULAR_BOOKS: BASE + 'reports/popular-books',
+            GET_USERS: BASE + 'users'
         }
     }
 
