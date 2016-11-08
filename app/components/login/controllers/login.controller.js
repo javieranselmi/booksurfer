@@ -11,7 +11,7 @@
     		login.login(user).then(function(result){
     			if (result) {
     				$state.go('authors.search');
-    				$rootScope.currentUser = "HOLA!";
+    				$rootScope.currentUser = login.getCurrentUser();
     			} else {
     				$scope.errors = "No coincide el nombre de usuario con la contraseña.";
     			}

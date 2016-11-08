@@ -31,7 +31,7 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-if="true">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-if="currentUser">
       <ul class="nav navbar-nav">
             <li><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
             <li><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
@@ -40,7 +40,6 @@
             <li><a ui-sref="publishers.search" href="javascript:void(0);">Buscar Editoriales</a></li>
             <li><a ui-sref="loan.withdraw" href="javascript:void(0);">Préstamo</a></li>
             <li><a ui-sref="loan.return" href="javascript:void(0);">Devolución</a></li>
-            <li><a ui-sref="login" href="javascript:void(0);">LOGIN</a></li>
             <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
               <a href id="simple-dropdown" uib-dropdown-toggle>
                 Reportes<span class="caret"></span>
@@ -51,8 +50,10 @@
                 <li><a href="javascript:void(0);" ui-sref="reports.popularBooks">Libros más retirados</a></li>
               </ul>
             </li>
-            <li>{{'USER:' + currentUser}}</li>
-
+            <li><a ng-click="logout()" href="javascript:void(0);">Cerrar Sesión</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="navbar-brand" href="javascript:void(0);">Bienvenido, {{currentUser}}</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -91,6 +92,7 @@
     <script src="./app/components/entity-manager/directives/generic-error/entity-manager.generic-error.directive.js"></script>
     <script src="./app/components/entity-manager/directives/select-field/entity-manager.select-field.directive.js"></script>
     <script src="./app/components/entity-manager/directives/checkbox-field/entity-manager.checkbox-field.directive.js"></script>
+    <script src="./app/components/entity-manager/directives/date-field/entity-manager.date-field.directive.js"></script>
     
     <!-- -------------  AUTHORS --------------- -->
     

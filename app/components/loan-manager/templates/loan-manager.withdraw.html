@@ -22,14 +22,6 @@
                             ng-model="loan.withdrawDate"
                             is-disabled="true">
             </text-field>
-            <text-field     input-name="agreedReturnDate"
-                            input-type="date"
-                            placeholder="ej. 12/08/2013"
-                            label="Fecha pactada de devolución"
-                            glyphicon="repeat"
-                            ng-model="loan.agreedReturnDate"
-                            is-required="true">
-            </text-field>
             <toggle-field input-name="loanType"
                         input-id="loanType"
                         label="Tipo de préstamo"
@@ -37,6 +29,16 @@
                         is-required="true"
                         options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
             </toggle-field>
+            <text-field     input-name="agreedReturnDate"
+                            input-type="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha pactada de devolución"
+                            glyphicon="repeat"
+                            ng-model="loan.agreedReturnDate"
+                            is-required="true"
+                            min="loan.withdrawDate | date:'yyyy-MM-dd'"
+                            ng-show="loan.loanType !== 'LOCAL'">
+            </text-field>
         </div>
         <generic-error generic-error="genericError"></generic-error>
         <div class="clearfix entity-select-action-list">

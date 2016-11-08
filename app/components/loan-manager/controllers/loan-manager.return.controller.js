@@ -28,8 +28,9 @@
                 $scope.allAuthors = result.data;
             });
         } else {
-            entityAbm.initializeEntity(entity_name_samples, $stateParams.sampleId);
-            $scope.sample = entityAbm.entity;
+            $http.get(endpoints.GET_SAMPLE.replace(':sampleId', $stateParams.sampleId)).then(function(response){
+                $scope.sample = response.data;
+            });
         }
 
         $scope.resetSample = function() {
@@ -41,8 +42,8 @@
             $scope.sample = sample;
         }
 
-        $scope.getLoan = function() {
-            var url = endpoints.GET_LOAN_BY_SAMPLE_ID.replace(':sampleId', $scope.sample.id);
+        $scope.getLoanOfSample = function(sample) {
+            var url = endpoints.GET_LOAN_BY_SAMPLE_ID.replace(':sampleId', sample.id);
             return $http.get(url, {
                     sampleId: $scope.sample.id,
                     withdrawDate: $scope.loan.withdrawDate,
@@ -60,7 +61,7 @@
 
         $scope.$watch('sample', function() {
             if ($scope.sample) {
-                $scope.getLoan().then(function(result){
+                $scope.getLoanOfSample($scope.sample).then(function(result){
                     $scope.showLoan = true;
                     var latestLoan = result.data[0];
                     latestLoan.withdrawDate = new Date(latestLoan.withdrawDate);
