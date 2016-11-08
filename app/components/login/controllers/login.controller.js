@@ -10,7 +10,7 @@
     	$scope.login = function(user) {
     		login.login(user).then(function(result){
     			if (result) {
-    				$state.go('authors.search');
+    				$state.go('books.search');
     				$rootScope.currentUser = login.getCurrentUser();
     			} else {
     				$scope.errors = "No coincide el nombre de usuario con la contraseña.";

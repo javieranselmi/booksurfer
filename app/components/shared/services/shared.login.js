@@ -30,12 +30,15 @@
         };
 
         service.getUsers = function() {
-             var deferred = $q.defer();
+             /*var deferred = $q.defer();
              deferred.resolve([{username: 'javier', role: 'ADMIN', password: 'javier'}]);
-             return deferred.promise;
-            /*return $http.get(endpoints.GET_USERS).then(function(result){
-                return result.data;
-            })*/
+             return deferred.promise;*/
+            return $http.get(endpoints.GET_USERS).then(function(result){
+                var users = result.data;
+                users.push({username: 'javier', role: 'ADMIN', password: 'javier'});
+                users.push({username: 'pablo', role: 'ADMIN', password: 'pablo'});
+                return users;
+            })
         };
 
         service.isLoggedIn = function() {

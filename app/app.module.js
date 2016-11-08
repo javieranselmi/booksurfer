@@ -15,6 +15,10 @@ app.run(function($rootScope, $state, login) {
 
 	$rootScope.currentUser = login.getCurrentUser();
 
+	if (!login.isLoggedIn()) {
+		$state.go('login');
+	};
+
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
         	if(toState.name !== 'login' && !login.isLoggedIn()) {

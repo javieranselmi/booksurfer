@@ -41,17 +41,21 @@
 
         $scope.resetSample = function() {
             $scope.sample = undefined;
+            $scope.genericError = undefined;
         }
         $scope.resetMember = function() {
             $scope.member = undefined;
+            $scope.genericError = undefined;
         }
 
         $scope.setSample = function(sample) {
             $scope.sample = sample;
+            $scope.genericError = undefined;
         }
 
         $scope.setMember = function(member) {
             $scope.member = member;
+            $scope.genericError = undefined;
         }
 
         var today = new Date();
