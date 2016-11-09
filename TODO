@@ -1,0 +1,30 @@
+TODO
+-----
+
++ Video demostrando el setup de la app (producto de trabajo final), sin sonido, con viñetas. (Kamtasia).
+
++ Apliacion de metricas de pruebas de carga.
++ Hablar parte tècnica con pedro.
++ ISO 9126 metricas de producto (internas y externas) y cuales vamos a aplicar (deben ser de producto)
+	+ leerlas y contar que podemos presentar de nuestra aplicuacion con esas metricas
+    + manu debe chequear la app para ver los iconos, las palabras, y debe hacer una captura de pantalla de como estaba antes y de los cambio que hiciste, y justificala con las heuristicas (si llegàs)
+
+
++ Separacion pres/dev en una sola pantalla.
++ No puedo dar de alta libro sin autores.
++ Fecha de alta no puede ser en el futuro.
++ cambiar ID por codigo o algo para el User
++ que el ususario siempre sepa donde esta 
++ poner boton de prestar en cualquier lado
++ cambio de colores marea
++ agregar nombre (grande) a la seccion de prestamos
++ cambiar icono en pantalla (samplefinder) por palabra "PRESTADO"
++ cambiar circulacion x disponibles
++ linea centrada de texto de prestamos
++ sacar suseccion de ejemplar y libro
++ mantener mayusculas y minusculas de los atributos
++ mes/dia/año no! dia/mes/año gol
++ justificacion a la derecha
++ corregir asentos backend
++ Registrar devolución del libro alquilado por el socio, cambiar alquilado por prestado
++ ordenar lista por vencidos hoy y fecha de vencimiento
