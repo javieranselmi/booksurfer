@@ -1,10 +1,8 @@
   <img width="770" src="./assets/img/logo.png">
 
 <br>
-<br>
-<br>
 <hr>
-  <h3>Por favor loguéate para poder continuar</h3>
+  <h3>Ingreso</h3>
 <div class="well">
 
   <form name="forms.loginForm">
@@ -13,17 +11,18 @@
                             label="Usuario"
                             glyphicon="user"
                             ng-model="user.username"
-                            is-required="true">
+                            is-required="true"
+                            autofocus="true">
                 </text-field>
                 <text-field input-name="password"
                             input-id="password"
                             input-type="password"
                             label="Contraseña"
-                            glyphicon="user"
+                            glyphicon="lock"
                             ng-model="user.password"
                             is-required="true">
                 </text-field>
   </form>
   <generic-error generic-error="errors"></generic-error>
-  <button class="btn btn-block btn-primary" form="forms.loginForm" ng-click="login(user)" type="submit">Loguearse</button>
+  <button class="btn btn-block btn-primary" form="forms.loginForm" ng-click="login(user)" type="submit">Ingresar</button>
 </div>
