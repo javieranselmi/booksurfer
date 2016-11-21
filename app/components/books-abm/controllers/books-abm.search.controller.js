@@ -6,7 +6,7 @@
     function controller($scope,entitySearch,countrySelect,searchFilter) {
         $scope.books = [];
         $scope.showAdvancedSearch = false;
-        $scope.searchCriteria = {};
+        $scope.searchCriteria = {'title':''};
         $scope.loading = true;
 
         entitySearch.getAllEntities('books').then(function(result){

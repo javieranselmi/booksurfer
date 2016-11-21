@@ -1,5 +1,6 @@
+<h3>Buscar libros</h3>
 <div class="row entity-options-row">
-    <a href="#books/new">
+    <a ui-sref="books.abm()">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
              Nuevo Libro
@@ -26,12 +27,18 @@
     <!--Results area -->
     <img class="media-object avatar-photo" src="http://www.elnorte.com/libre/acceso/imgdiseno/loading3.gif" alt="img" ng-if="loading">
     <div class="media search-result well" ng-repeat="book in books | bookSearch:searchCriteria" ng-if="!loading">
-        <a class="pull-left" href="#">
+        <div class="pull-left">
             <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
-        </a>
+        </div>
         <div class="media-body">
-            <a ng-href="#/books/{{book.id}}"><h4 class="media-heading">{{ book.title }}</h4></a>
-            <p> Código: <b>{{ book.id }}</b> - Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.editionYear }}</b></p>
+            <a ui-sref="books.abm({id: book.id})"><h4 class="media-heading">{{ book.title }}</h4></a>
+
+            <span>
+            Autores: <b ng-repeat="b in book.authors" ui-sref="authors({id: b.id})">{{ b.lastName + ' ' + b.firstName }}{{$last ? '' : ', '}}</b>
+            </span>
+            <span>
+            Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.editionYear }}</b> - Género: <b>{{ book.gender }}</b> - ISBN: <b>{{ book.isbn }}</b>
+            </span>
         </div>
         <entity-controls edit-action="edit(place)" delete-action="delete(book)" entity="book" entity-name="books" delete-status="deleteStatus"></entity-controls>
     </div>
