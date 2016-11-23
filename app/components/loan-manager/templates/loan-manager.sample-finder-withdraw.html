@@ -100,7 +100,7 @@
                         <td>{{ sample.id }}</td>
                         <td>{{ sample.barCode }}</td>
                         <td>{{ sample.acquisitionDate }}</td>
-                        <td><button type="button" ng-click="setSample(sample)" class="btn" ng-disabled="!(sample.availableForLoan === 'True')" ng-class="{'btn-success':sample.availableForLoan === 'True', 'btn-danger':!(sample.availableForLoan === 'True')}"><span class="glyphicon" aria-hidden="true" ng-class="{'glyphicon-ok':sample.availableForLoan === 'True', 'glyphicon-remove':!(sample.availableForLoan === 'True')}"></span></button></td>
+                        <td><button type="button" ng-click="setSample(sample)" class="btn btn-success" ng-show="sample.availableForLoan === 'True'"><span class="glyphicon glyphicon-ok"></span></button><p ng-show="sample.availableForLoan !== 'True'">PRESTADO</p></td>
                         </td>
                     </tr>
                     </tbody>

@@ -14,6 +14,7 @@
         $scope.lockdown = false;
         $scope.forms = {};
         $scope.countries = lists.countries;
+        $scope.today = new Date();
         
         $scope.saveBook = function() {
             $scope.lockdown = true;
