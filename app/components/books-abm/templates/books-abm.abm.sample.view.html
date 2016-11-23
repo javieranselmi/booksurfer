@@ -81,7 +81,7 @@
                             glyphicon="calendar"
                             ng-model="newSample.acquisitionDate"
                             is-required="true"
-                            max="today">
+                            max="today | date:'yyyy-MM-dd'">
                 </text-field>
                 <text-field input-name="discardDate"
                             input-id="discardDate"
@@ -90,7 +90,7 @@
                             glyphicon="calendar"
                             ng-model="newSample.discardDate"
                             is-required="false"
-                            min="loan.acquisitionDate | date:'yyyy-MM-dd'">
+                            min="newSample.acquisitionDate | date:'yyyy-MM-dd'">
                 </text-field>
             </form>
             <div class="clearfix">

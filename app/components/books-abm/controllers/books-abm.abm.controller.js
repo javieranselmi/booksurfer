@@ -14,7 +14,14 @@
         $scope.lockdown = false;
         $scope.forms = {};
         $scope.countries = lists.countries;
-        $scope.today = new Date();
+
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+        var newdate = year + "-" + month + "-" + day;
+
+        $scope.today = newdate;
         
         $scope.saveBook = function() {
             $scope.lockdown = true;
