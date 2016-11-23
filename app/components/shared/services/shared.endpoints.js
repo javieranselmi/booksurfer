@@ -6,8 +6,9 @@
     function factory() {
         //BASE = '/api/' for mocks.
         //BASE = 'http://192.168.0.16:5000/'
-        var BASE = 'http://localhost:5000/'
+        //var BASE = 'http://localhost:5000/'
         //var BASE = 'http://192.168.0.16:5000/';
+        var BASE = 'http://192.168.99.101:5000/';
         return {
             BASE: BASE,
             POST_LOAN: BASE + 'loans',
