@@ -7,18 +7,18 @@
                 <div><label>Tipo de préstamo -&nbsp</label><span>{{ loan.loanType }}</span></div>
 
                 <h1> Libro</h1>
-                <div><label>ID -&nbsp</label><span>{{ sample.book.id }}</span></div>
+                <div><label>Código -&nbsp</label><span>{{ sample.book.id }}</span></div>
                 <div><label>Libro -&nbsp</label><span>{{ sample.book.title }}</span></div>
                 <div><label>Editorial -&nbsp</label><span>{{ sample.book.publisher }}</span></div>
                 <hr>
 
                 <h1>Ejemplar</h1>
-                <div><label>ID -&nbsp</label><span>{{ sample.id }}</span></div>
+                <div><label>Código -&nbsp</label><span>{{ sample.id }}</span></div>
                 <div><label>Código de barras -&nbsp</label><span>{{ sample.barCode }}</span></div>
                 <div ng-if="sample.acquisitionDate"><label>Fecha adquisicion -&nbsp</label><span>{{ sample.acquisitionDate }}</span></div>
 
                 <h1>Socio que alquiló</h1>
-                <div><label>ID -&nbsp</label><span>{{ member.id }}</span></div>
+                <div><label>Código -&nbsp</label><span>{{ member.id }}</span></div>
                 <div><label>Nombre completo -&nbsp</label><span>{{ member.firstName + ' '+ member.lastName }}</span></div>
                 <div><label>DNI -&nbsp</label><span>{{ member.dni }}</span></div>
 
