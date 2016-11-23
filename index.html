@@ -33,11 +33,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-if="currentUser">
       <ul class="nav navbar-nav">
-            <li><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
-            <li><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
-            <li><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
-            <li><a ui-sref="users.search" href="javascript:void(0);">Buscar Usuarios</a></li>
-            <li><a ui-sref="publishers.search" href="javascript:void(0);">Buscar Editoriales</a></li>
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Buscar<span class="caret"></span>
+              </a>
+            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
+                <li><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
+                <li><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
+                <li><a ui-sref="users.search" href="javascript:void(0);">Buscar Usuarios</a></li>
+                <li><a ui-sref="publishers.search" href="javascript:void(0);">Buscar Editoriales</a></li>
+            </ul>
+            </li>
             <li><a ui-sref="loan.withdraw" href="javascript:void(0);">Préstamo</a></li>
             <li><a ui-sref="loan.return" href="javascript:void(0);">Devolución</a></li>
             <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
@@ -59,6 +66,54 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0);">Booksurfer</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-if="currentUser">
+      <ul class="nav navbar-nav">
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Buscar<span class="caret"></span>
+              </a>
+            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a ui-sref="books.search" href="javascript:void(0);">Buscar Libros</a></li>
+                <li><a ui-sref="members.search" href="javascript:void(0);">Buscar Socios</a></li>
+                <li><a ui-sref="authors.search" href="javascript:void(0);">Buscar Autores</a></li>
+                <li><a ui-sref="users.search" href="javascript:void(0);">Buscar Usuarios</a></li>
+                <li><a ui-sref="publishers.search" href="javascript:void(0);">Buscar Editoriales</a></li>
+            </ul>
+            </li>
+            <li><a ui-sref="loan.withdraw" href="javascript:void(0);">Préstamo</a></li>
+            <li><a ui-sref="loan.return" href="javascript:void(0);">Devolución</a></li>
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Reportes<span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href="javascript:void(0);" ui-sref="reports.latestLoans">Retiros últimos 12 meses</a></li>
+                <li><a href="javascript:void(0);" ui-sref="reports.outdatedLoans">Devoluciones en mora</a></li>
+                <li><a href="javascript:void(0);" ui-sref="reports.popularBooks">Libros más retirados</a></li>
+              </ul>
+            </li>
+            <li><a ng-click="logout()" href="javascript:void(0);">Cerrar Sesión</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="navbar-brand" href="javascript:void(0);">Bienvenido, {{currentUser}}</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
     <ul class="nav navbar-nav">
 
