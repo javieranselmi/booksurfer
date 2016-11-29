@@ -21,11 +21,12 @@
 
         <div class="media-body" ng-show="!sample">
             <div class="col-md-12">
-                <a class="pull-left" href="#">
+                <div class="pull-left">
                     <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
-                </a>
-                <h2>Ejemplar</h2>
-                <p ng-if="searchCriteria.filterSamplesNotForLoan">Sólo se muestran ejemplares disponibles.</p>
+
+                </div>
+                <label> Elija un ejemplar</label>
+                <p>Sólo se muestran ejemplares en circulación. Los ejemplares en rojo no están disponibles para préstamo.</p>
             </div>
             <div class="col-md-6">
                 <div class="row">

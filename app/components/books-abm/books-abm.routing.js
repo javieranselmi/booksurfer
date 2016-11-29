@@ -41,7 +41,13 @@
         $stateProvider.state('books.abm', {     
             url: '/:id',
             templateUrl: 'app/components/books-abm/templates/books-abm.abm.view.html',
-            controller: 'booksAbmController',
+            controller: 'booksAbmController'
+        });
+
+        $stateProvider.state('books.new', {     
+            url: '/new',
+            templateUrl: 'app/components/books-abm/templates/books-abm.abm.view.html',
+            controller: 'booksAbmController'
         });
         
         /*$stateProvider.state('books.abm.views', {

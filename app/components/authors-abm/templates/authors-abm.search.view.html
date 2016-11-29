@@ -1,5 +1,6 @@
+<h3>Buscar autores</h3>
 <div class="row entity-options-row">
-    <a href="#authors/new">
+    <a ui-sref="authors.new()">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
              Nuevo Autor
@@ -20,12 +21,12 @@
         <!--Results area -->
         <img class="media-object avatar-photo" src="http://www.elnorte.com/libre/acceso/imgdiseno/loading3.gif" alt="img" ng-if="loading">
         <div class="media search-result well" ng-repeat="author in authors | search:searchCriteria" ng-if="!loading">
-            <a class="pull-left" href="#">
+            <div class="pull-left">
                 <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
-            </a>
+            </div>
             <div class="media-body">
-                <a ng-href="#/authors/{{author.id}}"><h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4></a>
-                <p> Código: {{ author.id }} - Nacionalidad: {{ author.nationality }}</p>
+                <a ui-sref="authors.abm({id: author.id})"><h4 class="media-heading">{{ author.firstName }} {{ author.lastName }}</h4></a>
+                <p> Nacionalidad: {{ author.nationality }}</p>
             </div>
         <entity-controls edit-action="edit(place)" delete-action="delete(author)" entity="author" entity-name="authors" delete-status="deleteStatus"></entity-controls>
 

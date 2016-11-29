@@ -14,10 +14,10 @@
         </div>
         <div class="media-body" ng-show="!member">
             <div class="col-md-12">
-                <a class="pull-left" href="#">
+                <div class="pull-left">
                     <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="No se ha hallado la imagen"/>
-                </a>
-                <h2>Socio</h2>
+                </div>
+                <label> Elija un socio</label>
             </div>
             <div class="col-md-6">
 
@@ -94,7 +94,10 @@
                 <table class="table">
                     <thead>
                     <tr>
+<<<<<<< 101a0d1e7d5f9834208b01f0cbb5c1a602646f4a
                         <th class="subentities-list-header">Código</th>
+=======
+>>>>>>> Paso href a ui-sref el resto de las vistas. Agrego el h3 en las vistas de busqueda
                         <th class="subentities-list-header">Nombre</th>
                         <th class="subentities-list-header">DNI</th>
                         <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
@@ -102,7 +105,6 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="member in allMembers | selectMember:memberSearchCriteria | limitTo:8">
-                        <td><a href="#"> {{ member.id }}</a></td>
                         <td>{{ member.firstName + ' ' + member.lastName }}</td>
                         <td>{{ member.dni }}</td>
                         <td><button type="button" ng-click="setMember(member)" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></td>

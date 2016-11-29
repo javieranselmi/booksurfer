@@ -38,6 +38,15 @@
             },
         });
         
+        $stateProvider.state('authors.new', {
+            url: '/new',
+            templateUrl: 'app/components/authors-abm/templates/authors-abm.abm.view.html',
+            controller: 'authorsAbmController',
+            params: {
+                edit: true
+            },
+        });
+        
 
 
 

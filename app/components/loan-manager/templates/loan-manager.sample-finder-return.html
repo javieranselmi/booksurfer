@@ -21,10 +21,11 @@
 
         <div class="media-body" ng-show="!sample">
             <div class="col-md-12">
-                <a class="pull-left" href="#">
+                <div class="pull-left">
                     <img class="media-object avatar-photo" src="http://findicons.com/files/icons/1035/human_o2/128/emblem_library.png" alt="img">
-                </a>
-                <h2>Ejemplar</h2>
+
+                </div>
+                <label> Elija un ejemplar</label>
             </div>
             <div class="col-md-6">
                 <div class="row">
@@ -83,7 +84,10 @@
                 <table class="table">
                     <thead>
                     <tr>
+<<<<<<< 101a0d1e7d5f9834208b01f0cbb5c1a602646f4a
                         <th class="subentities-list-header">Código</th>
+=======
+>>>>>>> Paso href a ui-sref el resto de las vistas. Agrego el h3 en las vistas de busqueda
                         <th class="subentities-list-header">C.Barras</th>
                         <th class="subentities-list-header">Alta</th>
                         <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
@@ -91,7 +95,6 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="sample in allSamples | selectSampleReturn:searchCriteria | limitTo:8">
-                        <td>{{ sample.id }}</td>
                         <td>{{ sample.barCode }}</td>
                         <td>{{ sample.acquisitionDate }}</td>
                         <td><button type="button" ng-click="setSample(sample)" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button></td>

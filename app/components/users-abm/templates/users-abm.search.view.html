@@ -1,5 +1,6 @@
+<h3>Buscar Usuarios</h3>
 <div class="row entity-options-row">
-    <a href="#users/new">
+    <a ui-sref="users.new()">
         <button class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
              Nuevo Usuario
@@ -20,12 +21,12 @@
         <!--Results area -->
         <img class="media-object avatar-photo" src="http://www.elnorte.com/libre/acceso/imgdiseno/loading3.gif" alt="img" ng-if="loading">
         <div class="media search-result well" ng-repeat="user in users | search:searchCriteria" ng-if="!loading">
-            <a class="pull-left" href="#">
+            <div class="pull-left">
                 <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
-            </a>
+            </div>
             <div class="media-body">
-                <a ng-href="#/users/{{user.id}}"><h4 class="media-heading">{{ user.firstName }} {{ user.lastName }}</h4></a>
-                <p> Código: {{ user.id }} - Nombre de usuario: {{ user.username }}</p>
+                <a ui-sref="users.abm({id: user.id})"><h4 class="media-heading">{{ user.firstName }} {{ user.lastName }}</h4></a>
+                <p> Nombre de usuario: {{ user.username }}</p>
             </div>
         <entity-controls edit-action="edit(place)" delete-action="delete(user)" entity="user" entity-name="users" delete-status="deleteStatus"></entity-controls>
 

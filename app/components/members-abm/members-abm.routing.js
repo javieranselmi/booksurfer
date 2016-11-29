@@ -38,6 +38,15 @@
             },
         });
         
+        $stateProvider.state('members.new', {
+            url: '/new',
+            templateUrl: 'app/components/members-abm/templates/members-abm.abm.view.html',
+            controller: 'membersAbmController',
+            params: {
+                edit: true
+            },
+        });
+        
 
 
 
