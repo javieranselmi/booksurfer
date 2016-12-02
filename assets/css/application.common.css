@@ -212,3 +212,7 @@ label {
 #box-advanced-search label{
   text-align: left;
 }
+
+.subentities-list-header {
+  text-align: left;
+}
