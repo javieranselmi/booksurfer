@@ -40,7 +40,7 @@
             Autores: <b>{{ book.authors[0].lastName + ' ' + book.authors[0].firstName }} -</b>
             </span>
             <span>
-            Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.editionYear }}</b> - Género: <b>{{ book.gender }}</b> 
+            Año: <b>{{ book.editionYear }}</b> - Género: <b>{{ book.gender }}</b> 
             </span>
         </div>
         <entity-controls edit-action="edit(place)" delete-action="delete(book)" entity="book" entity-name="books" delete-status="deleteStatus"></entity-controls>

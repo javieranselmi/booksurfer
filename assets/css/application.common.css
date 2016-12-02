@@ -21,12 +21,12 @@ body {
     text-align: left;
 }
 .entity-actions-btn-group {
-    margin-top: 20px;
+  margin: 10px 0;
 }
 
 .entity-action {
-    float: center;
-    margin: 0px 0px 10px 10px;    
+    float: left;
+    margin: 10px 0;    
 }
 
 .section-label {
@@ -78,12 +78,15 @@ body {
 #mode-message {
     width: 100%;
     padding: 5px;
-    margin: 20px 0px;
+    margin: 10px 0px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    text-align: right;
+    border: 1px solid gray;
+    border-radius: 0;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .glyphicon-refresh-animate {
