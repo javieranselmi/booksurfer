@@ -1,28 +1,38 @@
-  <img width="770" src="./assets/img/logo.png">
+<div class="col-sm-6 col-centered">
 
-<br>
-<hr>
-  <h3>Ingreso</h3>
-<div class="well">
+  <img width="400" src="./assets/img/logo.png">
+  <hr>
+    <h3>Ingreso</h3>
 
-  <form name="forms.loginForm">
-                <text-field input-name="username"
-                            input-id="username"
-                            label="Usuario"
-                            glyphicon="user"
-                            ng-model="user.username"
-                            is-required="true"
-                            autofocus="true">
-                </text-field>
-                <text-field input-name="password"
-                            input-id="password"
-                            input-type="password"
-                            label="Contraseña"
-                            glyphicon="lock"
-                            ng-model="user.password"
-                            is-required="true">
-                </text-field>
-  </form>
-  <generic-error generic-error="errors"></generic-error>
-  <button class="btn btn-block btn-primary" form="forms.loginForm" ng-click="login(user)" type="submit">Ingresar</button>
+  <div class="well">
+
+    <form name="forms.loginForm" ng-submit="login(user)">
+      <text-field input-name="username"
+                  input-id="username"
+                  label="Usuario"
+                  glyphicon="user"
+                  ng-model="user.username"
+                  is-required="true"
+                  autofocus="true">
+      </text-field>
+      <text-field input-name="password"
+                  input-id="password"
+                  input-type="password"
+                  label="Contraseña"
+                  glyphicon="lock"
+                  ng-model="user.password"
+                  is-required="true">
+      </text-field>
+    
+      <generic-error generic-error="errors"></generic-error>
+
+      <button class="btn btn-lg btn-primary col-centered" type="submit">Ingresar</button>
+      
+    </form>
+  </div>
 </div>
+<footer class="footer"> 
+  <div class="container-fluid">
+    <p title="Anselmi, Aquino, Professi">Powered by Javaraptors</p>
+  <div>
+</footer>

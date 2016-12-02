@@ -33,8 +33,8 @@
         <div class="media-body">
             <a ui-sref="books.abm({id: book.id})"><h4 class="media-heading">{{ book.title }}</h4></a>
 
-            <span>
-            Autores: <b ng-repeat="b in book.authors" ui-sref="authors({id: b.id})">{{ b.lastName + ' ' + b.firstName }}{{$last ? '' : ', '}}</b>
+            <span ng-show="book.authors[0]">
+            Autores: <b>{{ book.authors[0].lastName + ' ' + book.authors[0].firstName }} -</b>
             </span>
             <span>
             Editorial: <b>{{ book.publisher }}</b> - Año: <b>{{ book.editionYear }}</b> - Género: <b>{{ book.gender }}</b> - ISBN: <b>{{ book.isbn }}</b>
