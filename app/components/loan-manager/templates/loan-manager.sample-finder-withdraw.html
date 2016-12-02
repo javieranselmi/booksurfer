@@ -90,7 +90,6 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="subentities-list-header">Código</th>
                         <th class="subentities-list-header">C.Barras</th>
                         <th class="subentities-list-header">Alta</th>
                         <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
@@ -98,7 +97,6 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="sample in allSamples | selectSampleWithdraw:searchCriteria | limitTo:8">
-                        <td>{{ sample.id }}</td>
                         <td>{{ sample.barCode }}</td>
                         <td>{{ sample.acquisitionDate }}</td>
                         <td><button type="button" ng-click="setSample(sample)" class="btn btn-success" ng-show="sample.availableForLoan === 'True'"><span class="glyphicon glyphicon-ok"></span></button><p ng-show="sample.availableForLoan !== 'True'">PRESTADO</p></td>
