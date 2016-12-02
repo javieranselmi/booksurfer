@@ -7,6 +7,8 @@
     function controller($scope, $stateParams, entityAbm, entitySearch, $http, endpoints, $filter, $uibModal, $state) {
         $scope.showBooks = true;
         $scope.showSamples = false;
+        $scope.lockdown = false;
+        $scope.forms = {};
 
         $scope.showSample = function(sampleId) {
             $scope.showBooks = false;
@@ -43,6 +45,39 @@
         $scope.setSample = function(sample) {
             $scope.sample = sample;
         }
+
+        $scope.filterAvailable = function(samples) {
+            return samples.filter(function(sample){
+                return sample.availableForLoan === "True";
+            });
+        }
+
+        $scope.postLoan = function() {
+            if ($scope.forms.withdrawForm.$invalid) {
+                $scope.forms.withdrawForm.$setSubmitted();
+                console.log("FORM INVALID!", $scope.forms.withdrawForm)
+                return;
+            }
+            $scope.lockdown = true;
+            if($scope.forms.withdrawForm.$valid) {
+                var obj = {
+                    memberId: $scope.member.id,
+                    sampleId: $scope.sample.id,
+                    withdrawDate: $filter('date')($scope.loan.withdrawDate, 'yyyy-MM-dd'),
+                    agreedReturnDate: $filter('date')($scope.loan.agreedReturnDate, 'yyyy-MM-dd'),
+                    comment: '',
+                    loanType: $scope.loan.loanType
+                };
+                $http.post(endpoints.POST_LOAN, obj).then(function() {
+                    $scope.genericError = undefined;
+                    $scope.showSuccess();
+                    $scope.lockdown = false;
+                }, function(error){
+                    $scope.genericError = error.data.message;
+                    $scope.lockdown = false;
+                });
+            };
+        };
 
 
     }

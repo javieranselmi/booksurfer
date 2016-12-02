@@ -1,58 +1,60 @@
 <div class="col-xs-6" style="border-right: solid 0.5px #eee">
     <h2>Préstamo</h2>
     <hr/>
-    <div class="row">
-    <div class="col-md-4">
-        <label for="title">Cod. barras</label>
-    </div>
-    <div class="col-md-8 form-group" ng-class="{'has-error': (form['title'].$invalid && form.$submitted || form['title'].$invalid && form['title'].$dirty)}">
-        <div class="input-group">
-            <input type="text"
-                   class="form-control"
-                   name="title"
-                   id="title"
-                   placeholder="Ingrese el código del ejemplar..."
-                   ng-required="true"
-                   ng-model="sample.barCode"
-                   ng-maxlength="64">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-12" ng-messages="form['title'].$error" role="alert" ng-if="!noValidate && form.$submitted || !noValidate && form['title'].$dirty">
-            <div class="edit-validation-alert" ng-message="required">&#8710; Este dato es requerido.</div>
-            <div class="edit-validation-alert" ng-message="maxlength">&#8710; La longitud máxima de este campo es de 64 caracteres.</div>
-        </div>
-    </div>
-</div>
-    <div class="row">
-        <div class="col-md-4">
-            <label for="title">DNI Socio</label>
-        </div>
-        <div class="col-md-8 form-group" ng-class="{'has-error': (form['title'].$invalid && form.$submitted || form['title'].$invalid && form['title'].$dirty)}">
-            <div class="input-group">
-                <input type="text"
-                       class="form-control"
-                       name="title"
-                       id="title"
-                       placeholder="Ingrese el DNI del socio..."
-                       ng-required="true"
-                       ng-model="member.dni"
-                       ng-maxlength="64">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
+    <form name="forms.withdrawForm">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="title">Cod. barras</label>
+            </div>
+            <div class="col-md-8 form-group" ng-class="{'has-error': (forms.withdrawForm.barCode.$invalid && forms.withdrawForm.$submitted || forms.withdrawForm.barCode.$invalid && forms.withdrawForm.barCode.$dirty)}">
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           name="barCode"
+                           id="barCode"
+                           placeholder="Ingrese el código del ejemplar..."
+                           ng-required="true"
+                           ng-model="sample.barCode"
+                           ng-maxlength="64">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-12" ng-messages="forms.withdrawForm.barCode.$error" role="alert" ng-if="forms.withdrawForm.$submitted || forms.withdrawForm.barCode.$dirty">
+                    <div class="edit-validation-alert" ng-message="required">&#8710; Este dato es requerido.</div>
+                    <div class="edit-validation-alert" ng-message="maxlength">&#8710; La longitud máxima de este campo es de 64 caracteres.</div>
+                </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="col-md-12" ng-messages="form['title'].$error" role="alert" ng-if="!noValidate && form.$submitted || !noValidate && form['title'].$dirty">
-                <div class="edit-validation-alert" ng-message="required">&#8710; Este dato es requerido.</div>
-                <div class="edit-validation-alert" ng-message="maxlength">&#8710; La longitud máxima de este campo es de 64 caracteres.</div>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="dni">DNI Socio</label>
+            </div>
+            <div class="col-md-8 form-group" ng-class="{'has-error': (forms.withdrawForm.dni.$invalid && forms.withdrawForm.$submitted || forms.withdrawForm.dni.$invalid && forms.withdrawForm.dni.$dirty)}">
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           name="dni"
+                           id="dni"
+                           placeholder="Ingrese el DNI del socio..."
+                           ng-required="true"
+                           ng-model="member.dni"
+                           ng-maxlength="64">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-12" ng-messages="forms.withdrawForm.dni.$error" role="alert" ng-if="forms.withdrawForm.$submitted || forms.withdrawForm.dni.$dirty">
+                    <div class="edit-validation-alert" ng-message="required">&#8710; Este dato es requerido.</div>
+                    <div class="edit-validation-alert" ng-message="maxlength">&#8710; La longitud máxima de este campo es de 64 caracteres.</div>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
     <div class="row clearfix">
         <div class="col-xs-12">
             <button type="button"
-                    ng-click="showSample(1)"
+                    ng-click="postLoan()"
                     class="btn btn-primary pull-right"
                     uib-tooltip="Prestar">
                 <span class="glyphicon glyphicon-log-out"></span> Prestar
@@ -73,7 +75,7 @@
                        id="title"
                        placeholder="Escriba un título..."
                        ng-required="true"
-                       ng-model="book.title"
+                       ng-model="search.title"
                        ng-maxlength="64">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
             </div>
@@ -97,13 +99,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="book in allBooks">
+            <tr ng-repeat="book in allBooks | filter:search:strict | limitTo: 5">
                 <td>{{ book.title }}</td>
                 <td>{{ availableSamples(book) }}</td>
                 <td>
                     <button type="button"
+                            ng-if="availableSamples(book) > 0"
                             ng-click="setBook(book)"
-                            class="btn btn-primary"
+                            class="btn btn-default"
                             uib-tooltip="Ver ejemplares">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
@@ -112,7 +115,7 @@
             </tbody>
         </table>
     </div>
-        <div class="col-xs-12" ng-show="book">
+        <div class="col-xs-12" ng-if="book">
             <h4>Ejemplares de '{{ book.title }}'</h4>
             <p>Elija un ejemplar de la lista o <a ng-click="unsetBook()" href="javascript:void(0);">elija otro libro...</a></p>
             <table class="table">
@@ -123,7 +126,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="sample in book.samples">
+                <tr ng-repeat="sample in filterAvailable(book.samples)">
                     <td>{{ sample.barCode }}</td>
                     <td>
                         <button type="button"
