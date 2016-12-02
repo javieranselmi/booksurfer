@@ -2,7 +2,7 @@ body {
   padding-top: 50px;
 }
 .main-container {
-  padding: 40px 15px;
+  padding: 20px 15px;
   text-align: center;
   max-width:1000px;
   margin:0 auto;
@@ -191,4 +191,24 @@ label {
 
 .footer p {
   margin-top: 5px;
+}
+
+.no-col-margin {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.btn-new {
+  margin-top: 15px;
+  float: right;
+}
+
+.title {
+  text-align: left;
+}
+
+#box-advanced-search label{
+  text-align: left;
 }
