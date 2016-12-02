@@ -560,7 +560,7 @@
       <workItem from="1475336086532" duration="6644000" />
       <workItem from="1476114648777" duration="21221000" />
       <workItem from="1476395306458" duration="15074000" />
-      <workItem from="1480631341522" duration="8944000" />
+      <workItem from="1480631341522" duration="9248000" />
     </task>
     <task id="LOCAL-00001" summary="Added the member &amp; sample request on the withdraw page.">
       <created>1475011416062</created>
@@ -650,7 +650,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81997000" />
+    <option name="totallyTimeSpent" value="82301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
