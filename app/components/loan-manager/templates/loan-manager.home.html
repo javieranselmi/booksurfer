@@ -55,8 +55,7 @@
         <div class="col-xs-12">
             <button type="button"
                     ng-click="postLoan()"
-                    class="btn btn-primary pull-right"
-                    uib-tooltip="Prestar">
+                    class="btn btn-primary pull-right">
                 <span class="glyphicon glyphicon-log-out"></span> Prestar
             </button>
         </div>
@@ -100,8 +99,8 @@
             </thead>
             <tbody>
             <tr ng-repeat="book in allBooks | filter:search:strict | limitTo: 5">
-                <td>{{ book.title }}</td>
-                <td>{{ availableSamples(book) }}</td>
+                <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ book.title }}</td>
+                <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ availableSamples(book) }}</td>
                 <td>
                     <button type="button"
                             ng-if="availableSamples(book) > 0"
@@ -110,6 +109,10 @@
                             uib-tooltip="Ver ejemplares">
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
+                    <div class="table-note-sm" ng-if="availableSamples(book) === 0">
+                        <p>Prox. devolucion el</p>
+                        <p class="emphasis">10-25-2015</p>
+                    </div>
                 </td>
             </tr>
             </tbody>

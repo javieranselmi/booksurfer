@@ -9,6 +9,7 @@
         $scope.showSamples = false;
         $scope.lockdown = false;
         $scope.forms = {};
+        $scope.loan = {};
 
         $scope.showSample = function(sampleId) {
             $scope.showBooks = false;
@@ -50,12 +51,29 @@
             return samples.filter(function(sample){
                 return sample.availableForLoan === "True";
             });
-        }
+        };
+
+        $scope.showWithdrawConfirmation = function() {
+            return modalInstance = $uibModal.open({
+                animation: false,
+                templateUrl: 'app/components/loan-manager/templates/loan-manager.quick-withdraw-confirmation.html',
+                controller: 'loanManagerQuickWithdrawConfirmationController',
+                resolve: {
+                    items: function() {
+                        return  {
+                            member: $scope.member,
+                            loan: $scope.loan,
+                            book: $scope.book,
+                            sample: $scope.sample
+                        }
+                    }
+                }
+            });
+        };
 
         $scope.postLoan = function() {
             if ($scope.forms.withdrawForm.$invalid) {
                 $scope.forms.withdrawForm.$setSubmitted();
-                console.log("FORM INVALID!", $scope.forms.withdrawForm)
                 return;
             }
             $scope.lockdown = true;
@@ -68,16 +86,20 @@
                     comment: '',
                     loanType: $scope.loan.loanType
                 };
-                $http.post(endpoints.POST_LOAN, obj).then(function() {
-                    $scope.genericError = undefined;
-                    $scope.showSuccess();
-                    $scope.lockdown = false;
-                }, function(error){
-                    $scope.genericError = error.data.message;
-                    $scope.lockdown = false;
+                $scope.showWithdrawConfirmation().result.then(function(){
+                    $http.post(endpoints.POST_LOAN, obj).then(function() {
+                        $scope.genericError = undefined;
+                        $scope.lockdown = false;
+                    }, function(error){
+                        $scope.genericError = error.data.message;
+                        $scope.lockdown = false;
+                    });
                 });
+
             };
         };
+
+
 
 
     }

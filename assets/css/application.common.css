@@ -219,3 +219,33 @@ label {
 .subentities-list-header {
   text-align: left;
 }
+
+.table-note-sm p {
+    font-size: 0.75em;
+    margin: 0px;
+}
+
+.table-note-sm p.emphasis {
+    font-size: 1em
+}
+
+.not-available {
+    font-weight: bold;
+    color: #8b0111;
+}
+
+.info-screen .title {
+    font-size: 17px;
+    color: #337ab7;
+    border-bottom: solid 1px lightgray;
+}
+
+.info-screen label {
+    display: inline;
+    text-align: left;
+    color: #ef8d00;
+}
+
+.info-screen .content-section {
+    padding-left: 40px;
+}
