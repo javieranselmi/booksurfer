@@ -1,0 +1,255 @@
+body {
+  padding-top: 50px;
+}
+.main-container {
+  padding: 20px 15px;
+  text-align: center;
+  max-width:1300px;
+  margin:0 auto;
+}
+
+.search-result {
+    background-color: #f2f5f6; background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f5f6), to(#c8d7dc));
+    background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: linear-gradient(to bottom, #f2f5f6, #c8d7dc);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    text-align: left;
+}
+.entity-actions-btn-group {
+  margin: 10px 0;
+}
+
+.entity-action {
+    float: left;
+    margin: 10px 0;    
+}
+
+.section-label {
+    margin: 15px 0 15px 0;
+}
+.search-group {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:200px;
+    display:block;   
+}
+
+.subentities-picker-table {
+    max-height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.entity-select-action-list {
+    margin-top: 15px;
+}
+.selectpicker {
+    width: auto;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+.selectpicker-input-group {
+    width: 100%;
+  }
+
+.edit-validation-alert {
+  display:block;
+  padding:4px;
+  background-color: transparent;
+  border: none;
+  text-align: right;
+  color: red;
+}
+
+#mode-message {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    text-align: right;
+    border: 1px solid gray;
+    border-radius: 0;
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.glyphicon-refresh-animate {
+    -moz-animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+    
+.avatar-photo
+{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+.subentities-list-header {
+     text-align: center;   
+}
+    
+.subentity-label {
+    display:block;
+}
+
+.subentity-capsule {
+   margin: 5px;
+    float:left;
+}
+    
+.subentity-capsule-icon {
+    pointer-events: auto;
+    cursor: pointer;
+}
+    
+.subentities-display-row {
+    margin-bottom: 10px;
+}
+    
+.entity-edit-photo {
+    height: 100%;
+}
+    
+#entity-name-display {
+  height:100px;
+  padding:0px;
+  background-color:#eee;
+}
+
+
+.btn-static {
+  background-color: #f0ad4e;
+  border: 1px solid #eea236;
+  cursor: default;
+  display:block;
+  margin: 20px 0px;
+}
+.btn-static:active {
+  -moz-box-shadow:    inset 0 0 0px #f0ad4e;
+  -webkit-box-shadow: inset 0 0 0px #f0ad4e;
+  box-shadow:         inset 0 0 0px #f0ad4e;
+}
+    
+.entity-options-row {
+        padding: 20px 0px;
+}
+    
+.entity-options-row > a {
+        float: left;
+}
+
+.edit-options-btn-grp {
+    margin: 20px 0px;
+}
+
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+
+label {
+  display: block;
+  text-align: right;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #222;
+    color: #fff;
+    text-align: right;
+}
+
+.footer p {
+  margin-top: 5px;
+}
+
+.no-col-margin {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.btn-new {
+  margin-top: 15px;
+  float: right;
+}
+
+.title {
+  text-align: left;
+}
+
+#box-advanced-search label{
+  text-align: left;
+}
+
+.subentities-list-header {
+  text-align: left;
+}
+
+.table-note-sm p {
+    font-size: 0.75em;
+    margin: 0px;
+}
+
+.table-note-sm p.emphasis {
+    font-size: 1em
+}
+
+.not-available {
+    font-weight: bold;
+    color: #8b0111;
+}
+
+.info-screen .title {
+    font-size: 17px;
+    color: #337ab7;
+    border-bottom: solid 1px lightgray;
+}
+
+.info-screen label {
+    display: inline;
+    text-align: left;
+    color: #ef8d00;
+}
+
+.info-screen .content-section {
+    padding-left: 40px;
+}
+
+table.centered-headers th {
+    text-align: center;
+}

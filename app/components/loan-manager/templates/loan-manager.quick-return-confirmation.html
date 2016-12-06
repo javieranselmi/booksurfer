@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Confirmación de devolución de préstamo</h3>
+</div>
+<div class="modal-body" id="modal-body">
+        <div class="info-screen">
+
+            <h3 class="title"> Préstamo</h3>
+            <div class="content-section">
+                <div><label>Día de retiro:&nbsp</label><span>{{ loan.withdrawDate }}</span></div>
+                <div><label>Tipo de préstamo:&nbsp</label><span>{{ loanTypeTranslate(loan) }}</span></div>
+            </div>
+        </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Confirmar devolución</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+</div>

@@ -1,0 +1,48 @@
+<div id="entity-name-display" class="col-lg-12 well">
+    <h2>Prestar un ejemplar</h2>
+    <p>Prestar un ejemplar de 
+        <span>{{ sample.book.title }}</span>
+        al socio 
+        <span> {{ member.firstName + ' ' + member.lastName }}</span>
+    </p>
+</div>
+<div class="row well">
+    <form name="forms.loanForm">
+        <div class="row">
+            <div ng-include="'app/components/loan-manager/templates/loan-manager.member-finder.html'"></div>
+            <div ng-include="'app/components/loan-manager/templates/loan-manager.sample-finder-withdraw.html'"></div>
+        </div>
+         <div class="col-md-12">
+             <h4>Datos del préstamo</h4>
+             <text-field    input-name="withdrawDate"
+                            input-type="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha del préstamo"
+                            glyphicon="download-alt"
+                            ng-model="loan.withdrawDate"
+                            is-disabled="true">
+            </text-field>
+            <toggle-field input-name="loanType"
+                        input-id="loanType"
+                        label="Tipo de préstamo"
+                        ng-model="loan.loanType"
+                        is-required="true"
+                        options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
+            </toggle-field>
+            <text-field     input-name="agreedReturnDate"
+                            input-type="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha pactada de devolución"
+                            glyphicon="repeat"
+                            ng-model="loan.agreedReturnDate"
+                            is-required="true"
+                            min="loan.withdrawDate | date:'yyyy-MM-dd'"
+                            ng-show="loan.loanType !== 'LOCAL'">
+            </text-field>
+        </div>
+        <generic-error generic-error="genericError"></generic-error>
+        <div class="clearfix entity-select-action-list">
+            <button type="button" ng-disabled="!member || !sample" ng-click="postLoan()" class="btn btn-success pull-right">Prestar</button>
+        </div>
+    </form>                
+</div>

@@ -1,0 +1,31 @@
+{
+  "name": "booksurfer",
+  "version": "1.0.0",
+  "description": "Library management software",
+  "main": "index.html",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^0.1.6"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javieranselmi/booksurfer.git"
+  },
+  "keywords": [
+    "library",
+    "software"
+  ],
+  "author": "Javier Anselmi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javieranselmi/booksurfer/issues"
+  },
+  "homepage": "https://github.com/javieranselmi/booksurfer#readme"
+}

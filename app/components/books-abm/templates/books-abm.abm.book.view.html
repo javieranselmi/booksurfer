@@ -1,0 +1,111 @@
+<form name="forms.bookAbmForm" role="form" novalidate>
+    <div class="well">
+
+                    <div class="col-md-12 section-label">
+                        <label ng-show="{{ mode.status === 'view' }}">Datos del libro</label>
+                    </div>
+                    <text-field input-name="title"
+                                input-id="title"
+                                placeholder="ej. Harry Potter y la pierda filosofal"
+                                label="Título del libro"
+                                glyphicon="user"
+                                ng-model="book.title"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' "
+                                max-length="200">
+                    </text-field>
+                    <text-field input-name="publisher"
+                                input-id="publisher"
+                                placeholder="ej. Planeta"
+                                label="Editorial"
+                                glyphicon="credit-card"
+                                ng-model="book.publisher"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' "
+                                max-length="200">
+                    </text-field>
+                    <text-field input-name="isbn"
+                                input-id="isbn"
+                                placeholder="ej. 1204423095839482930"
+                                label="ISBN"
+                                glyphicon="credit-card"
+                                ng-model="book.isbn"
+                                is-required="false"
+                                is-disabled=" mode.status === 'view' "
+                                max-length="13">
+                    </text-field>
+                    <text-field input-name="gender"
+                                input-id="gender"
+                                placeholder="ej. Terror"
+                                label="Género"
+                                glyphicon="credit-card"
+                                ng-model="book.gender"
+                                is-required="false"
+                                is-disabled=" mode.status === 'view' "
+                                max-length="200">
+                    </text-field>
+                    <text-field input-name="price"
+                                input-id="price"
+                                input-type="number"
+                                placeholder="ej. 302"
+                                label="Precio en dólares (U$S)"
+                                glyphicon="credit-card"
+                                ng-model="book.price"
+                                is-required="false"
+                                is-disabled=" mode.status === 'view' "
+                                max="500000">
+                    </text-field>
+                    <div class="col-md-12 section-label">
+                        <label>Datos de la edición</label>
+                    </div>
+                    <select-field input-name="editionCountry"
+                                input-id="editionCountry"
+                                label="País de edición"
+                                glyphicon="user"
+                                ng-model="book.editionCountry"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' "
+                                values="countries">
+                    </select-field>
+                    <text-field input-name="editionYear"
+                                input-id="editionYear"
+                                input-type="number"
+                                placeholder="ej. 1920"
+                                label="Año de edición"
+                                glyphicon="user"
+                                ng-model="book.editionYear"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' "
+                                max="10000"
+                                min="0">
+                    </text-field>
+                    <div class="col-md-12 section-label">
+                        <label>Datos requeridos por la biblioteca</label>
+                    </div>
+                    <text-field input-name="reputationValue"
+                                input-id="reputationValue"
+                                input-type="number"
+                                placeholder="ej. 4"
+                                label="Reputación requerida"
+                                glyphicon="thumbs-up"
+                                ng-model="book.reputationValue"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' "
+                                max="10"
+                                min="0">
+                    </text-field>
+                    <toggle-field input-name="loanType"
+                                input-id="loanType"
+                                label="Tipo de préstamo"
+                                ng-model="book.loanType"
+                                is-required="true"
+                                is-disabled=" mode.status === 'view' "
+                                options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
+                    </toggle-field>
+                    <generic-error generic-error="genericError"></generic-error>
+        <div class="entity-actions-btn-group clearfix">
+            <input type="submit" class="entity-action btn btn-success" value="Guardar libro" ng-click="saveBook()" ng-show="mode.status ==='create' || mode.status ==='edit'"/>
+            <input type="submit" class="entity-action btn btn-danger" value="Eliminar libro" ng-click="deleteBook()" ng-show="mode.status ==='edit'"/>
+        </div>
+    </div>
+</form>

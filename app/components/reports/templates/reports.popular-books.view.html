@@ -1,0 +1,17 @@
+<h3>Reporte: Libros más retirados</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="subentities-list-header">Título del libro</th>
+      <th class="subentities-list-header">Editorial del libro</th>
+      <th class="subentities-list-header">Cant. veces prestado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="book in books">
+      <td>{{ book.title }}</td>
+      <td>{{ book.publisher }}</td>
+      <td>{{ book.popularity }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,114 @@
+<div class="col-md-12">
+    <div class="media search-result well" ng-class="{'pending-choice': !member, 'confirmed-choice': member}">
+        <div class="media-body" ng-show="member">
+            <div>
+                <h1> {{member.firstName + ' ' + member.lastName}}</h1>
+                <div><label>DNI -&nbsp</label><span>{{ member.dni }}</span></div>
+                <div><label>CUIL -&nbsp</label><span>{{ member.cuil }}</span></div>
+                <div><label>Email -&nbsp</label><span>{{ member.email }}</span></div>
+                <div><label>Reputacion -&nbsp</label><span>{{ member.reputation }}</span></div>
+            </div>
+            <div class="clearfix entity-select-action-list">
+                <button type="button" ng-click="resetMember()" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Volver a elegir el socio</button>
+            </div>
+        </div>
+        <div class="media-body" ng-show="!member">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="No se ha hallado la imagen"/>
+                </div>
+                <label> Elija un socio</label>
+            </div>
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="title">Nombre(s)</label>
+                    </div>
+                    <div class="col-md-9 form-group">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="fullName"
+                                   id="fullName"
+                                   placeholder="Juan Rimini"
+                                   ng-model="memberSearchCriteria.name"
+                                   uib-typeahead="(member.firstName + ' '+member.lastName) for member in allMembers | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="title">DNI</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="dni"
+                                   id="dni"
+                                   placeholder="35656578"
+                                   ng-model="memberSearchCriteria.dni"
+                                   uib-typeahead="member.dni for member in allMembers | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="title">CUIL</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="cuil"
+                                   id="cuil"
+                                   placeholder="20-17636557-2"
+                                   ng-model="memberSearchCriteria.cuil"
+                                   uib-typeahead="member.cuil for member in allMembers | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-book"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="title">Telefono</label>
+                    </div>
+                    <div class="col-md-9 form-group">
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   name="phone"
+                                   id="phone"
+                                   placeholder="47033981"
+                                   ng-model="memberSearchCriteria.phone"
+                                   uib-typeahead="member.phone for member in allMembers | filter:$viewValue | limitTo:8">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 subentities-picker-table">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="subentities-list-header">Nombre</th>
+                        <th class="subentities-list-header">DNI</th>
+                        <th class="subentities-list-header"><span class="glyphicon glyphicon-check"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="member in allMembers | selectMember:memberSearchCriteria | limitTo:8">
+                        <td>{{ member.firstName + ' ' + member.lastName }}</td>
+                        <td>{{ member.dni }}</td>
+                        <td><button type="button" ng-click="setMember(member)" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></td>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

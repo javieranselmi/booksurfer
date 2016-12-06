@@ -1,0 +1,54 @@
+<div id="entity-name-display" class="col-lg-12 well">
+    <h2>Devolución de un ejemplar</h2>
+    <p>Registrar devolución del libro
+        <span>{{ book.title }}</span>
+        alquilado por el socio
+        <span> {{ member.firstName + ' ' + member.lastName }}</span>
+    </p>
+</div>
+<div class="row well">
+    <form>
+        <div class="row">
+            <div ng-include="'app/components/loan-manager/templates/loan-manager.sample-finder-return.html'"></div>
+        </div>
+        <div class="col-md-12" ng-show="showLoan">
+            <h4>Datos del préstamo</h4>
+            <text-field    input-name="withdrawDate"
+                           input-type="date"
+                           placeholder="ej. 12/08/2013"
+                           label="Fecha del préstamo"
+                           glyphicon="download-alt"
+                           ng-model="loan.withdrawDate"
+                           is-required="true"
+                           is-disabled="true">
+            </text-field>
+            <text-field     input-name="agreedReturnDate"
+                            input-type="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha pactada de devolución"
+                            glyphicon="repeat"
+                            ng-model="loan.agreedReturnDate"
+                            is-required="true"
+                            is-disabled="true">
+            </text-field>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="comment">Comentarios</label>
+                </div>
+                <div class="col-md-9">
+                        <textarea class="form-control"
+                                       style="{resize: vertical;}"
+                                       rows="5"
+                                       id="comment"
+                                       placeholder="Inserte un comentario sobre el estado del libro al devolverlo..."
+                                       ng-model="loan.comment"
+                                       ng-maxlength="300">
+                        </textarea>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix entity-select-action-list">
+            <button type="button" ng-disabled="!sample" ng-click="editLoan()" class="btn btn-success pull-right">Devolver</button>
+        </div>
+    </form>
+</div>

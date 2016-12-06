@@ -1,0 +1,1 @@
+angular.module("publishers-abm", ["ui.router","entity-manager","ui.bootstrap"]);

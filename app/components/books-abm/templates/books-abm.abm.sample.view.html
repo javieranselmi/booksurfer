@@ -1,0 +1,102 @@
+<div id="subentities-list" class="well clearfix">
+    <div class="col-md-12 clearfix">
+       <label class="subentity-label">Ejemplares</label>
+    </div>
+    <div id="subentities-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="subentities-list-header">Código</th>
+            <th class="subentities-list-header">Código de barras</th>
+            <th class="subentities-list-header">F. Alta</th>
+            <th class="subentities-list-header">F. Baja</th>
+            <th class="subentities-list-header" ng-hide="(mode.status ==='view')">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="sample in book.samples">
+            <td>{{ sample.id }}</td>
+            <td>{{ sample.barCode }}</td>
+            <td>{{ sample.acquisitionDate | date:'yyyy-MM-dd'}}</td>
+            <td>{{ sample.discardDate | date:'yyyy-MM-dd' }}</td>
+            <td ng-hide="(mode.status ==='view')">
+                <div class="btn-group" ng-if="sample.availableForLoan === 'True' && sample.discardDate === null">
+                  <button type="button" 
+                          ng-click="editSample(sample)" 
+                          class="btn btn-primary" 
+                          uib-tooltip="Editar ejemplar">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                  </button>
+                  <button type="button" 
+                          ng-click="deleteSample('samples', sample)"
+                          class="btn btn-danger" 
+                          uib-tooltip="Borrar ejemplar">
+                          <span class="glyphicon glyphicon-remove"></span>
+                  </button>
+                  <button type="button" 
+                          ui-sref="loan.withdraw({sampleId: sample.id})" 
+                          class="btn btn-success" 
+                          ng-disabled="!sample.availableForLoan" 
+                          uib-tooltip="Prestar">
+                          <span class="glyphicon glyphicon-log-out"></span>
+                  </button>
+                </div>
+                <p ng-if="!(sample.availableForLoan === 'True') && sample.discardDate === null">Prestado<br><a ui-sref="loan.show({sampleId: sample.id})">Ver préstamo</a></p>
+                <p ng-if="!(sample.availableForLoan === 'True') && sample.discardDate !== null">Dado de baja</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <generic-error generic-error="samplesGenericError"></generic-error>
+      <div class="clearfix">
+          <button type="button" ng-hide="(mode.status ==='view')" ng-click="prepareNewSample()" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo ejemplar</button>
+      </div>
+    </div>
+    <div uib-collapse="!mustShowSampleForm">
+        <div class="col-md-12 clearfix">
+           <label class="subentity-label">Alta/Edición de ejemplares</label>
+        </div>
+        <div class="col-md-12 section-label">
+            <form name="forms.bookAbmSamplesForm">
+                <text-field input-name="sampleId"
+                            input-id="sampleId"
+                            label="Código"
+                            glyphicon="user"
+                            ng-model="newSample.id"
+                            is-required="false"
+                            is-disabled="true">
+                </text-field>
+                <text-field input-name="sampleBarCode"
+                            input-id="sampleBarCode"
+                            label="Codigo de barras"
+                            glyphicon="barcode"
+                            ng-model="newSample.barCode"
+                            is-required="true"
+                            max-length="32">
+                </text-field>
+                <text-field input-name="acquisitionDate"
+                            input-id="acquisitionDate"
+                            input-type="date"
+                            label="Fecha de adquisición"
+                            glyphicon="calendar"
+                            ng-model="newSample.acquisitionDate"
+                            is-required="true"
+                            max="today | date:'yyyy-MM-dd'">
+                </text-field>
+                <text-field input-name="discardDate"
+                            input-id="discardDate"
+                            input-type="date"
+                            label="Fecha de baja"
+                            glyphicon="calendar"
+                            ng-model="newSample.discardDate"
+                            is-required="false"
+                            min="newSample.acquisitionDate | date:'yyyy-MM-dd'">
+                </text-field>
+            </form>
+            <div class="clearfix">
+                <button type="button" ng-show="creatingSample" ng-click="createSample('sample', newSample)" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> Crear ejemplar</button>
+                <button type="button" ng-show="editingSample" ng-click="saveEditedSample('sample', newSample)" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span>Guardar ejemplar</button>
+            </div>
+        </div>
+    </div>  
+</div>

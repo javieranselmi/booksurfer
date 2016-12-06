@@ -1,0 +1,72 @@
+    <div class="row">
+        <div class="authorEditPanel">
+        <form name="forms.authorsAbmForm" role="form" class="well" novalidate>
+            <div id="entity-name-display" class="col-lg-12 well">
+                    <img class="entity-edit-photo pull-left" ng-src="{{ defaultImg }}" alt="No se ha hallado la imagen"/>
+                    <h2>{{ (author.firstName + " " +author.lastName)}}</h2>
+                    <h4>{{ author.nationality }}</h4>
+            </div>
+            <div id="mode-message" class="col-lg-12" ng-class="{ 'bg-primary': mode.status ==='view', 'bg-danger': mode.status ==='edit' }">
+                <h4 ng-if="mode.status === 'edit'">Modo de edición</h4>
+                <h4 ng-if="mode.status === 'create'">Modo de creación</h4>
+                <h4 ng-if="mode.status === 'view'">Modo de sólo lectura</h4>
+            </div>
+                <text-field input-name="authorFirstName"
+                            input-id="authorFirstName"
+                            label="Nombre"
+                            glyphicon="user"
+                            ng-model="author.firstName"
+                            is-required="true"
+                            is-disabled="mode.status === 'view'"
+                            max-length="50">
+                </text-field>
+                <text-field input-name="authorLastName"
+                            input-id="authorLastName"
+                            label="Apellido"
+                            glyphicon="user"
+                            ng-model="author.lastName"
+                            is-required="true"
+                            is-disabled="mode.status === 'view'"
+                            max-length="50">
+                </text-field>
+                <select-field input-name="authorNationality"
+                            input-id="authorNationality"
+                            label="Nacionalidad"
+                            glyphicon="plane"
+                            ng-model="author.nationality"
+                            is-required="true"
+                            is-disabled="mode.status === 'view'"
+                            max-length="50"
+                            values="countries">
+                </select-field>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-warning" value="Editar" ng-click="goToEdit()" ng-show="mode.status ==='view'"/>
+                    <input type="submit" class="btn btn-success" value="Guardar cambios" ng-click="saveAuthor()" ng-disabled="form.$invalid" ng-show="mode.status !=='view'"/>
+                    <input type="submit" class="btn btn-warning" value="Descartar cambios" ng-click="discardChanges()" ng-disabled="form.$invalid" ng-show="mode.status ==='edit'"/>
+                    <input type="submit" class="btn btn-danger" value="Eliminar autor" ng-click="deleteAuthor()" ng-show="mode.status ==='edit'"/>
+                </div>
+        </form>
+        </div>
+                        
+            <div id="subentities-list" class="well" ng-if="mode.status !== 'create'">
+                  <h3>Libros de su autoría</h3>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="subentities-list-header">Nombre del libro</th>
+                        <th class="subentities-list-header">Editorial</th>
+                        <th class="subentities-list-header">Año</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="book in author.books">
+                        <td><a ui-sref="books.abm({id: book.id})"> {{ book.title }}</a></td>
+                        <td>{{ book.publisher }}</td>
+                        <td>{{ book.editionYear }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+    </div>
+
+<modal save-status="saveStatus"></modal>

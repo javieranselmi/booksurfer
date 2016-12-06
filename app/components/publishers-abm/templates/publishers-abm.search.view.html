@@ -1,0 +1,36 @@
+<div class="row">
+    <h3 class="title col-sm-10 no-col-margin">Buscar editoriales</h3>
+    <div class="col-sm-2 no-col-margin">
+        <a ui-sref="publishers.new()">
+            <button class="btn btn-success btn-new">
+                <span class="glyphicon glyphicon-plus"></span>
+                 Nueva editorial
+            </button>
+        </a>
+    </div>
+</div>
+<div class="row">
+
+    <div class="input-group" id="search">
+        <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Busca editoriales por nombre" autofocus/>
+        <div class="input-group-btn">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+
+    <!--Results area -->
+    <img class="media-object avatar-photo" src="http://www.elnorte.com/libre/acceso/imgdiseno/loading3.gif" alt="img" ng-if="loading">
+    <div class="media search-result well" ng-repeat="publisher in publishers | search:searchCriteria" ng-if="!loading">
+        <div class="pull-left">
+            <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
+        </div>
+        <div class="media-body">
+            <a ui-sref="publishers.abm({ id: publisher.id})"><h4 class="media-heading">{{ publisher.name }}</h4></a>
+            <p></p>
+        </div>
+    <entity-controls edit-action="edit(place)" delete-action="delete(publisher)" entity="publisher" entity-name="publishers" delete-status="deleteStatus"></entity-controls>
+
+    </div>
+ </div>

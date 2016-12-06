@@ -1,0 +1,57 @@
+<div class="col-md-12">
+	<form name="loanForm">
+		<h2>Prestar ejemplar</h2>
+		<div class="col-md-6">
+	        <text-field input-name="sampleBarCode"
+	                    input-id="sampleBarCode"
+	                    label="C.Barras"
+	                    glyphicon="barcode"
+	                    ng-model="newSample.barCode"
+	                    is-required="true"
+	                    max-length="32">
+	        </text-field>
+		</div>
+		<div class="col-md-6">
+	        <text-field input-name="dni"
+	                    input-id="dni"
+	                    label="DNI"
+	                    glyphicon="credit-card"
+	                    ng-model="dni"
+	                    is-required="true"
+	                    max-length="32">
+	        </text-field>
+		</div>
+		<div class="col-md-12">
+             <h4>Datos del préstamo</h4>
+             <div class="col-md-3">
+	             <text-field    input-name="withdrawDate"
+	                            input-type="date"
+	                            placeholder="ej. 12/08/2013"
+	                            label="Fecha del préstamo"
+	                            glyphicon="download-alt"
+	                            ng-model="loan.withdrawDate"
+	                            is-disabled="true">
+	            </text-field>
+             </div>
+
+            <toggle-field input-name="loanType"
+                        input-id="loanType"
+                        label="Tipo de préstamo"
+                        ng-model="loan.loanType"
+                        is-required="true"
+                        options="[{value:'LOCAL', text:'LOCAL'},{value: 'REMOTE', text:'DOMICILIARIO'}]">
+            </toggle-field>
+            <text-field     input-name="agreedReturnDate"
+                            input-type="date"
+                            placeholder="ej. 12/08/2013"
+                            label="Fecha pactada de devolución"
+                            glyphicon="repeat"
+                            ng-model="loan.agreedReturnDate"
+                            is-required="true"
+                            min="loan.withdrawDate | date:'yyyy-MM-dd'"
+                            ng-show="loan.loanType !== 'LOCAL'">
+            </text-field>
+        </div>
+		<button class="btn btn-primary btn-block">Prestar</button>
+	</form>
+</div>

@@ -1,0 +1,1 @@
+angular.module("users-abm", ["ui.router","entity-manager","ui.bootstrap"]);

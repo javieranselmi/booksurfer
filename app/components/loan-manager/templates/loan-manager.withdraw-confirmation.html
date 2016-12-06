@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">El préstamo se ha realizado correctamente</h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<p>En el día {{loan.withdrawDate | date}} se ha prestado el ejemplar del libro {{book.title}} con el código de barras: '{{sample.barCode}}' al socio '{{member.firstName}} {{member.lastName}}', de DNI '{{member.dni}}'.</p>
+	<p ng-if="loan.loanType==='REMOTE'">La fecha de devolución pactada es el día {{loan.agreedReturnDate}}</p>
+	<p ng-if="loan.loanType==='REMOTE'">El préstamo es domiciliario, el socio tiene hasta 12 días hábiles como máximo para devolver el ejemplar.</p>
+	<p ng-if="loan.loanType==='LOCAL'">El préstamo es local, el socio debe devolver el libro en el día de hoy antes del cierre del establecimiento.</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+</div>
