@@ -113,7 +113,7 @@
     <hr ng-hide="book"/>
     <div class="row">
         <div class="col-xs-12"  ng-hide="book">
-        <table class="table">
+        <table class="table centered-headers">
             <thead>
             <tr>
                 <th>Título</th>
@@ -145,7 +145,7 @@
         <div class="col-xs-12" ng-if="book">
             <h4>Ejemplares de '{{ book.title }}'</h4>
             <p>Elija un ejemplar de la lista o <a ng-click="unsetBook()" href="javascript:void(0);">elija otro libro...</a></p>
-            <table class="table">
+            <table class="table centered-headers">
                 <thead>
                 <tr>
                     <th>Codigo Barras</th>
@@ -203,7 +203,6 @@
     <generic-error generic-error="returnGenericError"></generic-error>
     <div class="row clearfix">
         <div class="col-xs-12">
-            <generic-error generic-error="genericError"></generic-error>
             <button type="button"
                     ng-click="postReturn()"
                     class="btn btn-primary pull-right">
@@ -214,7 +213,7 @@
     <hr/>
     <div class="col-xs-12">
         <h4>Préstamos de próximo vencimiento</h4>
-        <table class="table">
+        <table class="table centered-headers">
             <thead>
             <tr>
                 <th>Socio</th>

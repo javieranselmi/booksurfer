@@ -249,3 +249,7 @@ label {
 .info-screen .content-section {
     padding-left: 40px;
 }
+
+table.centered-headers th {
+    text-align: center;
+}

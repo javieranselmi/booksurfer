@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16702d81-7959-4582-b977-3dd27227b74a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.quick-return-confirmation.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js" afterPath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.quick-withdraw-confirmation.controller.js" afterPath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.quick-withdraw-confirmation.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-withdraw-confirmation.html" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-withdraw-confirmation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.show.html" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.show.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/application.common.css" afterPath="$PROJECT_DIR$/assets/css/application.common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="booksurfer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="loan-manager.home.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="loan-manager.home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="803">
-              <caret line="230" column="80" lean-forward="false" selection-start-line="230" selection-start-column="80" selection-end-line="230" selection-end-column="80" />
+            <state relative-caret-position="247">
+              <caret line="204" column="31" lean-forward="false" selection-start-line="204" selection-start-column="31" selection-end-line="204" selection-end-column="31" />
               <folding>
                 <element signature="n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
@@ -55,8 +47,8 @@
       <file leaf-file-name="application.common.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2711">
-              <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+            <state relative-caret-position="544">
+              <caret line="253" column="4" lean-forward="false" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -65,7 +57,7 @@
       <file leaf-file-name="loan-manager.home.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-388">
+            <state relative-caret-position="2625">
               <caret line="175" column="29" lean-forward="false" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
               <folding />
             </state>
@@ -82,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loan-manager.quick-return-confirmation.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loan-manager.quick-return-confirmation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -144,8 +136,9 @@
       <find>0</find>
       <find>setSearch</find>
       <find>returnBool</find>
-      <find>limit</find>
       <find>showReturnConfirmation</find>
+      <find>limit</find>
+      <find>table</find>
     </findStrings>
     <replaceStrings>
       <replace>:</replace>
@@ -208,13 +201,13 @@
         <option value="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.show.html" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.quick-withdraw-confirmation.controller.js" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-withdraw-confirmation.html" />
-        <option value="$PROJECT_DIR$/assets/css/application.common.css" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.quick-withdraw-return.controller.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.quick-return-confirmation.controller.js" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html" />
+        <option value="$PROJECT_DIR$/assets/css/application.common.css" />
+        <option value="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" />
       </list>
     </option>
   </component>
@@ -716,7 +709,7 @@
       <workItem from="1476395306458" duration="15074000" />
       <workItem from="1480631341522" duration="9248000" />
       <workItem from="1480718260845" duration="7712000" />
-      <workItem from="1480977194693" duration="11668000" />
+      <workItem from="1480977194693" duration="12121000" />
     </task>
     <task id="LOCAL-00001" summary="Added the member &amp; sample request on the withdraw page.">
       <created>1475011416062</created>
@@ -806,7 +799,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101681000" />
+    <option name="totallyTimeSpent" value="102134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1177,25 +1170,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html">
+    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="803">
-          <caret line="230" column="80" lean-forward="false" selection-start-line="230" selection-start-column="80" selection-end-line="230" selection-end-column="80" />
-          <folding>
-            <element signature="n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#form#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2711">
-          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1210,17 +1188,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-388">
+        <state relative-caret-position="2625">
           <caret line="175" column="29" lean-forward="false" selection-start-line="175" selection-start-column="29" selection-end-line="175" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html">
+    <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="544">
+          <caret line="253" column="4" lean-forward="false" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="204" column="31" lean-forward="false" selection-start-line="204" selection-start-column="31" selection-end-line="204" selection-end-column="31" />
+          <folding>
+            <element signature="n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#form#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
