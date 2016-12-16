@@ -122,7 +122,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="book in allBooks | filter:search:strict | limitTo: 5">
+            <tr ng-repeat="book in allBooks | filter:search:strict | orderBy:'samples':false:mostLoanedBookCompare">
                 <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ book.title }}</td>
                 <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ availableSamples(book) }}</td>
                 <td>
@@ -135,7 +135,7 @@
                     </button>
                     <div class="table-note-sm" ng-if="availableSamples(book) === 0">
                         <p>Prox. devolución</p>
-                        <p class="emphasis">10-25-2015</p>
+                        <p class="emphasis">25-10-2015</p>
                     </div>
                 </td>
             </tr>
@@ -224,7 +224,7 @@
             <tbody>
                 <tr ng-repeat="loan in allLoans | limitTo: 6 | orderBy:'agreedReturnDate':false:mostCurrentLoan">
                     <td>{{ getMemberFullName(loan) }}</td>
-                    <td>{{ loan.agreedReturnDate }}</td>
+                    <td>{{ loan.agreedReturnDate | date:'dd-MM-yyyy' }}</td>
                     <td>
                         <button type="button"
                                 ng-click="setSearchedBarCode(getLoanBarCode(loan), true)"

@@ -144,14 +144,8 @@
             };
         };
 
-        $scope.mostLoanedBookCompare = function(v1, v2) {
-            // If we don't get strings, just compare by index
-            if (v1.type !== 'string' || v2.type !== 'string') {
-                return (v1.index < v2.index) ? -1 : 1;
-            }
-
-            // Compare strings alphabetically, taking locale into account
-            return v1.value.localeCompare(v2.value);
+        $scope.mostLoanedBookCompare = function(samples1, samples2) {
+                return (samples1.length < samples2.length) ? 1 : -1;
         };
 
         $scope.getMemberFullName = function(loan) {
