@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16702d81-7959-4582-b977-3dd27227b74a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js" afterPath="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html" afterPath="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-return-confirmation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/reports/templates/reports.latest-loans.view.html" afterPath="$PROJECT_DIR$/app/components/reports/templates/reports.latest-loans.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/reports/templates/reports.outdated-loans.view.html" afterPath="$PROJECT_DIR$/app/components/reports/templates/reports.outdated-loans.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/reports/templates/reports.popular-books.view.html" afterPath="$PROJECT_DIR$/app/components/reports/templates/reports.popular-books.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/shared/services/shared.endpoints.js" afterPath="$PROJECT_DIR$/app/components/shared/services/shared.endpoints.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/application.common.css" afterPath="$PROJECT_DIR$/assets/css/application.common.css" />
     </list>
     <ignored path="booksurfer.iws" />
@@ -33,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="loan-manager.home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loan-manager.home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="198" column="19" lean-forward="true" selection-start-line="198" selection-start-column="19" selection-end-line="198" selection-end-column="19" />
+            <state relative-caret-position="254">
+              <caret line="197" column="46" lean-forward="true" selection-start-line="197" selection-start-column="46" selection-end-line="198" selection-end-column="19" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
@@ -49,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.common.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="application.common.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="51" lean-forward="false" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+            <state relative-caret-position="235">
+              <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -160,6 +154,7 @@
       <find>limit</find>
       <find>table</find>
       <find>postLoan</find>
+      <find>subentities-list-</find>
     </findStrings>
     <replaceStrings>
       <replace>:</replace>
@@ -225,10 +220,10 @@
         <option value="$PROJECT_DIR$/app/components/reports/templates/reports.latest-loans.view.html" />
         <option value="$PROJECT_DIR$/app/components/reports/templates/reports.outdated-loans.view.html" />
         <option value="$PROJECT_DIR$/app/components/reports/templates/reports.popular-books.view.html" />
-        <option value="$PROJECT_DIR$/assets/css/application.common.css" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/controllers/loan-manager.home.controller.js" />
         <option value="$PROJECT_DIR$/app/components/shared/services/shared.endpoints.js" />
         <option value="$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html" />
+        <option value="$PROJECT_DIR$/assets/css/application.common.css" />
       </list>
     </option>
   </component>
@@ -656,7 +651,7 @@
       <workItem from="1480631341522" duration="9248000" />
       <workItem from="1480718260845" duration="7712000" />
       <workItem from="1480977194693" duration="12121000" />
-      <workItem from="1486419809144" duration="4771000" />
+      <workItem from="1486419809144" duration="5069000" />
     </task>
     <task id="LOCAL-00001" summary="Added the member &amp; sample request on the withdraw page.">
       <created>1475011416062</created>
@@ -746,7 +741,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106905000" />
+    <option name="totallyTimeSpent" value="107203000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1106,14 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="51" lean-forward="false" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.quick-withdraw-confirmation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1164,8 +1151,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/loan-manager/templates/loan-manager.home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="198" column="19" lean-forward="true" selection-start-line="198" selection-start-column="19" selection-end-line="198" selection-end-column="19" />
+        <state relative-caret-position="254">
+          <caret line="197" column="46" lean-forward="true" selection-start-line="197" selection-start-column="46" selection-end-line="198" selection-end-column="19" />
           <folding>
             <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#form#0;n#div#0;n#!!top" expanded="false" />
@@ -1173,6 +1160,14 @@
             <element signature="n#div#1;n#form#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/application.common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
