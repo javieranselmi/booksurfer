@@ -204,7 +204,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="loan in allLoans | limitTo: 6 | filter:{display:'DISPLAY', returnDate: null} | orderBy:'agreedReturnDate':false:mostCurrentLoan">
+                <tr ng-repeat="loan in allLoans | filter:{display:'DISPLAY', returnDate: null} | orderBy:'agreedReturnDate':false:mostCurrentLoan | limitTo: 6">
                     <td>{{ getMemberFullName(loan) }}</td>
                     <td>{{ loan.agreedReturnDate | date:'dd-MM-yyyy' }}</td>
                     <td>
