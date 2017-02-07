@@ -27,7 +27,7 @@
             <img class="media-object avatar-photo" src="https://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" alt="img">
         </div>
         <div class="media-body">
-            <a ui-sref="members.abm({memberId: member.id})"><h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4></a>
+            <a ui-sref="members.abm({id: member.id})"><h4 class="media-heading">{{ member.firstName }} {{ member.lastName }}</h4></a>
             <p> Nacionalidad: {{ member.nationality }}</p>
         </div>
     <entity-controls edit-action="edit(place)" delete-action="delete(member)" entity="member" entity-name="members" delete-status="deleteStatus"></entity-controls>

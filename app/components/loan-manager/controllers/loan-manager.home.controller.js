@@ -141,6 +141,9 @@
                         $http.post(endpoints.POST_LOAN, $scope.assembleLoanObject(loanType)).then(function() {
                             $scope.genericError = undefined;
                             $scope.lockdown = false;
+                            alert("El préstamo ha sido realizado con éxito")
+                            window.location.reload()
+
                         }, function(error){
                             $scope.genericError = error.data.message;
                             $scope.lockdown = false;
@@ -206,6 +209,8 @@
                         $http.put(endpoints.PUT_LOAN.replace(":id",$scope.returnLoan.id), $scope.assembleReturnLoanObject()).then(function() {
                             $scope.returnGenericError = undefined;
                             $scope.lockdown = false;
+                            alert("La devolución ha sido realizada con éxito")
+                            window.location.reload()
                         }, function(error){
                             $scope.returnGenericError = error.data.message;
                             $scope.lockdown = false;
