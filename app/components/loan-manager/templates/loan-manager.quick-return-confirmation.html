@@ -6,7 +6,7 @@
 
             <h3 class="title"> Préstamo</h3>
             <div class="content-section">
-                <div><label>Día de retiro:&nbsp</label><span>{{ loan.withdrawDate }}</span></div>
+                <div><label>Día de retiro:&nbsp</label><span>{{ loan.withdrawDate | date:'dd-MM-yyyy' }}</span></div>
                 <div><label>Tipo de préstamo:&nbsp</label><span>{{ loanTypeTranslate(loan) }}</span></div>
             </div>
         </div>

@@ -1,5 +1,30 @@
 <div class="col-xs-5" style="">
     <h2>Préstamo</h2>
+    <hr ng-hide="book"/>
+    <div class="row" ng-hide="book">
+        <div class="col-md-4">
+            <label for="title">Buscar libros</label>
+        </div>
+        <div class="col-md-8 form-group" ng-class="{'has-error': (form['title'].$invalid && form.$submitted || form['title'].$invalid && form['title'].$dirty)}">
+            <div class="input-group">
+                <input type="text"
+                       class="form-control"
+                       name="title"
+                       id="title"
+                       placeholder="Escriba un título..."
+                       ng-required="true"
+                       ng-model="search.title"
+                       ng-maxlength="64">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12" ng-messages="form['title'].$error" role="alert" ng-if="!noValidate && form.$submitted || !noValidate && form['title'].$dirty">
+                <div class="edit-validation-alert" ng-message="required">&#8710; Este dato es requerido.</div>
+                <div class="edit-validation-alert" ng-message="maxlength">&#8710; La longitud máxima de este campo es de 64 caracteres.</div>
+            </div>
+        </div>
+    </div>
     <hr/>
     <form name="forms.withdrawForm">
         <div class="row">
@@ -50,67 +75,24 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <label for="loanType">Tipo de préstamo</label>
-            </div>
-            <input type="hidden"
-                   class="form-control"
-                   name="loanType"
-                   id="loanType"
-                   ng-required="true"
-                   ng-model="loan.loanType">
-            <div class="col-md-8 form-group">
-                <div class="btn-group pull-right">
-                    <label class="btn btn-primary"
-                           ng-model="loan.loanType"
-                           uib-btn-radio="'LOCAL'">LOCAL
-                    </label>
-                    <label class="btn btn-primary"
-                           ng-model="loan.loanType"
-                           uib-btn-radio="'REMOTE'">DOMICILIARIO
-                    </label>
-                </div>
-            </div>
-        </div>
     </form>
     <div class="row clearfix">
         <div class="col-xs-12">
             <generic-error generic-error="genericError"></generic-error>
             <button type="button"
-                    ng-click="postLoan()"
+                    ng-click="postLoan('LOCAL')"
                     class="btn btn-primary pull-right">
-                <span class="glyphicon glyphicon-log-out"></span> Prestar
+                <span class="glyphicon glyphicon-log-out"></span></span> Prestar localmente
+            </button>
+            <button type="button"
+                    ng-click="postLoan('REMOTE')"
+                    class="btn btn-primary pull-right"
+                    style="margin-right:5px">
+                <span class="glyphicon glyphicon-log-out"></span>&nbsp<span class="glyphicon glyphicon-home"></span> Prestar a domicilio
             </button>
         </div>
     </div>
-
     <hr/>
-    <div class="row" ng-hide="book">
-        <div class="col-md-4">
-            <label for="title">Buscar libros</label>
-        </div>
-        <div class="col-md-8 form-group" ng-class="{'has-error': (form['title'].$invalid && form.$submitted || form['title'].$invalid && form['title'].$dirty)}">
-            <div class="input-group">
-                <input type="text"
-                       class="form-control"
-                       name="title"
-                       id="title"
-                       placeholder="Escriba un título..."
-                       ng-required="true"
-                       ng-model="search.title"
-                       ng-maxlength="64">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-12" ng-messages="form['title'].$error" role="alert" ng-if="!noValidate && form.$submitted || !noValidate && form['title'].$dirty">
-                <div class="edit-validation-alert" ng-message="required">&#8710; Este dato es requerido.</div>
-                <div class="edit-validation-alert" ng-message="maxlength">&#8710; La longitud máxima de este campo es de 64 caracteres.</div>
-            </div>
-        </div>
-    </div>
-    <hr ng-hide="book"/>
     <div class="row">
         <div class="col-xs-12"  ng-hide="book">
         <table class="table centered-headers">
@@ -124,7 +106,7 @@
             <tbody>
             <tr ng-repeat="book in allBooks | filter:search:strict | orderBy:'samples':false:mostLoanedBookCompare">
                 <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ book.title }}</td>
-                <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ availableSamples(book) }}</td>
+                <td ng-class="{'not-available': (availableSamples(book) === 0)}">{{ availableSamples(book) }} / {{ book.samples.length }}</td>
                 <td>
                     <button type="button"
                             ng-if="availableSamples(book) > 0"
@@ -222,7 +204,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="loan in allLoans | limitTo: 6 | orderBy:'agreedReturnDate':false:mostCurrentLoan">
+                <tr ng-repeat="loan in allLoans | limitTo: 6 | filter:{display:'DISPLAY'} | orderBy:'agreedReturnDate':false:mostCurrentLoan">
                     <td>{{ getMemberFullName(loan) }}</td>
                     <td>{{ loan.agreedReturnDate | date:'dd-MM-yyyy' }}</td>
                     <td>
@@ -230,6 +212,11 @@
                                 ng-click="setSearchedBarCode(getLoanBarCode(loan), true)"
                                 class="btn btn-success">
                             <span class="glyphicon glyphicon-log-in"></span>
+                        </button>
+                        <button type="button"
+                                ng-click="hideFromHome(loan)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-eye-close"></span>
                         </button>
                     </td>
                 </tr>

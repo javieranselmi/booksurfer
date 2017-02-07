@@ -81,6 +81,14 @@
             });
         };
 
+        $scope.hideFromHome = function(loan) {
+            $http.put(endpoints.HIDE_LOAN.replace(":id", loan.id), {display: "HIDE"}).then(function() {
+                loan.display = "HIDE";
+            }, function(error){
+                alert("Hubo un error al no mostrar el prestamo. El error es: " + error);
+            });
+        }
+
         $scope.findByKey = function(array, key, value) {
             var foundItem = undefined;
             angular.forEach(array, function(item) {
@@ -108,18 +116,19 @@
         };
 
 
-        $scope.assembleLoanObject = function() {
+        $scope.assembleLoanObject = function(loanType) {
              return {
              memberId: $scope.member.id,
              sampleId: $scope.sample.id,
              withdrawDate: $scope.loan.withdrawDate,
              agreedReturnDate: $filter('date')(new Date(), 'yyyy-MM-dd'),
              comment: '',
-             loanType: $scope.loan.loanType
+             loanType: loanType
              };
         }
 
-        $scope.postLoan = function() {
+        $scope.postLoan = function(loanType) {
+            $scope.loan.loanType = loanType;
             if ($scope.forms.withdrawForm.$invalid) {
                 $scope.forms.withdrawForm.$setSubmitted();
                 return;
@@ -129,7 +138,7 @@
                 var prePostError = $scope.isBadLoanPost($scope.searchedDni, $scope.searchedBarCode);
                 if (!prePostError) {
                     $scope.showWithdrawConfirmation().result.then(function(){
-                        $http.post(endpoints.POST_LOAN, $scope.assembleLoanObject()).then(function() {
+                        $http.post(endpoints.POST_LOAN, $scope.assembleLoanObject(loanType)).then(function() {
                             $scope.genericError = undefined;
                             $scope.lockdown = false;
                         }, function(error){
@@ -145,7 +154,8 @@
         };
 
         $scope.mostLoanedBookCompare = function(samples1, samples2) {
-                return (samples1.length < samples2.length) ? 1 : -1;
+                if (samples2.value.split(',').length === 0) return -1;
+                return (samples1.value.split(',').length < samples2.value.split(',').length) ? 1 : -1;
         };
 
         $scope.getMemberFullName = function(loan) {

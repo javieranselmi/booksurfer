@@ -1,6 +1,11 @@
 body {
   padding-top: 50px;
 }
+
+label {
+    margin-top: 6px; //Este-css-es-una-asquerosidad
+}
+
 .main-container {
   padding: 20px 15px;
   text-align: center;
